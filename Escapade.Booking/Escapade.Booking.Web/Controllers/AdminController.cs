@@ -9,9 +9,9 @@ public class AdminController : Controller
 {
     private readonly EscapadeDbContext _escapadeDbContext;
 
-    public AdminController(EscapadeDbContext dbContext)
+    public AdminController(EscapadeDbContext escapadeDbContext)
     {
-        _escapadeDbContext = dbContext;
+        _escapadeDbContext = escapadeDbContext;
     }
     
     [HttpGet]
