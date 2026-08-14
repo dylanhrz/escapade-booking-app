@@ -1,0 +1,43 @@
+@model AdminLoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center py-5 mt-5">
+    <h1 class="display-5 fw-bolder text-uppercase">
+        @ViewData["Title"]
+    </h1>
+</div>
+
+<form asp-controller="Admin" asp-action="Login" method="post" class="py-1 mb-5">
+        
+    <div asp-validation-summary="ModelOnly" class="text-dark-emphasis text-uppercase small mb-3"></div>
+        
+    <div class="text-center mb-1">
+        <span asp-validation-for="Email" class="text-dark-emphasis fw-bold text-uppercase small"></span>
+    </div>
+    
+    <div class="mb-3 mx-auto style-input-container">
+        <input asp-for="Email" 
+               class="form-control rounded-0 mb-4" 
+               placeholder="Email"/>
+    </div>
+
+    <div class="text-center mb-1">
+        <span asp-validation-for="Password" class="text-dark fw-bolder text-uppercase small"></span>
+    </div>
+    
+    <div class="mb-3 mx-auto style-input-container">
+        <input asp-for="Password"
+               type="password"
+               class="form-control rounded-0 mb-4"
+               placeholder="Password"/>
+    </div>
+
+    <div class="text-center mb-5">
+        <button type="submit" class="btn btn-dark rounded-0 text-uppercase px-4 py-2">
+            Inloggen
+        </button>
+    </div>
+</form>
