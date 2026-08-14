@@ -1,5 +1,4 @@
 using Escapade.Booking.Core.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using BookingEntity = Escapade.Booking.Core.Entities.Booking;
 
@@ -18,32 +17,24 @@ public static class DataSeeder
             }
         };
         
-        var hasher = new PasswordHasher<User>();
-
-        var user1 = new User 
-        { 
-            Id = 1, 
-            UserName = "Wendy", 
-            Email = "wendymartens19@gmail.com", 
-            UserRoleId = 1 
-        };
-        
-        user1.Password = hasher.HashPassword(user1, "ww123");
-        
-        
-        var user2 = new User 
-        { 
-            Id = 2, 
-            UserName = "DylanHourez", 
-            Email = "dylanhourez@gmail.com", 
-            UserRoleId = 1 
-        };
-        
-        user2.Password = hasher.HashPassword(user2, "ww111");
-        
         var users = new User[]
-        {
-            user1, user2
+        { 
+            new User
+            {
+                Id = 1, 
+                UserName = "Wendy", 
+                Email = "wendymartens19@gmail.com", 
+                Password = "ww123",
+                UserRoleId = 1 
+            },
+            new User
+            {
+                Id = 2, 
+                UserName = "Dylan", 
+                Email = "dylanhourez@gmail.com", 
+                Password = "ww111",
+                UserRoleId = 1
+            }
         };
 
         var bookings = new BookingEntity[]
