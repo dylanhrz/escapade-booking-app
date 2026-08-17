@@ -24,11 +24,11 @@ public class AdminController : Controller
         {
             return RedirectToAction("Login");
         }
-        
-        AdminIndexViewModel adminIndexViewModel = new ()
-        {
-            Bookings = _escapadeDbContext.Bookings
-                .Select(b => new BaseViewModel()
+
+        var today = DateTime.Today;
+
+        var bookings = _escapadeDbContext.Bookings
+            .Select(b => new BaseViewModel()
             {
                 Name = b.Name,
                 Email = b.Email,
@@ -37,8 +37,19 @@ public class AdminController : Controller
                 Comment = b.Comment,
                 StartDate = b.StartDate,
                 EndDate = b.EndDate
-            }).ToList()
-            
+            }).ToList();
+        
+        AdminIndexViewModel adminIndexViewModel = new()
+        {
+            UpcomingBookings = bookings
+                .Where(b => b.EndDate >= today)
+                .OrderBy(b => b.StartDate)
+                .ToList(),
+
+            PastBookings = bookings
+                .Where(b => b.EndDate < today)
+                .OrderByDescending(b => b.StartDate)
+                .ToList()
         };
         
         return View(adminIndexViewModel);
