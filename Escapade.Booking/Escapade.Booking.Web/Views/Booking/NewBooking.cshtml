@@ -1,0 +1,58 @@
+@model BookingNewBookingViewModel
+
+<form asp-controller="Booking" asp-action="NewBooking" method="post" enctype="multipart/form-data">
+    
+    <div asp-validation-summary="ModelOnly" class="text-danger text-uppercase small mb-3"></div>
+    
+    <div class="row g-3 mb-4">
+        <div class="col-md-12">
+            <label asp-for="Name" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="Name" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="Name" class="form-control rounded-0 border-dark" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Email" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="Email" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="Email" class="form-control rounded-0 border-dark" />
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="PhoneNumber" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="PhoneNumber" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="PhoneNumber" class="form-control rounded-0 border-dark" />
+        </div>
+    </div>
+    
+    <div class="row g-3 mb-4">
+        <div class="col-md-5">
+            <label asp-for="StartDate" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="StartDate" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="StartDate" class="form-control rounded-0 border-dark" />
+        </div>
+
+        <div class="col-md-5">
+            <label asp-for="EndDate" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="EndDate" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="EndDate" class="form-control rounded-0 border-dark" />
+        </div>
+
+        <div class="col-md-2">
+            <label asp-for="NumberOfGuests" class="form-label text-uppercase fw-bold small"></label>
+            <span asp-validation-for="NumberOfGuests" class="text-danger text-uppercase small d-block mb-1"></span>
+            <input asp-for="NumberOfGuests" class="form-control rounded-0 border-dark" min="1" max="10" />
+        </div>
+    </div>
+    
+    <div class="mb-4">
+        <label asp-for="Comment" class="form-label text-uppercase fw-bold small"></label>
+        <span asp-validation-for="Comment" class="text-danger text-uppercase small d-block mb-1"></span>
+        <textarea asp-for="Comment" class="form-control rounded-0 border-dark" rows="4"></textarea>
+    </div>
+    
+    <div class="text-center pt-3">
+        <button type="submit" class="btn btn-dark rounded-0 text-uppercase px-5 py-3 fw-bold">
+            Boeking Bevestigen
+        </button>
+    </div>
+</form>
