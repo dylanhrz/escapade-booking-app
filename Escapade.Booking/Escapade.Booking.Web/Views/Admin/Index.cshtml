@@ -17,9 +17,9 @@ else
 {
     @foreach (var booking in Model.Bookings)
     {
-        <div>
+        <div class="mb-5">
             <h2>(@booking.StartDate.ToString("dd/MM/yyyy") - @booking.EndDate.ToString("dd/MM/yyyy")) @booking.Name</h2>
             <p>@booking.Comment</p>
         </div>
     }         
-};
+}

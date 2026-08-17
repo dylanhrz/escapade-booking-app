@@ -18,9 +18,9 @@
         <span asp-validation-for="Email" class="text-dark-emphasis fw-bold text-uppercase small"></span>
     </div>
     
-    <div class="mb-3 mx-auto style-input-container">
+    <div class="mb-3 mx-auto style-input-container text-center">
         <input asp-for="Email" 
-               class="form-control rounded-0 mb-4" 
+               class="form-control rounded-0 mb-4 border border-dark" 
                placeholder="Email"/>
     </div>
 
@@ -28,16 +28,16 @@
         <span asp-validation-for="Password" class="text-dark fw-bolder text-uppercase small"></span>
     </div>
     
-    <div class="mb-3 mx-auto style-input-container">
+    <div class="mb-3 mx-auto style-input-container text-center">
         <input asp-for="Password"
                type="password"
-               class="form-control rounded-0 mb-4"
+               class="form-control rounded-0 mb-4 border border-dark"
                placeholder="Password"/>
     </div>
 
     <div class="text-center mb-5">
         <button type="submit" class="btn btn-dark rounded-0 text-uppercase px-4 py-2">
-            Inloggen
+            log in
         </button>
     </div>
 </form>
