@@ -14,7 +14,7 @@
             <label asp-for="Name" class="form-label fw-bold mb-1 small text-uppercase">Naam:</label>
             <span asp-validation-for="Name" class="text-danger small d-block mb-1"></span>
             <input asp-for="Name" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" 
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
                    placeholder="Voornaam Achternaam" />
         </div>
 
@@ -22,7 +22,7 @@
             <label asp-for="Email" class="form-label fw-bold mb-1 small text-uppercase">E-mailadres:</label>
             <span asp-validation-for="Email" class="text-danger small d-block mb-1"></span>
             <input asp-for="Email" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" 
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
                    placeholder="naam@voorbeeld.be" />
         </div>
 
@@ -30,7 +30,7 @@
             <label asp-for="PhoneNumber" class="form-label fw-bold mb-1 small text-uppercase">Telefoonnummer:</label>
             <span asp-validation-for="PhoneNumber" class="text-danger small d-block mb-1"></span>
             <input asp-for="PhoneNumber" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" 
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
                    placeholder="+32 4XX XX XX XX" />
         </div>
         
@@ -41,21 +41,21 @@
             <label asp-for="StartDate" class="form-label fw-bold mb-1 small text-uppercase">Aankomstdatum:</label>
             <span asp-validation-for="StartDate" class="text-danger small d-block mb-1"></span>
             <input asp-for="StartDate" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" />
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
         </div>
 
         <div class="col-md-6">
             <label asp-for="EndDate" class="form-label fw-bold mb-1 small text-uppercase">Vertrekdatum:</label>
             <span asp-validation-for="EndDate" class="text-danger small d-block mb-1"></span>
             <input asp-for="EndDate" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" />
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
         </div>
 
         <div class="col-md-12">
             <label asp-for="NumberOfGuests" class="form-label fw-bold mb-1 small text-uppercase">Aantal gasten:</label>
             <span asp-validation-for="NumberOfGuests" class="text-danger small d-block mb-1"></span>
             <input asp-for="NumberOfGuests" 
-                   class="form-control rounded-pill border-secondary-subtle px-3 py-2" 
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
                    placeholder="Aantal personen (max. 10)" 
                    min="1" 
                    max="10" />
@@ -66,16 +66,16 @@
         <label asp-for="Comment" class="form-label fw-bold mb-1 small text-uppercase">Opmerking of vraag:</label>
         <span asp-validation-for="Comment" class="text-danger small d-block mb-1"></span>
         <textarea asp-for="Comment" 
-              class="form-control rounded-4 border-secondary-subtle p-3" 
+              class="form-control rounded-0 border-secondary-subtle p-3" 
               rows="4" 
               placeholder="Laat hier eventuele extra wensen of vragen achter..."></textarea>
     </div>
     
     <div class="py-3">
         <button type="submit" 
-                class="btn border border-dark rounded-pill px-4 py-2 text-decoration-none btn-custom-hover text-uppercase">
+                class="btn border border-dark border-2 rounded-0 px-4 py-2 text-decoration-none btn-custom-hover fw-bold">
             <i class="bi bi-check-lg"></i>
-            Boeking Bevestigen
+            Aanvraag versturen
         </button>
     </div>
     
