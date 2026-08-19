@@ -39,6 +39,10 @@ footer {
   font-weight: bold;
 }
 
+.custom-blue {
+  color: #0077ff !important;
+}
+
 .brand-logo {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
@@ -49,6 +53,17 @@ footer {
 .nav-item-link {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
+}
+
+.btn-custom-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-custom-hover:hover,
+.btn-custom-hover:focus {
+  background-color: #e6f0fa !important;
+  border-color: #0077ff !important;
+  color: #0077ff !important;
 }
 
 @media (min-width: 576px) {
