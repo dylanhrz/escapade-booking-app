@@ -2,15 +2,16 @@
     ViewData["Title"] = "L'Escapade Ardennaise";
 }
 
-<div id="hero-banner" class="position-relative text-white d-flex flex-column justify-content-end p-4 p-md-5 overflow-hidden">
-    <div>
-        <p class="lead">Een rustpunt in het hart van de Franse Ardennen</p>
+<div id="hero-banner" class="d-flex flex-column justify-content-center align-items-center text-center text-white px-3">
+    <h1 class="hero-title text-uppercase mb-4">
+        Rust in de <br />
+        Franse Ardennen
+    </h1>
 
-        <a asp-controller="Booking"
-           asp-action="NewBooking"
-           class="btn border border-light border-2 rounded-0 fw-bold px-3 py-2 text-light text-decoration-none btn-custom-hover">
-            <i class="bi bi-calendar-check"></i>
-            Reserveer je verblijf
-        </a>
-    </div>
+    <a asp-controller="Booking"
+       asp-action="NewBooking"
+       class="btn border border-light bg-white border-2 rounded-0 fw-bold px-4 py-2 text-decoration-none btn-custom-hover text-uppercase">
+        <i class="bi bi-calendar-check me-1"></i>
+        Reserveer je verblijf
+    </a>
 </div>
