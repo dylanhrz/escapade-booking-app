@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 
-<body class="min-vh-100 d-flex flex-column">
+<body class="min-vh-100 d-flex flex-column overflow-x-hidden">
 <header>
-    <nav class="navbar navbar-expand-sm py-3">
+    <nav class="navbar navbar-expand-sm">
         <div class="container-fluid px-4 px-md-5">
 
-            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo m-0" asp-area="" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo m-0" asp-controller="Home" asp-action="Index">
                 L'ESCAPADE ARDENNAISE
             </a>
 
@@ -29,15 +29,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav gap-3 gap-sm-4 mx-auto my-3 my-sm-0 text-center">
+                <ul class="navbar-nav gap-3 gap-sm-4 ms-auto my-3 my-sm-0 text-center">
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Location" ? "active-link" : "")" asp-area="" asp-controller="Location" asp-action="Index">LOCATION</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Location" ? "active-link" : "")" asp-controller="Location" asp-action="Index">LOCATION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-area="" asp-controller="Booking" asp-action="NewBooking">BOOKING</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-controller="Booking" asp-action="NewBooking">BOOKING</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Contact" ? "active-link" : "")" asp-area="" asp-controller="Contact" asp-action="Index">CONTACT</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Contact" ? "active-link" : "")" asp-controller="Contact" asp-action="Index">CONTACT</a>
                     </li>
                 </ul>
             </div>
@@ -46,17 +46,17 @@
     </nav>
 </header>
 
-<div class="container">
-    <main role="main" class="pb-3 flex-grow-1">
+<div class="container flex-grow-1">
+    <main role="main">
         @RenderBody()
     </main>
 </div>
 
 <footer class="border-top border-dark footer text-muted mt-auto pb-5">
-    <div class="container mt-5">
-        L'Escapade Ardennaise 
-        - <a asp-area="" asp-controller="Contact" asp-action="Index" class="text-dark fw-bold">Contact</a>
-        - <a asp-area="" asp-controller="Admin" asp-action="Login" class="text-dark fw-bold">Login</a>
+    <div class="container-fluid px-4 px-md-5 mt-5">
+        L'Escapade Ardennaise
+        - <a asp-controller="Contact" asp-action="Index" class="text-dark fw-bold">Contact</a>
+        - <a asp-controller="Admin" asp-action="Login" class="text-dark fw-bold">Login</a>
     </div>
 </footer>
 

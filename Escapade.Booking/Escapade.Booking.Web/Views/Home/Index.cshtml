@@ -2,14 +2,15 @@
     ViewData["Title"] = "L'Escapade Ardennaise";
 }
 
-<div class="py-5 my-5">
-    <h1 class="display-3 fw-bold">@ViewData["Title"]</h1>
-    <p>Een rustpunt in het hart van de Franse Ardennen</p>
-    
-    <a asp-controller="Booking" 
-       asp-action="NewBooking" 
-       class="btn border border-dark border-2 rounded-0 fw-bold px-3 py-2 text-dark text-decoration-none btn-custom-hover">
-        <i class="bi bi-calendar-check"></i>
-        Reserveer je verblijf
-    </a>
+<div id="hero-banner" class="position-relative text-white d-flex flex-column justify-content-end p-4 p-md-5 overflow-hidden">
+    <div>
+        <p class="lead">Een rustpunt in het hart van de Franse Ardennen</p>
+
+        <a asp-controller="Booking"
+           asp-action="NewBooking"
+           class="btn border border-light border-2 rounded-0 fw-bold px-3 py-2 text-light text-decoration-none btn-custom-hover">
+            <i class="bi bi-calendar-check"></i>
+            Reserveer je verblijf
+        </a>
+    </div>
 </div>

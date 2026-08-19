@@ -25,11 +25,19 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 }
 
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
 }
 
 footer {
   margin-top: 2rem;
+}
+
+#hero-banner {
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%), url('../images/dummy-hero.jpg') center/cover no-repeat;
+  min-height: 80vh;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
 }
 
 .active-link {
@@ -62,33 +70,6 @@ footer {
 
 .btn-custom-hover:hover,
 .btn-custom-hover:focus {
-  background-color: #e6f0fa !important;
   border-color: #0077ff !important;
   color: #0077ff !important;
-}
-
-@media (min-width: 576px) {
-  .navbar .container-fluid {
-    position: relative;
-  }
-
-  .navbar-collapse {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-  }
-}
-
-@media (max-width: 575px) {
-  .navbar .container-fluid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .navbar-collapse {
-    flex-basis: 100%;
-  }
 }
