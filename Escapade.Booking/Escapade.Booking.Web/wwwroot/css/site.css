@@ -32,6 +32,13 @@ footer {
   margin-top: 2rem;
 }
 
+.active-link {
+  text-decoration: underline !important;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px !important;
+  font-weight: bold;
+}
+
 .brand-logo {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;

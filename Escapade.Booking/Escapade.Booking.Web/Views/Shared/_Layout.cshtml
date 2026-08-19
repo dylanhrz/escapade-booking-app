@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var current = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,16 +31,16 @@
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav gap-3 gap-sm-4 mx-auto my-3 my-sm-0 text-center">
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Home" ? "active-link" : "")" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2" asp-area="" asp-controller="Location" asp-action="Index">LOCATION</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Location" ? "active-link" : "")" asp-area="" asp-controller="Location" asp-action="Index">LOCATION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2" asp-area="" asp-controller="Booking" asp-action="NewBooking">BOOKING</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-area="" asp-controller="Booking" asp-action="NewBooking">BOOKING</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2" asp-area="" asp-controller="Contact" asp-action="Index">CONTACT</a>
+                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Contact" ? "active-link" : "")" asp-area="" asp-controller="Contact" asp-action="Index">CONTACT</a>
                     </li>
                 </ul>
             </div>
