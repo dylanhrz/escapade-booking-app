@@ -36,7 +36,8 @@ public class AdminController : Controller
                 NumberOfGuests = b.NumberOfGuests,
                 Comment = b.Comment,
                 StartDate = b.StartDate,
-                EndDate = b.EndDate
+                EndDate = b.EndDate,
+                AccessToken = b.AccesToken
             }).ToList();
         
         AdminIndexViewModel adminIndexViewModel = new()

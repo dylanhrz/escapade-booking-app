@@ -12,4 +12,15 @@ public class Booking
     
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
+
+    public enum BookingStatus
+    {
+        Pending,
+        Approved,
+        Rejected
+    }
+    
+    public Guid AccesToken { get; set; } = Guid.NewGuid();
+    public BookingStatus Status { get; set; } = BookingStatus.Pending;
+    
 }

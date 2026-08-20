@@ -70,6 +70,23 @@ public class BookingController : Controller
         return RedirectToAction("Index");
     }
 
-    
-    
+    //[HttpGet("booking/track/{token}")]
+    public async Task<IActionResult> TrackBooking(Guid token)
+    {
+        var booking = await _escapadeDbContext.Bookings
+            .FirstOrDefaultAsync(b => b.AccesToken == token);
+
+        if (booking == null) return NotFound();
+
+        BookingTrackBooking bookingTrackBooking = new BookingTrackBooking()
+        {
+            Email = booking.Email,
+            StartDate = booking.StartDate,
+            EndDate = booking.EndDate,
+            AccessToken = booking.AccesToken,
+            Status = booking.Status.ToString()
+        };
+
+        return View(bookingTrackBooking);
+    }
 }

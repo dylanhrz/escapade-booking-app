@@ -42,6 +42,7 @@ public static class DataSeeder
             new BookingEntity
             {
                 Id = 1,
+                AccesToken = Guid.Parse("9f82d1a3-2c11-4e89-8012-3456789abcde"),
                 Name = "Jean-Pierre Dubois",
                 Email = "jp.dubois@cyclisme-club.fr",
                 PhoneNumber = "+33 6 12 34 56 78",
@@ -53,6 +54,7 @@ public static class DataSeeder
             new BookingEntity
             {
                 Id = 2,
+                AccesToken = Guid.Parse("4a71b2e5-8d93-4f62-b138-028d71e95c1a"),
                 Name = "Sophie Van De Velde",
                 Email = "sophie.vdv@gmail.com",
                 PhoneNumber = "+32 478 99 88 77",

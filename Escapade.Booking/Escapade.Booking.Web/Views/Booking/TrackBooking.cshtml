@@ -1,0 +1,43 @@
+@model BookingTrackBooking
+
+@{
+    ViewData["Title"] = "Status Boeking";
+}
+
+<div>
+    <h2 class="mb-5">Status bestelling</h2>
+    <span class="text-muted small">Acces Token: @Model.AccessToken</span>
+    <span class="badge bg-dark text-uppercase px-3 py-2">Status: @Model.Status</span>
+</div>
+
+<div>
+    @if (Model.Status == "Pending")
+    {
+        <div class="alert alert-warning border border-dark rounded-0 mb-0">
+            <strong>In behandeling: </strong> We hebben je aanvraag voor <em>@Model.Email</em> goed ontvangen en beoordelen deze zo snel mogelijk.
+        </div>
+    }
+    else if (Model.Status == "Approved")
+    {
+        <div class="alert alert-success border border-dark rounded-0 mb-0">
+            <strong>Goedgekeurd</strong>
+        </div>
+    }
+    else if (Model.Status == "Rejected")
+    {
+        <div class="alert alert-danger border border-dark rounded-0 mb-0">
+            <strong>Geweigerd</strong>
+        </div>
+    }
+</div>
+
+<div>
+    <div class="col-6">
+        <p class="mb-1 text-muted small">AANKOMST</p>
+        <p class="fw-bold m-0">@Model.StartDate.ToString("dd/MM/yyyy")</p>
+    </div>
+    <div class="col-6">
+        <p class="mb-1 text-muted small">VERTREK</p>
+        <p class="fw-bold m-0">@Model.EndDate.ToString("dd/MM/yyyy")</p>
+    </div>
+</div>
