@@ -70,6 +70,10 @@ footer {
   color: #0077ff !important;
 }
 
+.custom-hover:hover {
+  color: #0077ff !important;
+}
+
 .brand-logo {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
