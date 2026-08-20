@@ -6,12 +6,6 @@ html {
   min-height: 100%;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 body {
   background-color: #EFECE6 !important;
   font-family: "Helvetica", Helvetica, Arial, sans-serif;
@@ -28,16 +22,40 @@ header {
   margin-bottom: 0.25rem;
 }
 
+header nav {
+  display: flex !important;
+  align-items: center !important;
+}
+
 footer {
   margin-top: 2rem;
 }
 
 #hero-banner {
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%), url('../images/dummy-hero.jpg') center/cover no-repeat;
-  min-height: 80vh;
+  position: relative;
+  min-height: calc(100vh - 70px);
+  width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  width: 100vw;
+  overflow: hidden;
+}
+
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .active-link {
@@ -56,12 +74,28 @@ footer {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 800;
   font-size: 1.5rem;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: all 0.1s ease-in-out;
 }
 
 .nav-item-link {
   font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.brand-logo:hover,
+.nav-item-link:hover {
+  color: #0077ff !important;
 }
 
 .btn-custom-hover {
@@ -74,16 +108,8 @@ footer {
   color: #0077ff !important;
 }
 
-#hero-banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/dummy-hero.jpg') center/cover no-repeat;
-  min-height: calc(100vh - 70px);
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-.hero-title {
-  line-height: 1.05;
-  letter-spacing: 0.1em;
-  font-size: 3rem;
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }
