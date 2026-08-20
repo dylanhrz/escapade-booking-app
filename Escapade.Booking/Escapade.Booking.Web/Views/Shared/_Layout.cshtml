@@ -29,15 +29,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav gap-3 gap-sm-4 ms-auto my-3 my-sm-0 text-center">
+                <ul class="navbar-nav gap-3 gap-sm-4 ms-auto my-3 my-sm-0 text-center align-items-center">
                     <li class="nav-item">
                         <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Location" ? "active-link" : "")" asp-controller="Location" asp-action="Index">LOCATION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-controller="Booking" asp-action="NewBooking">BOOKING</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Contact" ? "active-link" : "")" asp-controller="Contact" asp-action="Index">CONTACT</a>
+                    </li>
+                    <li id="nav-booking">
+                        <a class="nav-link text-light text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-controller="Booking" asp-action="NewBooking">BOEK NU</a>
                     </li>
                 </ul>
             </div>
