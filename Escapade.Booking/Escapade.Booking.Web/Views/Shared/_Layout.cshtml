@@ -66,9 +66,11 @@
 
 <footer class="border-top border-dark footer text-muted mt-auto pb-5">
     <div class="container-fluid px-4 px-md-5 mt-5">
-        L'Escapade Ardennaise
-        - <a asp-controller="Contact" asp-action="Index" class="text-dark fw-bold">Contact</a>
-        - <a asp-controller="Admin" asp-action="Login" class="text-dark fw-bold">Admin</a>
+        <p>L'Escapade Ardennaise</p>
+        <a asp-controller="Location" asp-action="Index" class="text-dark fw-bold custom-hover text-decoration-none">Locatie</a> <br />
+        <a asp-controller="Booking" asp-action="NewBooking" class="text-dark fw-bold custom-hover text-decoration-none">Boeken</a> <br />
+        <a asp-controller="Contact" asp-action="Index" class="text-dark fw-bold custom-hover text-decoration-none">Contact</a> <br />
+        <a asp-controller="Admin" asp-action="Login" class="text-dark fw-bold custom-hover text-decoration-none">Admin</a>
     </div>
 </footer>
 
