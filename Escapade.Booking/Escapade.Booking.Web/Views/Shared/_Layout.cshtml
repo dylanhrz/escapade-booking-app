@@ -16,28 +16,40 @@
 
 <body class="min-vh-100 d-flex flex-column overflow-x-hidden">
 <header>
-    <nav class="navbar navbar-expand-sm py-0 my-0 align-items-center" style="min-height: 70px;">
-        <div class="container-fluid px-4 px-md-5 align-items-center">
+    <nav class="navbar navbar-expand-lg py-0 my-0 align-items-center position-relative" style="min-height: 70px;">
+        <div class="container-fluid px-4 px-md-5 d-flex align-items-center justify-content-between flex-wrap">
 
-            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo m-0" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo nav-centered-logo m-0" asp-controller="Home" asp-action="Index">
                 L'ESCAPADE ARDENNAISE
             </a>
 
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav gap-3 gap-sm-4 ms-auto my-3 my-sm-0 text-center align-items-center">
+            <div class="collapse navbar-collapse w-100" id="mainNavbar">
+                <ul class="navbar-nav gap-3 gap-sm-4 me-auto text-center align-items-center my-3 my-lg-0">
                     <li class="nav-item">
                         <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Location" ? "active-link" : "")" asp-controller="Location" asp-action="Index">Locatie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark text-uppercase nav-item-link px-2 @(current == "Contact" ? "active-link" : "")" asp-controller="Contact" asp-action="Index">Contact</a>
                     </li>
-                    <li id="nav-booking">
+                </ul>
+
+                <ul class="navbar-nav gap-3 gap-sm-4 ms-auto text-center align-items-center mb-3 mb-lg-0">
+                    <li id="nav-booking" class="nav-item">
                         <a class="nav-link text-light text-uppercase nav-item-link px-2 @(current == "Booking" ? "active-link" : "")" asp-controller="Booking" asp-action="NewBooking">Boek nu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark text-uppercase fw-bold px-2" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            NL
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-center shadow-sm" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="?culture=nl">NL</a></li>
+                            <li><a class="dropdown-item" href="?culture=fr">FR</a></li>
+                            <li><a class="dropdown-item" href="?culture=en">EN</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
