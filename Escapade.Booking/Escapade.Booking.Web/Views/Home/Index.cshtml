@@ -11,18 +11,25 @@
 
     <div class="hero-overlay"></div>
     
-    <div class="position-relative">
-        <h1 class="text-uppercase font-non-serif">
-            Rust in de <br/>
-            Franse Ardennen
-        </h1>
+    <div class="hero-card-container position-absolute top-0 start-0 p-3 p-md-5 w-100 h-100 d-flex align-items-start pointer-events-none">
+        <div class="hero-card p-4 text-start">
+            <span class="text-uppercase fw-bold sub-heading d-block mb-2">L'Escapade Ardennaise</span>
+            
+            <h1 class="font-non-serif fw-bold lh-1 mb-3 card-title text-lowercase">
+                rust in de <br/>franse ardennen.
+            </h1>
 
-        <a asp-controller="Booking"
-           asp-action="NewBooking"
-           class="fw-bold font-serif text-decoration-none display-6 text-light custom-hover text-decoration-underline">
-            <i class="bi bi-calendar-check me-1"></i>
-            Vraag je verblijf aan
-        </a>
+            <p class="card-text mb-4">
+                Een hedendaags verblijf midden in de natuur. Kom tot rust, ontdek de bossen en geniet van de stilte.
+            </p>
+
+            <a asp-controller="Booking"
+               asp-action="NewBooking"
+               class="btn-link text-uppercase fw-bold text-decoration-none d-inline-block">
+                <i class="bi bi-calendar-check me-1"></i>
+                Vraag je verblijf aan
+            </a>
+        </div>
     </div>
     
 </div>
