@@ -18,6 +18,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   letter-spacing: -0.04em;
 }
 
+.font-non-serif {
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+} 
+
 header {
   margin-bottom: 0.25rem;
 }
@@ -29,6 +34,12 @@ header nav {
 
 footer {
   margin-top: 2rem;
+}
+
+input:focus {
+  background-color: #EFECE6 !important;
+  border-color: #0077ff !important;
+  color: #0077ff !important;
 }
 
 #hero-banner {

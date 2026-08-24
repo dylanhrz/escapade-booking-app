@@ -14,6 +14,8 @@
         
     <div asp-validation-summary="ModelOnly" class="text-dark-emphasis text-uppercase small mb-3"></div>
         
+    <span class="fw-bold text-uppercase small">Email</span>
+
     <div class="text-center mb-1">
         <span asp-validation-for="Email" class="text-dark-emphasis fw-bold text-uppercase small"></span>
     </div>
@@ -21,8 +23,10 @@
     <div class="mb-3 mx-auto style-input-container text-center">
         <input asp-for="Email" 
                class="form-control rounded-0 mb-4 border border-dark" 
-               placeholder="Email"/>
+               placeholder="Je email adres..."/>
     </div>
+
+    <span class="fw-bold text-uppercase small">Wachtwoord</span>
 
     <div class="text-center mb-1">
         <span asp-validation-for="Password" class="text-dark fw-bolder text-uppercase small"></span>
@@ -32,7 +36,7 @@
         <input asp-for="Password"
                type="password"
                class="form-control rounded-0 mb-4 border border-dark"
-               placeholder="Password"/>
+               placeholder="Je wachtwoord..."/>
     </div>
 
     <div class="text-center mb-5">
