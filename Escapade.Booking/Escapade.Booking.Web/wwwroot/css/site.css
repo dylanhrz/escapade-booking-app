@@ -180,44 +180,27 @@ input:focus {
 }
 
 .hero-card {
+  color: var(--black);
   background-color: var(--offwhite);
   border: 2px solid var(--black);
-  max-width: 600px;
-  color: var(--black);
-  box-shadow: 4px 4px 0 var(--black);
-  z-index: 10;
+  transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out;
+  position: relative;
 }
 
-.hero-card .sub-heading {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  color: #555;
-}
-
-.hero-card .card-title {
-  font-size: 6rem;
-  letter-spacing: -0.04em;
-  color: #111;
-}
-
-.hero-card .card-text {
-  font-size: 2rem;
-  line-height: 1.4;
-  color: #333;
+.hero-card:hover {
+  background-color: var(--primary-blue);
+  border: 2px solid var(--offwhite);
 }
 
 .btn-link {
   color: var(--black);
-  border-bottom: 2px solid var(--black);
-  padding-bottom: 2px;
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  transition: all 0.2s ease;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  transition: color 0.2s ease;
 }
 
-.btn-link:hover {
-  color: var(--primary-blue);
-  border-color: var(--primary-blue);
+.hero-card:hover .btn-link {
+  color: var(--offwhite);
 }
 
 @media (max-width: 576px) {
