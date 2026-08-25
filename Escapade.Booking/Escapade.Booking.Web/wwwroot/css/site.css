@@ -102,14 +102,8 @@ input:focus {
 }
 
 .nav-item-link {
-  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  line-height: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
   transition: all 0.1s ease-in-out;
 }
 
