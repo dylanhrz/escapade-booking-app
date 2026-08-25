@@ -4,6 +4,9 @@
   --black: #1a1a1a;
   --offwhite: #efece6;
   --primary-blue: #0077ff;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-non-serif: "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -14,20 +17,20 @@ html {
 
 body {
   background-color: var(--offwhite) !important;
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: var(--font-non-serif), serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif), serif;
   font-weight: 700;
   letter-spacing: -0.05em;
 }
 
 .font-non-serif {
-  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: var(--font-non-serif), serif;
   -webkit-font-smoothing: antialiased;
-} 
+}
 
 header {
   margin-bottom: 0.25rem;
@@ -91,11 +94,10 @@ input:focus {
 }
 
 .brand-logo {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif), serif;
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.05em;
-  line-height: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
   transition: all 0.1s ease-in-out;
