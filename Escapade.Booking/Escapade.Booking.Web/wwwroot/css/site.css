@@ -104,9 +104,9 @@ input:focus {
 }
 
 .nav-item-link {
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: all 0.1s ease-in-out;
+  font-size: 1.25rem;
+  margin-right: 10px;
+  font-weight: 500;
 }
 
 .brand-logo:hover,
