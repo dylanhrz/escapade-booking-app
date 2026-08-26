@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener("DOMContentLoaded", function () {
+    const calendarContainer = document.getElementById("inline-calendar");
 
-// Write your JavaScript code.
+    if (calendarContainer) {
+        flatpickr(calendarContainer, {
+            inline: true,
+            mode: "range",
+            minDate: "today",
+            dateFormat: "Y-m-d",
+            onChange: function (selectedDates) {
+                const startDateInput = document.getElementById("StartDate");
+                const endDateInput = document.getElementById("EndDate");
+
+                if (selectedDates.length === 2 && startDateInput && endDateInput) {
+                    startDateInput.value = selectedDates[0].toISOString().split('T')[0];
+                    endDateInput.value = selectedDates[1].toISOString().split('T')[0];
+                }
+            }
+        });
+    }
+});

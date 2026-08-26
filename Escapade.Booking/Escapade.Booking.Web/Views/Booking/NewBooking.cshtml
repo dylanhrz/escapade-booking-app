@@ -1,10 +1,15 @@
 @model BookingNewBookingViewModel
 
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+}
+
 <form asp-controller="Booking" 
       asp-action="NewBooking" 
       method="post" 
       enctype="multipart/form-data"
-      class="w-75 mx-auto bg-white p-4 p-md-5 border border-secondary-subtle shadow-sm mb-5">
+      class="w-100 mx-auto p-4 p-md-5 my-5">
     
     <div asp-validation-summary="ModelOnly" class="text-danger text-uppercase small mb-3"></div>
     
@@ -37,28 +42,42 @@
     </div>
     
     <div class="row g-3 mb-4">
+        
+        <!--
         <div class="col-md-6">
             <label asp-for="StartDate" class="form-label fw-bold mb-1 small text-uppercase">Aankomstdatum:</label>
             <span asp-validation-for="StartDate" class="text-danger small d-block mb-1"></span>
-            <input asp-for="StartDate" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
+            <input asp-for="StartDate"
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2"/>
         </div>
 
         <div class="col-md-6">
             <label asp-for="EndDate" class="form-label fw-bold mb-1 small text-uppercase">Vertrekdatum:</label>
             <span asp-validation-for="EndDate" class="text-danger small d-block mb-1"></span>
-            <input asp-for="EndDate" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
+            <input asp-for="EndDate"
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2"/>
+        </div>
+        -->
+
+        <input type="hidden" asp-for="StartDate" id="StartDate"/>
+        <input type="hidden" asp-for="EndDate" id="EndDate"/>
+
+        <div class="col-12 mb-3">
+            <label class="form-label fw-bold mb-2 small text-uppercase">Selecteer datum bereik:</label>
+            <span asp-validation-for="StartDate" class="text-danger small d-block mb-1"></span>
+            <span asp-validation-for="EndDate" class="text-danger small d-block mb-1"></span>
+
+            <div id="inline-calendar"></div>
         </div>
 
         <div class="col-md-12">
             <label asp-for="NumberOfGuests" class="form-label fw-bold mb-1 small text-uppercase">Aantal gasten:</label>
             <span asp-validation-for="NumberOfGuests" class="text-danger small d-block mb-1"></span>
-            <input asp-for="NumberOfGuests" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
-                   placeholder="Aantal personen (max. 10)" 
-                   min="1" 
-                   max="10" />
+            <input asp-for="NumberOfGuests"
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2"
+                   placeholder="Aantal personen (max. 10)"
+                   min="1"
+                   max="10"/>
         </div>
     </div>
     
@@ -74,7 +93,7 @@
     <div class="py-3">
         <button type="submit"
                 class="btn border-0 text-decoration-underline btn-custom-hover fw-bold font-serif text-dark">
-             <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-lg"></i>
             Aanvraag versturen
         </button>
     </div>
