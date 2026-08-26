@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 }
 
 header {
-  margin-bottom: 0.25rem;
+  border-bottom: 2px solid var(--black);
 }
 
 header nav {
