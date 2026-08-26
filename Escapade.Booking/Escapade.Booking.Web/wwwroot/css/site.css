@@ -50,6 +50,32 @@ input:focus {
   color: var(--primary-blue) !important;
 }
 
+.custom-button {
+  background-color: var(--primary-blue) !important;
+  color: var(--offwhite) !important;
+  border: 2px solid var(--primary-blue) !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.custom-button:hover {
+  background-color: var(--offwhite) !important;
+  border-color: var(--primary-blue) !important;
+  color: var(--primary-blue) !important;
+}
+
+.custom-button-outline {
+  background-color: color-mix(in srgb, var(--primary-blue) 10%, var(--offwhite)) !important;
+  color: var(--primary-blue) !important;
+  border: 2px solid color-mix(in srgb, var(--primary-blue) 30%, transparent) !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.custom-button-outline:hover {
+  background-color: color-mix(in srgb, var(--primary-blue) 20%, var(--offwhite)) !important;
+  color: color-mix(in srgb, var(--primary-blue) 80%, var(--black)) !important;
+  border-color: color-mix(in srgb, var(--primary-blue) 40%, transparent) !important;
+}
+
 #hero-banner {
   position: relative;
   min-height: calc(100vh - 70px);
@@ -74,7 +100,7 @@ input:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: color-mix(in srgb, var(--black) 25%, transparent);
+  background-color: color-mix(in srgb, var(--primary-blue) 5%, transparent);
 }
 
 .active-link {
@@ -121,28 +147,6 @@ input:focus {
   margin: 0 !important;
 }
 
-#nav-booking a {
-  background-color: var(--primary-blue) !important;
-  color: #ffffff !important;
-  border: 2px solid var(--primary-blue) !important;
-  font-size: 0.85rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  line-height: 1 !important;
-  padding: 0.75rem 1.8rem !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  transition: all 0.1s ease-in-out;
-}
-
-#nav-booking a:hover,
-#nav-booking a:focus {
-  background-color: transparent !important;
-  border: 2px solid var(--primary-blue) !important;
-  color: var(--primary-blue) !important;
-}
-
 .btn-custom-hover {
   transition: all 0.2s ease-in-out;
 }
@@ -183,24 +187,22 @@ input:focus {
   color: var(--black);
   background-color: var(--offwhite);
   border: 2px solid var(--black);
-  transition: background-color 0.1s ease-in-out, border 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   position: relative;
 }
 
-.hero-card:hover {
-  background-color: var(--primary-blue);
-  border: 2px solid var(--offwhite);
-}
-
-.btn-link {
+.hero-card-link {
   color: var(--black);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease-in-out;
 }
 
-.hero-card:hover .btn-link {
-  color: var(--offwhite);
+.hero-card:hover {
+  background-color: color-mix(in srgb, var(--primary-blue) 15%, var(--offwhite)) !important;
+  border-color: var(--primary-blue) !important;
+}
+
+.hero-card:hover .hero-card-link {
+  color: var(--primary-blue) !important;
 }
 
 @media (max-width: 576px) {
