@@ -244,7 +244,7 @@ input:focus {
   width: 100% !important;
   display: flex !important;
   justify-content: space-between;
-  margin: 0;
+  margin: 1rem 0;
   padding: 1rem 0;
   border: 2px solid var(--black);
 }
