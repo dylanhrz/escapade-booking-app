@@ -201,17 +201,12 @@ input:focus {
   position: relative;
 }
 
-.hero-card-link {
-  color: var(--black);
-  transition: color 0.1s ease-in-out;
-}
-
 .hero-card:hover {
   background-color: color-mix(in srgb, var(--primary-blue) 15%, var(--offwhite)) !important;
   border-color: var(--primary-blue) !important;
 }
 
-.hero-card:hover .hero-card-link {
+.hero-card:hover {
   color: var(--primary-blue) !important;
 }
 
