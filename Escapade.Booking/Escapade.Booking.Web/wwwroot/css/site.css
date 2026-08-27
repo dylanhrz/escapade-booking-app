@@ -220,6 +220,26 @@ input:focus {
   }
 }
 
+.split-section-text {
+  font-size: 3rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.text-highlight {
+  color: var(--primary-blue);
+}
+
+.min-vh-50 {
+  min-height: 700px;
+}
+
+@media (min-width: 992px) {
+  .section-border-end {
+    border-right: 2px solid var(--primary-blue);
+  }
+}
+
 /* flatpickr - js */
 
 .flatpickr-calendar.inline {
