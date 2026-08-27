@@ -197,7 +197,6 @@ input:focus {
   color: var(--black);
   background-color: var(--offwhite);
   border: 2px solid var(--black);
-  transition: all 0.1s ease-in-out;
   position: relative;
 }
 
