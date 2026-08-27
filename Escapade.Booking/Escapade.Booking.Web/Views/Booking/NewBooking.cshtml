@@ -13,7 +13,7 @@
       asp-action="NewBooking" 
       method="post" 
       enctype="multipart/form-data"
-      class="w-100 mx-auto p-4 p-md-5 my-5">
+      class="w-50 mx-auto p-4 p-md-5 my-5">
     
     <div asp-validation-summary="ModelOnly" class="text-danger text-uppercase small mb-3"></div>
     
@@ -23,24 +23,21 @@
             <label asp-for="Name" class="form-label fw-bold mb-1 small text-uppercase">Naam:</label>
             <span asp-validation-for="Name" class="text-danger small d-block mb-1"></span>
             <input asp-for="Name" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
-                   placeholder="Voornaam Achternaam" />
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
         </div>
 
         <div class="col-md-12">
             <label asp-for="Email" class="form-label fw-bold mb-1 small text-uppercase">E-mailadres:</label>
             <span asp-validation-for="Email" class="text-danger small d-block mb-1"></span>
             <input asp-for="Email" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
-                   placeholder="naam@voorbeeld.be" />
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
         </div>
 
         <div class="col-md-12">
             <label asp-for="PhoneNumber" class="form-label fw-bold mb-1 small text-uppercase">Telefoonnummer:</label>
             <span asp-validation-for="PhoneNumber" class="text-danger small d-block mb-1"></span>
             <input asp-for="PhoneNumber" 
-                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" 
-                   placeholder="+32 4XX XX XX XX" />
+                   class="form-control rounded-0 border-secondary-subtle px-3 py-2" />
         </div>
         
     </div>
@@ -90,14 +87,12 @@
         <span asp-validation-for="Comment" class="text-danger small d-block mb-1"></span>
         <textarea asp-for="Comment" 
               class="form-control rounded-0 border-secondary-subtle p-3" 
-              rows="4" 
-              placeholder="Laat hier eventuele extra wensen of vragen achter..."></textarea>
+              rows="4"></textarea>
     </div>
     
     <div class="py-3">
         <button type="submit"
-                class="btn border-0 text-decoration-underline btn-custom-hover fw-bold font-serif text-dark">
-            <i class="bi bi-check-lg"></i>
+                class="btn text-uppercase w-100 py-2 mt-3 fw-medium border-0 rounded-0 custom-button-outline">
             Aanvraag versturen
         </button>
     </div>
