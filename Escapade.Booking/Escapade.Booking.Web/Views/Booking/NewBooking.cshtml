@@ -46,13 +46,13 @@
                 </div>
 
                 <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center">
-                    <label class="form-label mb-3">Selecteer Periode</label>
+                    <label class="form-label mb-5">Selecteer Periode</label>
                     <input type="hidden" asp-for="StartDate" id="StartDate"/>
                     <input type="hidden" asp-for="EndDate" id="EndDate"/>
                     <span asp-validation-for="StartDate" class="text-danger small d-block"></span>
                     <span asp-validation-for="EndDate" class="text-danger small d-block"></span>
-                    
-                    <div class="d-flex justify-content-center w-50">
+    
+                    <div class="w-100">
                         <div id="inline-calendar"></div>
                     </div>
                 </div>
