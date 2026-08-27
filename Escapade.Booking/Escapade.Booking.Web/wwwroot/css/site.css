@@ -244,6 +244,70 @@ input:focus {
   }
 }
 
+/* form */
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-cell {
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background-color: var(--offwhite, #f4f3ef);
+  box-sizing: border-box;
+}
+
+.form-cell h1 {
+  letter-spacing: -0.04em;
+  font-weight: 900;
+}
+
+.form-inverted {
+  background-color: #000 !important;
+  color: var(--offwhite) !important;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000;
+  background: transparent;
+  padding: 1rem 0rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000;
+  border-radius: 0;
+  outline: none;
+}
+
+.form-btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+  text-align: center;
+}
+
+.form-btn:hover {
+  background-color: var(--primary-blue, #0055ff);
+  color: #fff;
+}
+
 /* flatpickr - js */
 
 .flatpickr-calendar.inline {
