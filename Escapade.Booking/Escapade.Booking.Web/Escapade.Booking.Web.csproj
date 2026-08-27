@@ -20,4 +20,8 @@
       <ProjectReference Include="..\Escapade.Booking.Core\Escapade.Booking.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Location\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
