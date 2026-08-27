@@ -1,6 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-
-    // 1. Flatpickr Kalender
+    
     const calendarContainer = document.getElementById("inline-calendar");
     if (calendarContainer) {
         flatpickr(calendarContainer, {
