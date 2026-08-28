@@ -34,14 +34,17 @@ public class BookingController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult NewBooking(BookingNewBookingViewModel bookingNewBookingViewModel)
     {
+        if (bookingNewBookingViewModel.StartDate.HasValue && bookingNewBookingViewModel.EndDate.HasValue)
+        {
+            if (bookingNewBookingViewModel.EndDate.Value <= bookingNewBookingViewModel.StartDate.Value)
+            {
+                ModelState.AddModelError("EndDate", "Vertrekdatum moet na de aankomstdatum liggen.");
+            }
+        }
+        
         if (!ModelState.IsValid)
         {
             return View(bookingNewBookingViewModel);
-        }
-        
-        if (bookingNewBookingViewModel.EndDate <= bookingNewBookingViewModel.StartDate)
-        {
-            ModelState.AddModelError("EndDate", "Vertrekdatum moet na de aankomstdatum liggen.");
         }
 
         var booking = new Core.Entities.Booking()
@@ -51,8 +54,8 @@ public class BookingController : Controller
             PhoneNumber = bookingNewBookingViewModel.PhoneNumber,
             NumberOfGuests = bookingNewBookingViewModel.NumberOfGuests,
             Comment = bookingNewBookingViewModel.Comment,
-            StartDate = bookingNewBookingViewModel.StartDate,
-            EndDate = bookingNewBookingViewModel.EndDate
+            StartDate = bookingNewBookingViewModel.StartDate!.Value,
+            EndDate = bookingNewBookingViewModel.EndDate!.Value
         };
         
         _escapadeDbContext.Bookings.Add(booking);

@@ -27,13 +27,13 @@ public class BookingNewBookingViewModel
     [Display(Name = "Opmerking")]
     public string? Comment { get; set; }
     
-    [Required(ErrorMessage = "Aankomstdatum is verplicht")]
+    [Required(ErrorMessage = "Selecteer een periode op de kalender")]
     [DataType(DataType.Date)]
     [Display(Name = "Aankomstdatum")]
-    public DateTime StartDate { get; set; } = DateTime.Today;
+    public DateTime? StartDate { get; set; }
 
-    [Required(ErrorMessage = "Vertrekdatum is verplicht")]
+    [Required(ErrorMessage = "Selecteer een periode op de kalender")]
     [DataType(DataType.Date)]
     [Display(Name = "Vertrekdatum")]
-    public DateTime EndDate { get; set; } = DateTime.Today.AddDays(1);
+    public DateTime? EndDate { get; set; }
 }

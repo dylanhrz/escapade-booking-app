@@ -22,45 +22,108 @@
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    <label asp-for="Name" class="form-label">Naam</label>
-                    <span asp-validation-for="Name" class="text-danger small d-block"></span>
+                    
+                    <label asp-for="Name" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span>Naam</span>
+                        }
+                    </label>
+
                     <input asp-for="Name" class="form-input"/>
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    <label asp-for="Email" class="form-label">E-mailadres</label>
-                    <span asp-validation-for="Email" class="text-danger small d-block"></span>
+                    
+                    <label asp-for="Email" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span>Email</span>
+                        }
+                    </label>
+                    
                     <input asp-for="Email" class="form-input" />
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    <label asp-for="PhoneNumber" class="form-label">Telefoonnummer</label>
-                    <span asp-validation-for="PhoneNumber" class="text-danger small d-block"></span>
+                    
+                    <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span>Telefoonnummer</span>
+                        }
+                    </label>
+                    
                     <input asp-for="PhoneNumber" class="form-input" />
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    <label asp-for="NumberOfGuests" class="form-label">Aantal gasten</label>
-                    <span asp-validation-for="NumberOfGuests" class="text-danger small d-block"></span>
-                    <input asp-for="NumberOfGuests" class="form-input" min="1" max="10" />
+                    
+                    <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["NumberOfGuests"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else
+                        {
+                            <span>Aantal gasten</span>
+                        }
+                    </label>
+                    
+                    <input asp-for="NumberOfGuests" class="form-input" />
                 </div>
 
                 <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center">
-                    <label class="form-label mb-5">Selecteer Periode</label>
-                    <input type="hidden" asp-for="StartDate" id="StartDate"/>
-                    <input type="hidden" asp-for="EndDate" id="EndDate"/>
-                    <span asp-validation-for="StartDate" class="text-danger small d-block"></span>
-                    <span asp-validation-for="EndDate" class="text-danger small d-block"></span>
-    
+                    
+                    <label class="fw-bolder text-uppercase small mb-5">
+                        @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["StartDate"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else if (ViewData.ModelState["EndDate"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["EndDate"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else
+                        {
+                            <span>Selecteer Periode</span>
+                        }
+                    </label>
+                    
+                    <input type="hidden" asp-for="StartDate" id="StartDate" />
+                    <input type="hidden" asp-for="EndDate" id="EndDate" />
+                    
                     <div class="w-100">
                         <div id="inline-calendar"></div>
                     </div>
+                    
                 </div>
 
                 <div class="form-cell col-12 p-5">
-                    <label asp-for="Comment" class="form-label">Opmerking of Vraag</label>
+                    <label asp-for="Comment" class="form-label">
+                        Opmerking of Vraag
+                        <span class="text-muted text-lowercase">(Optioneel)</span>
+                    </label>
                     <span asp-validation-for="Comment" class="text-danger small d-block"></span>
-                    <textarea asp-for="Comment" class="form-input" rows="3"></textarea>
+                    <textarea asp-for="Comment" id="Comment" class="form-input" rows="3"></textarea>
                 </div>
 
                 <div class="form-cell form-inverted col-12 p-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
