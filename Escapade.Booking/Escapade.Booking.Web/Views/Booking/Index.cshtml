@@ -2,23 +2,26 @@
     ViewData["Title"] = "Boeking Ontvangen";
 }
 
-<div class="container py-5 text-center">
-    <div class="py-5">
-        <span class="text-uppercase px-3 py-1 mb-3">Confirmation</span>
-        
-        <h1 class="display-3 fw-bold text-uppercase mb-3">Bedankt voor je aanvraag!</h1>
-        
-        <p class="lead text-secondary mb-4">
-            We hebben je boekingsaanvraag goed ontvangen. Wendy neemt zo snel mogelijk contact met je op om je verblijf te bevestigen.
-        </p>
-        
-        <div class="d-flex justify-content-center gap-3">
-            <a asp-controller="Home" asp-action="Index" class="btn btn-dark rounded-0 text-uppercase px-4 py-3 fw-bold">
-                Terug naar Home
-            </a>
-            <a asp-controller="Contact" asp-action="Index" class="btn btn-outline-dark rounded-0 text-uppercase px-4 py-3 fw-bold">
-                Contactgegevens
-            </a>
+<section class="full-bleed position-relative min-vh-50 d-flex align-items-center justify-content-center">   
+    <div class="container-fluid p-0">
+        <div class="text-center d-flex flex-column align-items-center justify-content-center">
+            
+            <span class="text-uppercase px-3 py-1 mb-1">We hebben je boekingsaanvraag goed ontvangen</span>
+            <h1 class="display-3 fw-bold mb-4">Bedankt voor je aanvraag!</h1>
+
+            <p class="lead mb-4">
+                Wendy neemt zo snel mogelijk contact met je op om je verblijf te bevestigen.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Home" asp-action="Index" class="btn custom-button rounded-0 text-uppercase px-4 py-3 fw-bold">
+                    Terug
+                </a>
+                <a asp-controller="Contact" asp-action="Index" class="btn btn-outline-dark rounded-0 text-uppercase px-4 py-3 fw-bold">
+                    Contactgegevens
+                </a>
+            </div>
+            
         </div>
     </div>
-</div>
+</section>
