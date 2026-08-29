@@ -4,72 +4,94 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="my-5">
-    <div class="mb-4">
-        <h2 class="h3 fw-bold text-uppercase mb-0">Aankomende Boekingen</h2>
+<section class="full-bleed position-relative">
+    <div class="container-fluid p-0">
+        
+        <div class="p-5 border-bottom border-dark">
+            <h1 class="display-4 text-uppercase m-0">Admin Dashboard</h1>
+        </div>
+
+        <div class="p-5 border-bottom border-dark">
+            <h2 class="text-uppercase fw-bold mb-5 font-non-serif">Aankomende Boekingen</h2>
+
+            @if (!Model.UpcomingBookings.Any())
+            {
+                <div class="p-4 border border-dark">
+                    <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn momenteel geen aankomende boekingen.</p>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex flex-column gap-4">
+                    @foreach (var booking in Model.UpcomingBookings)
+                    {
+                        <div class="p-5 border border-dark">
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+                                <h3 class="text-uppercase m-0 font-non-serif">
+                                    @booking.Name
+                                </h3>
+                                <span class="badge bg-dark text-white rounded-0 px-3 py-2 text-uppercase fs-6">
+                                    @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
+                                </span>
+                            </div>
+
+                            <p class="fw-bolder text-uppercase small mb-2">
+                                <span class="custom-blue">@booking.NumberOfGuests gast(en)</span> <br/>
+                                email: @booking.Email <br/>
+                                telefoonnummer: @booking.PhoneNumber 
+                            </p>
+
+                            @if (!string.IsNullOrEmpty(booking.Comment))
+                            {
+                                <div class="p-3 bg-light border border-dark mb-4">
+                                    <p class="small m-0 text-muted"><em>"@booking.Comment"</em></p>
+                                </div>
+                            }
+
+                            <div class="pt-2">
+                                <a asp-controller="Booking"
+                                   asp-action="TrackBooking"
+                                   asp-route-token="@booking.AccessToken"
+                                   target="_blank"
+                                   class="btn btn-outline-dark rounded-0 text-uppercase fw-bold px-4 py-2 small">
+                                    <i class="bi bi-box-arrow-up-right me-2"></i> Bekijk Klantpagina
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="p-5 border-bottom border-dark">
+            <h2 class="h1 text-uppercase fw-bold mb-4">Afgelopen Boekingen</h2>
+
+            @if (!Model.PastBookings.Any())
+            {
+                <div class="p-4 border border-dark bg-white">
+                    <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn geen eerdere boekingen te vinden.</p>
+                </div>
+            }
+            else
+            {
+                <div class="d-flex flex-column gap-3">
+                    @foreach (var booking in Model.PastBookings)
+                    {
+                        <div class="p-4 border border-dark bg-white text-secondary opacity-75">
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2">
+                                <div>
+                                    <h4 class="h5 text-uppercase fw-bold m-0 text-dark">@booking.Name</h4>
+                                    <p class="small text-uppercase fw-bolder mb-0 mt-1">@booking.Email &bull; @booking.PhoneNumber</p>
+                                </div>
+                                <span class="fw-bold small text-dark">
+                                    @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
+                                </span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
     </div>
-
-    @if (!Model.UpcomingBookings.Any())
-    {
-        <p class="text-muted">Er zijn momenteel geen aankomende boekingen.</p>
-    }
-    else
-    {
-        @foreach (var booking in Model.UpcomingBookings)
-        {
-            <div class="pb-3 mb-4">
-                
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h3 class="h4 fw-bold text-uppercase mb-1">@booking.Name</h3>
-                    <span class="fw-bold fs-5">
-                        @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
-                    </span>
-                </div>
-
-                <p class="mb-1"><strong>Contact:</strong> @booking.Email | @booking.PhoneNumber (@booking.NumberOfGuests gasten)</p>
-
-                @if (!string.IsNullOrEmpty(booking.Comment))
-                {
-                    <p class="small text-muted mb-0"><em>"@booking.Comment"</em></p>
-                }
-
-                <div class="mt-2">
-                    <a asp-controller="Booking"
-                       asp-action="TrackBooking"
-                       asp-route-token="@booking.AccessToken"
-                       target="_blank"
-                       class="btn btn-sm btn-outline-dark rounded-0 text-uppercase">
-                        <i class="bi bi-box-arrow-up-right me-1"></i> Bekijk Klantpagina
-                    </a>
-                </div>
-                
-            </div>
-        }
-    }
-</div>
-
-<div class="mb-5">
-    <div class="mb-4">
-        <h2 class="h3 fw-bold text-uppercase mb-0">Afgelopen Boekingen</h2>
-    </div>
-
-    @if (!Model.PastBookings.Any())
-    {
-        <p class="text-muted">Er zijn geen eerdere boekingen te vinden.</p>
-    }
-    else
-    {
-        @foreach (var booking in Model.PastBookings)
-        {
-            <div class="border-bottom pb-3 mb-3 text-secondary">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <h4 class="h5 fw-bold text-uppercase mb-1">@booking.Name</h4>
-                    <span>
-                        @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
-                    </span>
-                </div>
-                <p class="small mb-0">@booking.Email | @booking.PhoneNumber</p>
-            </div>
-        }
-    }
-</div>
+</section>
