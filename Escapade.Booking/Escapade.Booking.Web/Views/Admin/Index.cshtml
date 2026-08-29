@@ -8,12 +8,10 @@
     <div class="container-fluid p-0">
         
         <div class="p-5 border-bottom border-dark">
-            <h1 class="display-4 text-uppercase m-0">Admin Dashboard</h1>
+            <h1 class="display-6 text-uppercase m-0 font-non-serif">Aankomende boekingen</h1>
         </div>
 
         <div class="p-5 border-bottom border-dark">
-            <h2 class="text-uppercase fw-bold mb-5 font-non-serif">Aankomende Boekingen</h2>
-
             @if (!Model.UpcomingBookings.Any())
             {
                 <div class="p-4 border border-dark">
@@ -22,10 +20,10 @@
             }
             else
             {
-                <div class="d-flex flex-column gap-4">
+                <div class="d-flex flex-column gap-3">
                     @foreach (var booking in Model.UpcomingBookings)
                     {
-                        <div class="p-5 border border-dark">
+                        <div class="p-5 border border-dark bg-white">
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
                                 <h3 class="text-uppercase m-0 font-non-serif">
                                     @booking.Name
@@ -62,9 +60,12 @@
                 </div>
             }
         </div>
+        
+        <div class="p-5 border-bottom border-dark">
+            <h2 class="display-6 text-uppercase m-0 font-non-serif">Afgelopen Boekingen</h2>
+        </div>
 
         <div class="p-5 border-bottom border-dark">
-            <h2 class="h1 text-uppercase fw-bold mb-4">Afgelopen Boekingen</h2>
 
             @if (!Model.PastBookings.Any())
             {
