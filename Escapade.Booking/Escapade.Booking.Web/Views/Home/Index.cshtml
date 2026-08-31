@@ -2,13 +2,21 @@
     ViewData["Title"] = "Home";
 }
 
-<div id="hero-banner" class="position-relative d-flex overflow-hidden">
-    <div class="hero-video-col">
-        <video autoplay loop muted playsinline id="hero-video">
-            <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
-            Je browser ondersteunt geen videotag.
-        </video>
-        <div class="hero-overlay"></div>
+<section id="hero-banner" class="full-bleed position-relative d-flex overflow-hidden">
+    <div class="hero-video-col container-fluid">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 d-flex align-items-center p-5 section-border-end">
+                <video autoplay loop muted playsinline id="hero-video">
+                    <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
+                    Je browser ondersteunt geen videotag.
+                </video>
+                
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="col-lg-6 position-relative min-vh-50">
+                
+            </div>
+        </div>    
     </div>
 
     <div class="hero-cta-col">
@@ -17,11 +25,6 @@
                 Ut auctor hendrerit sem in cursus. Nulla rhoncus convallis sapien, 
                 eu semper felis laoreet non. Maecenas ultrices condimentum dui, nec lacinia massa mattis vel. 
                 In in pulvinar arcu, ac finibus massa. Suspendisse id felis non arcu dapibus bibendum ac condimentum nibh. 
-                Praesent a lacus ipsum. 
-                Proin eleifend rhoncus facilisis. Praesent sit amet ante in est mattis auctor et sit amet est. 
-                Aenean accumsan neque ut nisi rhoncus, vitae dapibus libero gravida. 
-                Integer vitae suscipit lorem, sed pretium erat. 
-                Nulla varius lorem non dolor imperdiet, vitae tempor nibh mollis.
             </h2>
         </div>
 
@@ -31,7 +34,7 @@
             Vraag je verblijf aan
         </a>
     </div>
-</div>
+</section>
 
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
