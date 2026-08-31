@@ -2,24 +2,35 @@
     ViewData["Title"] = "Home";
 }
 
-<div id="hero-banner" class="position-relative d-flex flex-column justify-content-center align-items-center text-center text-white px-3 overflow-hidden">
-    <video autoplay loop muted playsinline id="hero-video">
-        <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
-        Je browser ondersteunt geen videotag.
-    </video>
-
-    <div class="hero-overlay"></div>
-    
-    <div class="m-5">
-        <div class="hero-card px-4 py-3">
-            <a asp-controller="Booking"
-               asp-action="NewBooking"
-               class="text-dark custom-hover text-uppercase fw-bold text-decoration-none d-inline-block stretched-link">
-                Vraag je verblijf aan
-            </a>
-        </div>
+<div id="hero-banner" class="position-relative d-flex overflow-hidden">
+    <div class="hero-video-col">
+        <video autoplay loop muted playsinline id="hero-video">
+            <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
+            Je browser ondersteunt geen videotag.
+        </video>
+        <div class="hero-overlay"></div>
     </div>
-    
+
+    <div class="hero-cta-col">
+        <div class="hero-cta-content px-4">
+            <h2 class="font-non-serif mb-2">
+                Ut auctor hendrerit sem in cursus. Nulla rhoncus convallis sapien, 
+                eu semper felis laoreet non. Maecenas ultrices condimentum dui, nec lacinia massa mattis vel. 
+                In in pulvinar arcu, ac finibus massa. Suspendisse id felis non arcu dapibus bibendum ac condimentum nibh. 
+                Praesent a lacus ipsum. 
+                Proin eleifend rhoncus facilisis. Praesent sit amet ante in est mattis auctor et sit amet est. 
+                Aenean accumsan neque ut nisi rhoncus, vitae dapibus libero gravida. 
+                Integer vitae suscipit lorem, sed pretium erat. 
+                Nulla varius lorem non dolor imperdiet, vitae tempor nibh mollis.
+            </h2>
+        </div>
+
+        <a asp-controller="Booking"
+           asp-action="NewBooking"
+           class="nav-block-btn hero-cta-btn text-uppercase fw-bold text-decoration-none">
+            Vraag je verblijf aan
+        </a>
+    </div>
 </div>
 
 <section class="full-bleed position-relative">
