@@ -287,7 +287,11 @@ header:hover {
 .hero-cta-content {
   flex: 1;
   display: flex;
-  padding: 5rem;
+  padding: 5rem !important;
+}
+
+.hero-cta-content h2 {
+  font-weight: 300;
 }
 
 .hero-cta-btn {
