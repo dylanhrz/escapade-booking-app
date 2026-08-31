@@ -342,8 +342,8 @@ footer {
 }
 
 .form-cell {
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
   background-color: var(--offwhite, #f4f3ef);
   box-sizing: border-box;
 }
@@ -361,7 +361,7 @@ footer {
 .form-label {
   display: block;
   font-size: 0.75rem;
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -372,23 +372,33 @@ footer {
 .form-control {
   width: 100%;
   border: none !important;
-  border-bottom: 2px solid #000 !important;
+  border-bottom: 1px solid #000 !important;
   background: transparent !important;
-  padding: 1rem 0 !important;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 0.5rem !important;
+  font-weight: 900;
   color: #000 !important;
   border-radius: 0 !important;
   outline: none;
   box-shadow: none !important;
+  transition: 0.15s background-color ease-in;
 }
 
 .form-input:focus,
 .form-control:focus {
   background-color: transparent !important;
-  border-color: var(--primary-blue) !important;
   color: var(--primary-blue) !important;
   box-shadow: none !important;
+}
+
+.form-input:hover,
+.form-control:hover {
+  background-color: var(--black) !important;
+  color: var(--offwhite) !important;
+}
+
+.form-input.is-filled,
+.form-control.is-filled {
+  border-bottom: none !important;
 }
 
 .form-btn {
@@ -413,9 +423,7 @@ footer {
   box-shadow: none !important;
   width: 100% !important;
   max-width: 100% !important;
-  font-family: var(--font-non-serif), serif;
   margin: 0 !important;
-  border: none !important;
 }
 
 .flatpickr-innerContainer,
@@ -428,51 +436,89 @@ footer {
 }
 
 .flatpickr-months {
-  margin-bottom: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--black);
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-bottom: 1rem;
+  position: relative;
 }
 
 .flatpickr-months .flatpickr-month {
   color: var(--black) !important;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   fill: var(--black) !important;
+  height: auto !important;
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .flatpickr-current-month {
-  font-size: 1.25rem !important;
+  position: static !important;
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem;
+  font-family: var(--font-serif), serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
   padding: 0 !important;
+  letter-spacing: -0.03em;
+  color: var(--black) !important;
 }
 
 .flatpickr-current-month .flatpickr-monthDropdown-months {
-  font-weight: 900 !important;
+  font-family: var(--font-serif), serif !important;
+  font-weight: 800 !important;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent !important;
+  border: none !important;
+  color: var(--black) !important;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+.flatpickr-current-month input.cur-year {
+  font-family: var(--font-serif), serif !important;
+  font-weight: 800 !important;
+  color: var(--black) !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
 }
 
 .flatpickr-months .flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month {
   color: var(--black) !important;
   fill: var(--black) !important;
-  padding: 0.5rem;
+  padding: 0.5rem !important;
+  background-color: transparent;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 35px !important;
+  width: 35px !important;
+  transition: all 0.15s ease-in-out;
 }
 
 .flatpickr-weekdays {
   width: 100% !important;
   display: flex !important;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--black);
+  padding: 2rem 0;
+  background-color: transparent;
 }
 
 span.flatpickr-weekday {
   color: var(--black) !important;
   font-weight: 900 !important;
-  font-size: 0.8rem;
+  font-size: 0.75rem !important;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   flex: 1;
 }
 
@@ -480,27 +526,28 @@ span.flatpickr-weekday {
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: flex-start !important;
-  gap: 0 !important;
+  background-color: var(--black) !important;
+  gap: 1px !important;
+  border: 1px solid var(--black) !important;
 }
 
 .flatpickr-day {
-  flex: 0 0 calc(100% / 7) !important;
-  height: 48px !important;
-  line-height: 48px !important;
+  flex: 0 0 calc((100% - 6px) / 7) !important;
+  height: 52px !important;
+  line-height: 50px !important;
   max-width: none !important;
   border-radius: 0 !important;
-  background-color: transparent !important;
+  border: none !important;
+  background-color: var(--offwhite) !important;
   color: var(--black) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  margin: 0 !important;
-  font-weight: 700;
+  font-weight: 400 !important;
   box-sizing: border-box;
+  margin: 0 !important;
 }
 
 .flatpickr-day:hover {
   background-color: var(--black) !important;
   color: var(--offwhite) !important;
-  border-color: var(--black) !important;
 }
 
 .flatpickr-day.selected,
@@ -508,21 +555,19 @@ span.flatpickr-weekday {
 .flatpickr-day.endRange {
   background-color: var(--black) !important;
   color: var(--offwhite) !important;
-  border-color: var(--black) !important;
 }
 
 .flatpickr-day.inRange {
   background-color: var(--primary-blue) !important;
   color: #fff !important;
-  border-color: var(--primary-blue) !important;
-  box-shadow: none !important;
 }
 
 .flatpickr-day.disabled,
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.prevMonthDay,
 .flatpickr-day.nextMonthDay {
-  opacity: 0.1 !important;
+  opacity: 0.2 !important;
   background-color: transparent !important;
-  border-color: transparent !important;
+  border-color: var(--black) !important;
+  color: var(--black) !important;
 }

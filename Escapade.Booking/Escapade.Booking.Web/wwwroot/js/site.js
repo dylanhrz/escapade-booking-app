@@ -6,6 +6,9 @@
             inline: true,
             mode: "range",
             minDate: "today",
+            locale: {
+                firstDayOfWeek: 1
+            },
             dateFormat: "Y-m-d",
             onChange: function (selectedDates) {
                 const startDateInput = document.getElementById("StartDate");
@@ -21,5 +24,21 @@
             }
         });
     }
+});
 
+document.addEventListener("DOMContentLoaded", () => {
+    const inputs = document.querySelectorAll('.form-input, .form-control');
+
+    function checkValue(input) {
+        if (input.value.trim() !== "") {
+            input.classList.add('is-filled');
+        } else {
+            input.classList.remove('is-filled');
+        }
+    }
+
+    inputs.forEach(input => {
+        checkValue(input);
+        input.addEventListener('input', () => checkValue(input));
+    });
 });

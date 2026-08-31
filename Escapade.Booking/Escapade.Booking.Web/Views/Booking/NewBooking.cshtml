@@ -16,14 +16,6 @@
             <div asp-validation-summary="ModelOnly" class="text-danger p-3 fw-bold border-bottom border-dark"></div>
 
             <div class="form-grid">
-                
-                <!--    
-                
-                <div class="form-cell col-12 p-5">
-                    <h1 class="display-4 text-uppercase m-0">Boeking Aanvragen</h1>
-                </div>
-            
-                -->
 
             <div class="form-cell col-12 col-md-6 p-5">
                     
@@ -34,7 +26,7 @@
                         }
                         else
                         {
-                            <span>Naam</span>
+                            <span class="form-label">Naam</span>
                         }
                     </label>
 
@@ -50,7 +42,7 @@
                         }
                         else
                         {
-                            <span>Email</span>
+                            <span class="form-label">Email</span>
                         }
                     </label>
                     
@@ -66,7 +58,7 @@
                         }
                         else
                         {
-                            <span>Telefoonnummer</span>
+                            <span class="form-label">Telefoonnummer</span>
                         }
                     </label>
                     
@@ -84,7 +76,7 @@
                         }
                         else
                         {
-                            <span>Aantal gasten</span>
+                            <span class="form-label">Aantal gasten</span>
                         }
                     </label>
                     
@@ -108,7 +100,7 @@
                         }
                         else
                         {
-                            <span>Selecteer Periode</span>
+                            <span class="form-label">Selecteer Periode</span>
                         }
                     </label>
                     
@@ -122,9 +114,8 @@
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    <label asp-for="Comment" class="form-label">
-                        Opmerking of Vraag
-                        <span class="text-muted text-lowercase">(Optioneel)</span>
+                    <label asp-for="Comment" class="fw-bolder text-uppercase small">
+                        <span class="form-label">Opmerking of Vraag</span>
                     </label>
                     <span asp-validation-for="Comment" class="text-danger small d-block"></span>
                     <textarea asp-for="Comment" id="Comment" class="form-input" rows="5"></textarea>
