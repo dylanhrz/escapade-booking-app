@@ -333,6 +333,7 @@ header:hover {
 @media (max-width: 991px) {
   .hero-video-col {
     width: 25%;
+    max-height: 80vh;
   }
 
   .hero-cta-col {
