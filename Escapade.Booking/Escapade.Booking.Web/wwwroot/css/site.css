@@ -339,6 +339,16 @@ footer {
   margin-top: 2rem;
 }
 
+.footer p {
+  letter-spacing: 0.05em;
+}
+
+.footer a {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
 .form-grid {
   display: flex;
   flex-wrap: wrap;
