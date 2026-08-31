@@ -42,6 +42,14 @@ a {
   margin-right: calc(-50vw + 50%);
 }
 
+.border-right {
+  border-right: 2px solid var(--black) !important;
+}
+
+.border-top {
+  border-top: 2px solid var(--black) !important;
+}
+
 .min-vh-50 {
   min-height: 700px;
 }
@@ -311,6 +319,7 @@ header:hover {
 
 footer {
   margin-top: 2rem;
+  border-top: 2px solid var(--black);
 }
 
 .footer p {
