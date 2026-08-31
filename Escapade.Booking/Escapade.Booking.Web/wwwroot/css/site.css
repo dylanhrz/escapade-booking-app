@@ -301,9 +301,15 @@ header:hover {
 }
 
 .hero-card:hover {
-  background-color: color-mix(in srgb, var(--primary-blue) 15%, var(--offwhite)) !important;
-  border-color: var(--primary-blue) !important;
-  color: var(--primary-blue) !important;
+  background-color: var(--primary-blue) !important;
+}
+
+.hero-card a {
+  color: var(--black) !important;
+}
+
+.hero-card:hover a {
+  color: var(--offwhite) !important;
 }
 
 @media (max-width: 576px) {
