@@ -340,6 +340,10 @@ header:hover {
     width: 100%;
   }
 
+  .hero-cta-btn {
+    height: 150px;
+  }
+
   .hero-cta-btn.nav-block-btn {
     justify-content: center !important;
   }
@@ -349,6 +353,13 @@ header:hover {
   font-size: 3rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
+}
+
+@media (max-width: 991px) {
+  .split-section-text {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 @media (min-width: 992px) {
