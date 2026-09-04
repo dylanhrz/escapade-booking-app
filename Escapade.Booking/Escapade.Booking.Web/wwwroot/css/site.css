@@ -302,6 +302,11 @@ header:hover {
   padding: 5rem !important;
 }
 
+.hero-cta-content h2 {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
 @media (max-width: 991px) {
   .hero-cta-col h2 {
     font-size: 1.5rem;
@@ -310,10 +315,6 @@ header:hover {
   .hero-cta-content {
     padding: 3rem !important;
   }
-}
-
-.hero-cta-content h2 {
-  font-weight: 300;
 }
 
 .hero-cta-btn {
