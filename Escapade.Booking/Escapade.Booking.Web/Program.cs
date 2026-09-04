@@ -1,7 +1,11 @@
 using Escapade.Booking.Web.Data;
+using Escapade.Booking.Web.Services;
+using Escapade.Booking.Web.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddControllersWithViews();
 

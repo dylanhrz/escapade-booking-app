@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Escapade.Booking.Web.Data;
 using Escapade.Booking.Web.Models;
+using Escapade.Booking.Web.Services.Interfaces;
 using Escapade.Booking.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,12 @@ namespace Escapade.Booking.Web.Controllers;
 public class BookingController : Controller
 {
     private readonly EscapadeDbContext _escapadeDbContext;
+    private readonly IEmailService _emailService;
 
-    public BookingController(EscapadeDbContext escapadeDbContext)
+    public BookingController(EscapadeDbContext escapadeDbContext, IEmailService emailService)
     {
         _escapadeDbContext = escapadeDbContext;
+        _emailService = emailService;
     }
     
     public IActionResult Index()
@@ -32,7 +35,7 @@ public class BookingController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult CreateBooking(BookingCreateBookingViewModel bookingCreateBookingViewModel)
+    public async Task<IActionResult> CreateBooking(BookingCreateBookingViewModel bookingCreateBookingViewModel)
     {
         if (bookingCreateBookingViewModel.StartDate.HasValue && bookingCreateBookingViewModel.EndDate.HasValue)
         {
@@ -62,12 +65,24 @@ public class BookingController : Controller
         
         try
         {
-            _escapadeDbContext.SaveChanges();
+            await _escapadeDbContext.SaveChangesAsync();
         }
         catch (DbUpdateException dbUpdateException)
         {
             Debug.WriteLine(dbUpdateException.Message);
             return View("Error", new ErrorViewModel());
+        }
+        
+        var tracking = Url.Action(
+            action: nameof(TrackBooking),
+            controller: "Booking",
+            values: new { token = booking.AccesToken },
+            protocol: Request.Scheme
+        );
+        
+        if (!string.IsNullOrEmpty(tracking))
+        {
+           await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
         }
 
         return RedirectToAction("Index");
