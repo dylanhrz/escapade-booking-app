@@ -1,4 +1,4 @@
-@model BookingNewBookingViewModel
+@model BookingCreateBookingViewModel
 
 @section Scripts {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -11,7 +11,7 @@
 
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
-        <form asp-controller="Booking" asp-action="NewBooking" method="post" enctype="multipart/form-data">
+        <form asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
             
             <div asp-validation-summary="ModelOnly" class="text-danger p-3 fw-bold border-bottom border-dark"></div>
 

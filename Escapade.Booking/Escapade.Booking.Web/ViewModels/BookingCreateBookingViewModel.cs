@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Escapade.Booking.Web.ViewModels;
 
-public class BookingNewBookingViewModel
+public class BookingCreateBookingViewModel
 {
 
     [Required(ErrorMessage = "Naam is verplicht")]

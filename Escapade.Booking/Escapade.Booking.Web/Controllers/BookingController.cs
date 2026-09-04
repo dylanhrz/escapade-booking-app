@@ -22,21 +22,21 @@ public class BookingController : Controller
     }
     
     [HttpGet]
-    public IActionResult NewBooking()
+    public IActionResult CreateBooking()
     {
 
-        BookingNewBookingViewModel bookingNewBookingViewModel = new BookingNewBookingViewModel();
+        BookingCreateBookingViewModel bookingCreateBookingViewModel = new BookingCreateBookingViewModel();
 
-        return View(bookingNewBookingViewModel);
+        return View(bookingCreateBookingViewModel);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult NewBooking(BookingNewBookingViewModel bookingNewBookingViewModel)
+    public IActionResult CreateBooking(BookingCreateBookingViewModel bookingCreateBookingViewModel)
     {
-        if (bookingNewBookingViewModel.StartDate.HasValue && bookingNewBookingViewModel.EndDate.HasValue)
+        if (bookingCreateBookingViewModel.StartDate.HasValue && bookingCreateBookingViewModel.EndDate.HasValue)
         {
-            if (bookingNewBookingViewModel.EndDate.Value <= bookingNewBookingViewModel.StartDate.Value)
+            if (bookingCreateBookingViewModel.EndDate.Value <= bookingCreateBookingViewModel.StartDate.Value)
             {
                 ModelState.AddModelError("EndDate", "Vertrekdatum moet na de aankomstdatum liggen.");
             }
@@ -44,18 +44,18 @@ public class BookingController : Controller
         
         if (!ModelState.IsValid)
         {
-            return View(bookingNewBookingViewModel);
+            return View(bookingCreateBookingViewModel);
         }
 
         var booking = new Core.Entities.Booking()
         {
-            Name = bookingNewBookingViewModel.Name,
-            Email = bookingNewBookingViewModel.Email,
-            PhoneNumber = bookingNewBookingViewModel.PhoneNumber,
-            NumberOfGuests = bookingNewBookingViewModel.NumberOfGuests,
-            Comment = bookingNewBookingViewModel.Comment,
-            StartDate = bookingNewBookingViewModel.StartDate!.Value,
-            EndDate = bookingNewBookingViewModel.EndDate!.Value
+            Name = bookingCreateBookingViewModel.Name,
+            Email = bookingCreateBookingViewModel.Email,
+            PhoneNumber = bookingCreateBookingViewModel.PhoneNumber,
+            NumberOfGuests = bookingCreateBookingViewModel.NumberOfGuests,
+            Comment = bookingCreateBookingViewModel.Comment,
+            StartDate = bookingCreateBookingViewModel.StartDate!.Value,
+            EndDate = bookingCreateBookingViewModel.EndDate!.Value
         };
         
         _escapadeDbContext.Bookings.Add(booking);

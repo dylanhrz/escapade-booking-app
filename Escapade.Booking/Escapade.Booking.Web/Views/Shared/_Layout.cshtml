@@ -45,7 +45,7 @@
                         }
                         else
                         {
-                            <a class="nav-block-btn @(current == "Booking" ? "active" : "")" asp-controller="Booking" asp-action="NewBooking">
+                            <a class="nav-block-btn @(current == "Booking" ? "active" : "")" asp-controller="Booking" asp-action="CreateBooking">
                                 Boek nu
                             </a>
                         }
@@ -78,7 +78,7 @@
 <footer class="footer text-muted mt-auto pb-5">
     <div class="container-fluid px-4 px-md-5 mt-5">
         <p class="text-uppercase fw-bold text-dark">L'Escapade Ardennaise</p>
-        <a asp-controller="Booking" asp-action="NewBooking" class="text-dark custom-hover text-decoration-none">Verblijf aanvragen</a> <br />
+        <a asp-controller="Booking" asp-action="CreateBooking" class="text-dark custom-hover text-decoration-none">Verblijf aanvragen</a> <br />
         <a asp-controller="Contact" asp-action="Index" class="text-dark custom-hover text-decoration-none">Contact</a> <br />
         <a asp-controller="Admin" asp-action="Login" class="text-dark custom-hover text-decoration-none">Admin</a>
     </div>
