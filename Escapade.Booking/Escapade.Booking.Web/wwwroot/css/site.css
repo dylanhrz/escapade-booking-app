@@ -305,6 +305,20 @@ header:hover {
 .hero-cta-content h2 {
   font-size: 3rem;
   font-weight: 300;
+  line-height: 1.25;
+}
+
+.split-section-text {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+@media (max-width: 991px) {
+  .split-section-text {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 @media (max-width: 991px) {
@@ -347,19 +361,6 @@ header:hover {
 
   .hero-cta-btn.nav-block-btn {
     justify-content: center !important;
-  }
-}
-
-.split-section-text {
-  font-size: 3rem;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-@media (max-width: 991px) {
-  .split-section-text {
-    font-size: 2rem;
-    text-align: center;
   }
 }
 
