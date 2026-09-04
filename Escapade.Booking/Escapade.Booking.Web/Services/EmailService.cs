@@ -1,17 +1,19 @@
+using System.Net;
+using System.Net.Mail;
 using Escapade.Booking.Web.Services.Interfaces;
 
 namespace Escapade.Booking.Web.Services;
 
 public class EmailService : IEmailService
 {
-    private readonly ILogger<EmailService> _logger;
-
-    public EmailService(ILogger<EmailService> logger)
+    private readonly IConfiguration _configuration;
+    
+    public EmailService(IConfiguration configuration)
     {
-        _logger = logger;
+        _configuration = configuration;
     }
     
-    public Task SendBookingConfirmationAsync(string toEmail, string name, string tracking)
+    public async Task SendBookingConfirmationAsync(string toEmail, string name, string tracking)
     {
         var subject = "Bevestiging van je boeking - L'Escapade Ardennaise";
         
@@ -22,8 +24,29 @@ public class EmailService : IEmailService
             <p><a href='{tracking}' style='padding: 10px 20px; background-color: #0077ff; color: white; text-decoration: none;'>Bekijk je boeking</a></p>
             <p>Lukt de knop niet? Kopieer dan deze link naar je browser:<br>{tracking}</p>";
         
-        _logger.LogInformation("[EMAIL STUB] Mail verzonden naar {Email} met link: {TrackingUrl}", toEmail, tracking);
+        var host = _configuration["Smtp:Host"];
+        var port = int.Parse(_configuration["Smtp:Port"] ?? "587");
+        var username = _configuration["Smtp:Username"];
+        var password = _configuration["Smtp:Password"];
+        var fromAddress = _configuration["Smtp:FromAddress"];
+        var fromName = _configuration["Smtp:FromName"];
+
+        using var client = new SmtpClient(host, port)
+        {
+            Credentials = new NetworkCredential(username, password),
+            EnableSsl = true
+        };
+
+        var mailMessage = new MailMessage
+        {
+            From = new MailAddress(fromAddress!, fromName),
+            Subject = subject,
+            Body = body,
+            IsBodyHtml = true
+        };
         
-        return Task.CompletedTask;
+        mailMessage.To.Add(toEmail);
+        
+        await client.SendMailAsync(mailMessage);
     }
 }

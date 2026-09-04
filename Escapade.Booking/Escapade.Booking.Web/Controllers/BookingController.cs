@@ -82,7 +82,7 @@ public class BookingController : Controller
         
         if (!string.IsNullOrEmpty(tracking))
         {
-           await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
+            await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
         }
 
         return RedirectToAction("Index");
