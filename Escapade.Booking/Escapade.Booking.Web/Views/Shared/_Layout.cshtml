@@ -39,7 +39,7 @@
                     <li class="nav-item d-flex align-items-center">
                         @if (Context.Session.GetString("AdminId") != null)
                         {
-                            <a class="nav-block-btn" asp-controller="Admin" asp-action="Logout">
+                            <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")" asp-controller="Admin" asp-action="Logout">
                                 Uitloggen
                             </a>
                         }
