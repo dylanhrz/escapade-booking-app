@@ -49,7 +49,8 @@ public static class DataSeeder
                 NumberOfGuests = 4,
                 Comment = "Komen voor een wielerweek. Is er een veilige plek om de koersfietsen binnen te stallen?",
                 StartDate = new DateTime(2026, 1, 15),
-                EndDate = new DateTime(2026, 1, 22)
+                EndDate = new DateTime(2026, 1, 22),
+                Created = new DateTime(2026, 1, 10)
             },
             new BookingEntity
             {
@@ -61,7 +62,8 @@ public static class DataSeeder
                 NumberOfGuests = 2,
                 Comment = "Weekendje wandelen in de Ardennen.",
                 StartDate = new DateTime(2026, 4, 2),
-                EndDate = new DateTime(2026, 4, 5)
+                EndDate = new DateTime(2026, 4, 5),
+                Created = new DateTime(2026, 3, 20)
             }
         };
         

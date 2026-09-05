@@ -36,4 +36,6 @@ public class BookingCreateBookingViewModel
     [DataType(DataType.Date)]
     [Display(Name = "Vertrekdatum")]
     public DateTime? EndDate { get; set; }
+
+    public DateTime BookingCreated { get; set; }
 }

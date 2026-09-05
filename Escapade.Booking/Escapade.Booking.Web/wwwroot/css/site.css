@@ -509,8 +509,7 @@ footer {
 .admin-cell {
   border-bottom: 2px solid #000;
   box-sizing: border-box;
-  background-color: var(--primary-green);
-  color: var(--offwhite);
+  background-color: var(--secondary-green);
 }
 
 .admin-cell h2 {
@@ -536,6 +535,43 @@ footer {
 .admin-booking-btn:hover {
   background-color: var(--black);
   color: var(--offwhite);
+}
+
+.step-cell {
+  opacity: 0.5;
+}
+
+.step-cell.active {
+  opacity: 1;
+  background-color: var(--offwhite);
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--black);
+  background-color: var(--offwhite);
+  color: var(--black);
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.step-cell.active .step-badge {
+  background-color: var(--primary-green);
+  color: var(--black);
+}
+
+.step-cell.rejected {
+  opacity: 1;
+  background-color: var(--primary-red);
+}
+
+.step-cell.rejected .step-badge {
+  background-color: var(--primary-red);
+  color: #ffffff;
 }
 
 .flatpickr-calendar.inline,

@@ -58,7 +58,7 @@ public class BookingController : Controller
             NumberOfGuests = bookingCreateBookingViewModel.NumberOfGuests,
             Comment = bookingCreateBookingViewModel.Comment,
             StartDate = bookingCreateBookingViewModel.StartDate!.Value,
-            EndDate = bookingCreateBookingViewModel.EndDate!.Value
+            EndDate = bookingCreateBookingViewModel.EndDate!.Value,
         };
         
         _escapadeDbContext.Bookings.Add(booking);
@@ -100,6 +100,8 @@ public class BookingController : Controller
         {
             Name = booking.Name,
             Email = booking.Email,
+            NumberOfGuests = booking.NumberOfGuests,
+            BookingRequested = booking.Created,
             StartDate = booking.StartDate,
             EndDate = booking.EndDate,
             AccessToken = booking.AccesToken,

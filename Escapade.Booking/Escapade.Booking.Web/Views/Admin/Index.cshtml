@@ -7,14 +7,14 @@
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
         
-        <div class="admin-cell col-12 p-5">
-            <h2 class="text-uppercase font-non-serif m-0">Aankomende boekingen</h2>
+        <div class="admin-cell col-12 p-4">
+            <h2 class="text-uppercase font-non-serif m-0 fw-lighter">Aankomende boekingen</h2>
         </div>
 
         <div>
             @if (!Model.UpcomingBookings.Any())
             {
-                <div class="p-0">
+                <div class="p-5 border-bottom-2">
                     <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn momenteel geen aankomende boekingen.</p>
                 </div>
             }
@@ -74,8 +74,8 @@
             }
         </div>
         
-        <div class="admin-cell col-12 p-5">
-            <h2 class="text-uppercase font-non-serif m-0">Afgelopen Boekingen</h2>
+        <div class="admin-cell col-12 p-4">
+            <h2 class="text-uppercase font-non-serif m-0 fw-lighter">Afgelopen Boekingen</h2>
         </div>
 
         <div>

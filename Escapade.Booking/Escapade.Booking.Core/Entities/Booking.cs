@@ -8,6 +8,7 @@ public class Booking
     public string PhoneNumber { get; set; }
     public int NumberOfGuests { get; set; }
     public string? Comment { get; set; }
+    public DateTime Created { get; set; } = DateTime.Now;
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 
