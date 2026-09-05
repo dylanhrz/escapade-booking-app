@@ -98,6 +98,7 @@ public class BookingController : Controller
 
         BookingTrackBooking bookingTrackBooking = new BookingTrackBooking()
         {
+            Name = booking.Name,
             Email = booking.Email,
             StartDate = booking.StartDate,
             EndDate = booking.EndDate,

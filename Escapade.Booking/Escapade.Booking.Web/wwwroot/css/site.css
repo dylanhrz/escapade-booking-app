@@ -73,6 +73,10 @@ a {
   color: var(--primary-green);
 }
 
+.bg-custom {
+  background-color: var(--primary-red);
+}
+
 .custom-hover:hover {
   color: var(--primary-green) !important;
 }

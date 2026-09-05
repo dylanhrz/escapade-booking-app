@@ -2,42 +2,72 @@
 
 @{
     ViewData["Title"] = "Status Boeking";
+    Layout = null;
 }
 
-<div>
-    <h2 class="mb-5">Status bestelling</h2>
-    <span class="text-muted small">Acces Token: @Model.AccessToken</span>
-    <span class="badge bg-dark text-uppercase px-3 py-2">Status: @Model.Status</span>
-</div>
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - L'Escapade Ardennaise</title>
+        
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </head>
 
-<div>
-    @if (Model.Status == "Pending")
-    {
-        <div class="alert alert-warning border border-dark rounded-0 mb-0">
-            <strong>In behandeling: </strong> We hebben je aanvraag voor <em>@Model.Email</em> goed ontvangen en beoordelen deze zo snel mogelijk.
-        </div>
-    }
-    else if (Model.Status == "Approved")
-    {
-        <div class="alert alert-success border border-dark rounded-0 mb-0">
-            <strong>Goedgekeurd</strong>
-        </div>
-    }
-    else if (Model.Status == "Rejected")
-    {
-        <div class="alert alert-danger border border-dark rounded-0 mb-0">
-            <strong>Geweigerd</strong>
-        </div>
-    }
-</div>
+    <body class="bg-offwhite">
 
-<div>
-    <div class="col-6">
-        <p class="mb-1 text-muted small">AANKOMST</p>
-        <p class="fw-bold m-0">@Model.StartDate.ToString("dd/MM/yyyy")</p>
-    </div>
-    <div class="col-6">
-        <p class="mb-1 text-muted small">VERTREK</p>
-        <p class="fw-bold m-0">@Model.EndDate.ToString("dd/MM/yyyy")</p>
-    </div>
-</div>
+        <section class="full-bleed position-relative">
+            <div class="container-fluid p-0">
+                
+                <div class="admin-cell p-5">
+                    <h2 class="text-uppercase font-non-serif m-0">Hallo, @Model.Name</h2>
+                </div>
+
+                <div class="row g-0">
+                    <div class="col-6 border-right border-dark border-2">
+                        <p class="text-muted p-5 m-0">Acces Token: <strong>@Model.AccessToken</strong></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="p-5 m-0">Status: <strong class="text-uppercase">@Model.Status</strong></p>
+                    </div>
+                </div>
+                
+                <div class="row g-0">
+                    <div class="col-12">
+                        @if (Model.Status == "Pending")
+                        {
+                            <div class="m-0 p-5 border-top-2 border-bottom-2">
+                                <strong class="text-uppercase text-highlight">In behandeling</strong> <br />We hebben je aanvraag voor <em>@Model.Email</em> goed ontvangen en beoordelen deze zo snel mogelijk.
+                            </div>
+                        }
+                        else if (Model.Status == "Approved")
+                        {
+                            <div class="alert alert-success border border-dark rounded-0 m-0 p-5">
+                                <strong>Goedgekeurd</strong>
+                            </div>
+                        }
+                        else if (Model.Status == "Rejected")
+                        {
+                            <div class="alert alert-danger border border-dark rounded-0 m-0 p-5">
+                                <strong>Geweigerd</strong>
+                            </div>
+                        }
+                    </div>    
+                    
+                    <div class="row g-0 border-bottom-2">
+                        <div class="col-6 border-end border-2 border-dark">
+                            <p class="p-5 m-0">Aankomst: <span class="fw-bolder">@Model.StartDate.ToString("dd/MM/yyyy")</span></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="p-5 m-0">Vertrek: <span class="fw-bolder">@Model.EndDate.ToString("dd/MM/yyyy")</span></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>
