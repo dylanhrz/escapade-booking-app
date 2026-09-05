@@ -50,6 +50,10 @@ a {
   border-top: 2px solid var(--black) !important;
 }
 
+.border-bottom-2 {
+  border-bottom: 2px solid var(--black) !important;
+}
+
 .min-vh-50 {
   min-height: 700px;
 }
@@ -447,7 +451,7 @@ footer {
 .form-btn {
   background-color: #fff;
   color: #000;
-  border: none;
+  border: 2px solid var(--black);
   padding: 1rem 1.5rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -459,6 +463,19 @@ footer {
 .form-btn:hover {
   background-color: var(--primary-blue, #0055ff);
   color: #fff;
+}
+
+.custom-validation-summary,
+.custom-validation-summary ul,
+.custom-validation-summary li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  color: var(--bs-danger) !important;
+  font-weight: 800 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .flatpickr-calendar.inline,

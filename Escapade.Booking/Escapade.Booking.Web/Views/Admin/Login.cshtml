@@ -2,59 +2,63 @@
 
 @{
     ViewData["Title"] = "Log in";
+    
+    var modelOnlyErrors = ViewData.ModelState[string.Empty]?.Errors.Count > 0;
 }
 
-<div class="d-flex flex-column align-items-center justify-content-center py-5 mt-5">
-    <div class="w-100 mt-5" style="max-width: 400px;">
-        
-        <h1 class="font-serif text-center mb-5 display-5 mt-5">
-            @ViewData["Title"]
-        </h1>
-        
-        <form asp-controller="Admin" asp-action="Login" method="post" class="d-flex flex-column gap-3">
+<section class="full-bleed position-relative">
+    <div class="container-fluid p-0">
+        <form asp-controller="Admin" asp-action="Login" method="post" class="d-flex flex-column">
             
-            <div asp-validation-summary="ModelOnly" class="text-danger small text-center fw-bold"></div>
+            @if (modelOnlyErrors)
+            {
+                <div class="form-cell col-12 p-5 border-bottom-2">
+                    <div asp-validation-summary="ModelOnly" class="custom-validation-summary"></div>
+                </div>
+            }
             
-            <div class="d-flex flex-column gap-1">
-                
-                <label asp-for="Email" class="fw-bolder text-uppercase small">
-                    @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
-                    {
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    }
-                    else
-                    {
-                        <span>Email</span>
-                    }
-                </label>
+            <div class="form-grid">
+                <div class="form-cell col-12 col-md-6 p-5">
+                    
+                    <label asp-for="Email" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span>Email</span>
+                        }
+                    </label>
 
-                <input asp-for="Email"
-                       class="px-3 py-2 bg-white border rounded-0 border-secondary-subtle"/>
+                    <input asp-for="Email" class="form-input"/>
+                    
+                </div>
+                
+                <div class="form-cell col-12 col-md-6 p-5">
+                    
+                    <label asp-for="Password" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span>Wachtwoord</span>
+                        }
+                    </label>
+
+                    <input asp-for="Password" type="password" class="form-input"/>
+                    
+                </div>
             </div>
             
-            <div class="d-flex flex-column gap-1">
-                
-                <label asp-for="Password" class="fw-bolder text-uppercase small">
-                    @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
-                    {
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    }
-                    else
-                    {
-                        <span>Wachtwoord</span>
-                    }
-                </label>
-
-                <input asp-for="Password"
-                       type="password"
-                       class="px-3 py-2 bg-white border rounded-0 border-secondary-subtle"/>
+            <div class="form-cell col-12 p-5 d-flex justify-content-center align-items-center">
+                <button type="submit" class="form-btn w-auto px-5">
+                    Inloggen
+                </button>
             </div>
 
-            <button type="submit" 
-                    class="btn text-uppercase w-100 py-2 mt-3 fw-medium border-0 rounded-0 custom-button-outline">
-                Inloggen
-            </button>
         </form>
-
     </div>
-</div>
+</section>
