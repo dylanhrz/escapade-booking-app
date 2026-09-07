@@ -4,21 +4,34 @@
 
 <section class="full-bleed position-relative min-vh-50">   
     <div class="container-fluid p-0">
-        <div>
-            
-            <h2 class="font-non-serif p-5 border border-bottom-2">Danku, u boekingaanvraag is verstuurd</h2>
+        
+        <div class="row">
 
-            <p class="lead mb-4">
-                Wendy neemt zo snel mogelijk contact met je op om je verblijf te bevestigen.
-            </p>
-            
-            <p>
-                Je kan 
-                <a asp-controller="Booking" asp-action="TrackBooking" asp-route-token="@ViewBag.Token">
-                    je volledige boekingaanvraag bekijken hier
-                </a>, 
-                of in je inbox van je email.
-            </p>            
+            <div class="booking-confirmation col-lg-6 p-5 border-end-2 min-vh-50">
+
+                <h2 class="font-non-serif text-uppercase">
+                    Danku, <br/>
+                    u boekingaanvraag is verstuurd
+                </h2>
+
+                <p class="mt-3">
+                    Wendy neemt zo snel mogelijk contact met je op om je verblijf te bevestigen. Je kan
+                    <a asp-controller="Booking" 
+                       asp-action="TrackBooking" 
+                       asp-route-token="@ViewBag.Token" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="custom-button p-1 text-decoration-none">
+                        je boeking volgen via deze link,</a> of in de inbox van je email.
+                </p>
+
+            </div>
+
+            <div class="col-lg-6 p-5">
+                    
+            </div>
+
         </div>
+        
     </div>
 </section>

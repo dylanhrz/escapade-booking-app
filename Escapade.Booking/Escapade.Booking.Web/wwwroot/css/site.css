@@ -73,6 +73,10 @@ a {
   color: var(--primary-green);
 }
 
+.bg-custom-green {
+  background-color: var(--primary-green);
+}
+
 .bg-custom {
   background-color: var(--primary-red);
 }
@@ -505,6 +509,19 @@ footer {
   font-size: 1rem !important;
   text-transform: uppercase;
   text-align: center;
+}
+
+.booking-confirmation {
+  height: 90vh;
+}
+
+.booking-confirmation h2 {
+  font-size: 3.5rem;
+  font-weight: 100;
+}
+
+.booking-confirmation p {
+  font-size: 1.25rem;
 }
 
 .admin-cell {
