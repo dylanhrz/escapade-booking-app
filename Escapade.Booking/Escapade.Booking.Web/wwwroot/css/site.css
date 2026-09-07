@@ -65,6 +65,10 @@ a {
   border-right: 2px solid var(--black) !important;
 }
 
+.border-left-green {
+  border-left: 2px solid var(--primary-green);
+}
+
 .min-vh-50 {
   min-height: 700px;
 }

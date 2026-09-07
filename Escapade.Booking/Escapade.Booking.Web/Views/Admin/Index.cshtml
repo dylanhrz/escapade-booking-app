@@ -4,120 +4,146 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<section class="full-bleed position-relative">
+<section class="full-bleed position-relative overflow-hidden">
     <div class="container-fluid p-0">
         
-        <div class="admin-cell col-12 p-4">
-            <h2 class="text-uppercase font-non-serif m-0 fw-lighter">Aankomende boekingen</h2>
+        <div class="row g-0 align-items-end border-bottom-2">
+            <div class="col-lg-4 p-4 p-lg-5">
+                <span class="text-uppercase small fw-bold text-muted d-block">Dashboard</span>
+                <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
+            </div>
+            <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
+                <span class="display-2 font-non-serif text-muted fw-light opacity-50 m-0">
+                    @DateTime.Now.Year
+                </span>
+            </div>
         </div>
 
         <div>
             @if (!Model.UpcomingBookings.Any())
             {
-                <div class="p-5 border-bottom-2">
+                <div class="p-4 p-lg-5 border-bottom-2">
                     <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn momenteel geen aankomende boekingen.</p>
                 </div>
             }
             else
             {
-                <div class="full-bleed">
-                    @foreach (var booking in Model.UpcomingBookings)
-                    {
-                        <div class="border-bottom-2">
-                            
-                            <div class="row g-0">
+                @foreach (var booking in Model.UpcomingBookings)
+                {
+                    <div class="border-bottom-2">
+                        <div class="row g-0">
 
-                                <div class="col-6 p-5 border-end border-2 border-dark d-flex align-items-center form-cell border-0">
-                                    <span class="fw-bolder">
-                                        @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
+                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 d-flex align-items-center border-end-2">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="display-4 font-non-serif fw-bold lh-1 m-0">
+                                        @booking.StartDate.ToString("dd")
                                     </span>
-                                </div>
-                                
-                                <div class="col-6 p-5 form-cell border-0">
-                                    <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif">@booking.Name</h3>
-                                    <p class="m-0 mt-2">Email: <span class="fw-bolder">@booking.Email</span></p>
-                                    <p class="m-0 mt-1">Telefoon: <span class="fw-bolder">@booking.PhoneNumber</span></p>
-                                    
-                                    @if (@booking.NumberOfGuests > 1)
-                                    {
-                                        <p class="m-0 mt-1">Aantal personen: <span class="fw-bolder">@booking.NumberOfGuests gasten</span></p>
-                                    }
-                                    else
-                                    {
-                                        <p class="m-0 mt-1">Aantal personen: <span class="fw-bolder">@booking.NumberOfGuests gast</span></p>
-                                    }
-                                    
-                                    @if (!string.IsNullOrEmpty(booking.Comment))
-                                    {
-                                        <div class="mt-5">
-                                            <p class="small m-0"><em>"@booking.Comment"</em></p>
-                                        </div>
-                                    }
-                                    
+                                    <div class="d-flex flex-column text-uppercase border-start border-dark border-2 ps-3">
+                                        <span class="fw-bold small lh-1">
+                                            @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
+                                        </span>
+                                        <span class="text-muted extra-small mt-1 font-monospace">
+                                            t/m @booking.EndDate.ToString("dd MMM", new System.Globalization.CultureInfo("nl-BE"))
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="row g-0 border-top-2">
-                                <div class="col-6 border-end-2">
-                                    <a asp-controller="Booking"
-                                       asp-action="TrackBooking"
-                                       asp-route-token="@booking.AccessToken"
-                                       target="_blank"
-                                       class="admin-booking-btn">
-                                        Bekijk Klantenpagina
-                                    </a>
+                            <div class="col-12 col-md-8 col-lg-6 p-4 p-lg-5">
+                                <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif display-6">@booking.Name</h3>
+                                
+                                <div class="mt-3">
+                                    <p class="m-0 text-muted small">Email: <span class="fw-bold text-dark font-monospace">@booking.Email</span></p>
+                                    <p class="m-0 text-muted small">Telefoon: <span class="fw-bold text-dark font-monospace">@booking.PhoneNumber</span></p>
+                                    <p class="m-0 text-muted small">Gasten: <span class="fw-bold text-dark">@booking.NumberOfGuests @(booking.NumberOfGuests > 1 ? "gasten" : "gast")</span></p>
                                 </div>
+
+                                @if (!string.IsNullOrEmpty(booking.Comment))
+                                {
+                                    <div class="mt-4 p-3 border-left-green">
+                                        <p class="small m-0 text-muted">@booking.Comment</p>
+                                    </div>
+                                }
                             </div>
+
+                            <div class="col-12 col-lg-3 p-4 p-lg-5 d-flex align-items-center justify-content-start justify-content-lg-center">
+                                <a asp-controller="Booking"
+                                   asp-action="TrackBooking"
+                                   asp-route-token="@booking.AccessToken"
+                                   target="_blank"
+                                   class="btn btn-outline-dark text-uppercase fw-bold w-100 rounded-0 py-3 small">
+                                    Tracking Klant
+                                </a>
+                            </div>
+
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             }
         </div>
         
-        <div class="admin-cell col-12 p-4">
-            <h2 class="text-uppercase font-non-serif m-0 fw-lighter">Afgelopen Boekingen</h2>
+        <div class="row g-0 align-items-end mt-5 border-bottom-2">
+            <div class="col-lg-4 p-4 p-lg-5">
+                <h2 class="display-5 font-non-serif text-uppercase fw-light m-0">Afgelopen Boekingen</h2>
+            </div>
+            <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
+                <span class="display-2 font-non-serif text-muted fw-light opacity-25 m-0">
+                    Archief
+                </span>
+            </div>
         </div>
 
         <div>
-
             @if (!Model.PastBookings.Any())
             {
-                <div class="p-0">
+                <div class="p-4 p-lg-5 border-bottom-2">
                     <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn geen eerdere boekingen te vinden.</p>
                 </div>
             }
             else
             {
-                <div class="full-bleed">
-                    @foreach (var booking in Model.PastBookings)
-                    {
-                        <div class="text-secondary border-bottom-2">
-                            
-                            <div class="row g-0">
+                @foreach (var booking in Model.PastBookings)
+                {
+                    <div class="border-bottom-2 opacity-75">
+                        <div class="row g-0">
 
-                                <div class="col-6 p-5 border-end border-2 border-dark d-flex align-items-center">
-                                    <span class="fw-bolder">
-                                        @booking.StartDate.ToString("dd/MM/yyyy") — @booking.EndDate.ToString("dd/MM/yyyy")
+                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 border-end-2 d-flex align-items-center">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="display-5 font-non-serif fw-bold lh-1 m-0 text-muted">
+                                        @booking.StartDate.ToString("dd")
                                     </span>
+                                    <div class="d-flex flex-column text-uppercase border-start border-secondary border-2 ps-3">
+                                        <span class="fw-bold small lh-1 text-muted">
+                                            @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
+                                        </span>
+                                        <span class="text-muted extra-small mt-1 font-monospace">
+                                            t/m @booking.EndDate.ToString("dd MMM", new System.Globalization.CultureInfo("nl-BE"))
+                                        </span>
+                                    </div>
                                 </div>
-                                
-                                <div class="col-6 p-5">
-                                    <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif">@booking.Name</h3>
-                                    <p class="small mb-0 mt-2">Email: <span class="fw-bolder">@booking.Email</span></p>
-                                    <p class="m-0 mt-1">Telefoon: <span class="fw-bolder">@booking.PhoneNumber</span></p>
-                                </div>
-
                             </div>
+                            
+                            <div class="col-12 col-md-8 col-lg-9 p-4 p-lg-5">
+                                <h3 class="text-uppercase fw-bold m-0 text-muted font-non-serif h4">@booking.Name</h3>
+                                <p class="small text-muted mb-0 mt-1">
+                                    <span class="font-monospace">@booking.Email</span> 
+                                    <br /> 
+                                    <span class="font-monospace">@booking.PhoneNumber</span>
+                                </p>
+                            </div>
+
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             }
         </div>
         
-        <div class="col-12">
-            <a asp-controller="Admin" asp-action="" class="admin-booking-btn">
-                Alle afgelopen boekingen
-            </a>
+        <div class="row g-0">
+            <div class="col-12">
+                <a asp-controller="Admin" asp-action="" class="d-block w-100 p-4 p-lg-5 text-center text-uppercase fw-bold text-dark text-decoration-none">
+                    Bekijk alle afgelopen boekingen
+                </a>
+            </div>
         </div>
         
     </div>
