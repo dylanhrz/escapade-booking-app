@@ -42,3 +42,43 @@ document.addEventListener("DOMContentLoaded", () => {
         input.addEventListener('input', () => checkValue(input));
     });
 });
+
+function openConfirmationModal() {
+    const emailInput = document.getElementById('Email');
+    const confirmEmailDisplay = document.getElementById('confirmEmailDisplay');
+
+    const emailValue = emailInput ? emailInput.value.trim() : '';
+
+    if (!emailValue) {
+        alert('Vul een geldig e-mailadres in voordat u de aanvraag verstuurt.');
+        if (emailInput) emailInput.focus();
+        return;
+    }
+
+    if (confirmEmailDisplay) {
+        confirmEmailDisplay.textContent = emailValue;
+    }
+
+    const modalElement = document.getElementById('confirmationModal');
+    if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+    }
+}
+
+function submitForm() {
+    const form = document.getElementById('booking');
+    if (form) {
+        form.submit();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("booking");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            openConfirmationModal();
+        });
+    }
+});

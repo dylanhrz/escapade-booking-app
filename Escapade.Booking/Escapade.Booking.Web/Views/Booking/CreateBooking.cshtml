@@ -3,15 +3,18 @@
 @section Scripts {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
 }
 
 @{
-    ViewData["Title"] = "Boeking Aanvraag";
+    ViewData["Title"] = "Boeking Aanvragen";
 }
 
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
-        <form asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
+        <form id="booking" asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
+            
+            @Html.AntiForgeryToken()
             
             <div asp-validation-summary="ModelOnly" class="text-danger p-3 fw-bold border-bottom border-dark"></div>
 
@@ -46,7 +49,7 @@
                         }
                     </label>
                     
-                    <input asp-for="Email" class="form-input" />
+                    <input asp-for="Email" id="Email" class="form-input" />
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
@@ -123,7 +126,7 @@
 
                 <div class="form-cell form-inverted col-12 p-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                     <h3 class="display-6 fw-bold text-white m-0">Klaar om te verzenden?</h3>
-                    <button type="submit" class="form-btn w-auto px-5">
+                    <button type="button" class="form-btn w-auto px-5" onclick="openConfirmationModal()">
                         Aanvraag Versturen
                     </button>
                 </div>
@@ -132,3 +135,32 @@
         </form>
     </div>
 </section>
+
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border border-dark rounded-0">
+            <div class="modal-header bg-dark text-white rounded-0">
+                <h5 class="modal-title text-uppercase fw-bold" id="confirmationModalLabel">Bevestig uw aanvraag</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Sluiten"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p class="mb-3">
+                    Controleer uw e-mailadres voordat u de aanvraag definitief verstuurt:
+                </p>
+                <div class="p-3 bg-light border border-dark fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
+                </div>
+                <p class="text-muted small m-0">
+                    Klopt dit e-mailadres? Zo ja, sturen wij uw boekingaanvraag direct door naar de eigenaar.
+                </p>
+            </div>
+            <div class="modal-footer border-top border-dark d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-dark rounded-0 px-4" data-bs-dismiss="modal">
+                    Aanpassen
+                </button>
+                <button type="button" class="btn btn-dark rounded-0 px-4" onclick="submitForm()">
+                    Verstuur naar eigenaar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
