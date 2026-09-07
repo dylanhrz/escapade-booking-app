@@ -437,7 +437,7 @@ footer {
 .form-cell {
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
-  padding: 10rem 5rem !important;
+  padding: 5rem !important;
   background-color: var(--offwhite, #f4f3ef);
   box-sizing: border-box;
 }
@@ -490,7 +490,7 @@ footer {
 }
 
 .form-btn {
-  background-color: #fff;
+  background-color: var(--offwhite);
   color: #000;
   border: 2px solid var(--black);
   padding: 1rem 1.5rem;

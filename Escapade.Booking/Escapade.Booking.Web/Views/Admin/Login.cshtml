@@ -8,6 +8,7 @@
 
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
+        
         <form asp-controller="Admin" asp-action="Login" method="post" class="d-flex flex-column">
             
             @if (modelOnlyErrors)
@@ -18,7 +19,7 @@
             }
             
             <div class="form-grid">
-                <div class="form-cell col-12 col-md-6 p-5">
+                <div class="form-cell border-bottom-0 col-12 col-md-6 p-5">
                     
                     <label asp-for="Email" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
@@ -35,7 +36,7 @@
                     
                 </div>
                 
-                <div class="form-cell col-12 col-md-6 p-5">
+                <div class="form-cell border-bottom-0 col-12 col-md-6 p-5">
                     
                     <label asp-for="Password" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
@@ -53,12 +54,14 @@
                 </div>
             </div>
             
-            <div class="form-cell col-12 p-5 d-flex justify-content-center align-items-center border-bottom-0">
-                <button type="submit" class="form-btn w-auto px-5">
-                    Inloggen
-                </button>
+            <div class="row g-0">
+                <div class="col-12">
+                    <button type="submit" class="form-btn py-4 fs-5 d-flex align-items-center justify-content-center gap-3">
+                        <span>Aanmelden</span>
+                    </button>
+                </div>
             </div>
 
-        </form>
+            </form>
     </div>
 </section>
