@@ -81,6 +81,10 @@ a {
   background-color: var(--primary-red);
 }
 
+.color-green {
+  color: var(--primary-green);
+}
+
 .custom-hover:hover {
   color: var(--primary-green) !important;
 }
@@ -524,6 +528,27 @@ footer {
   font-size: 1.25rem;
 }
 
+.booking-tracking h2 {
+  font-size: 3.5rem;
+  font-weight: 100;
+}
+
+.booking-tracking h3 {
+  font-size: 1.25rem;
+  font-weight: 100;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.booking-tracking p {
+}
+
+.booking-tracking strong {
+  font-size: 3.5rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
 .admin-cell {
   border-bottom: 2px solid #000;
   box-sizing: border-box;
@@ -561,7 +586,8 @@ footer {
 
 .step-cell.active {
   opacity: 1;
-  background-color: var(--offwhite);
+  background-color: var(--secondary-green);
+  color: var(--offwhite);
 }
 
 .step-badge {

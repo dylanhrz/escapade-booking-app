@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Status Boeking";
-    Layout = null;
 
     int currentStatus = Model.Status switch
     {
@@ -15,105 +14,113 @@
     };
 
     bool isRejected = Model.Status == "Rejected";
-    
 }
 
-<!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - L'Escapade Ardennaise</title>
+<section class="full-bleed position-relative">
+    <div class="container-fluid p-0">
         
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    </head>
-
-    <body>
-        <section class="full-bleed position-relative">
-            <div class="container-fluid p-0">
-                
-                <div class="admin-cell p-4">
-                    <h2 class="text-uppercase font-non-serif m-0 fw-lighter">@ViewData["Title"]</h2>
-                </div>
-
-                <div class="row g-0">
-                    <div class="col-3 border-right border-dark border-2 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Boeking nummer</p>
-                        <strong>@Model.AccessToken</strong>
-                    </div>
-                    <div class="col-3 border-right border-dark border-2 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Boeking aangevraagd</p>
-                        <strong>@Model.BookingRequested</strong>
-                    </div>
-                    <div class="col-3 border-right border-dark border-2 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Aantal gasten</p>
-                        <strong>@Model.NumberOfGuests</strong>
-                    </div>
-                    <div class="col-3 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Status</p>
-                        <strong>@Model.Status</strong>
-                    </div>
-                </div>
-                 
-                <div class="row g-0 border-bottom-2 border-top-2">
-                    <div class="col-6 border-right border-dark border-2 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Aankomst Datum</p>
-                        <strong>@Model.StartDate.ToString("dd/MM/yyyy")</strong>
-                    </div>
-                    <div class="col-6 p-5 m-0 text-center">
-                        <p class="text-muted text-uppercase">Vertrek Datum</p>
-                        <strong>@Model.EndDate.ToString("dd/MM/yyyy")</strong>
-                    </div>
-                </div>
-                
-                <div class="admin-cell p-4">
-                    <h2 class="text-uppercase font-non-serif m-0 fw-lighter">Boeking Tracking</h2>
-                </div>
-                
-                <div class="row g-0 row-cols-5 border-bottom-2">
-                    
-                    <div class="col border-end-2 p-5 text-center step-cell active">
-                        <div class="step-badge mb-2">1</div>
-                        <p class="fw-bold text-uppercase m-0 extra-small">Aanvraag Ontvangen</p>
-                    </div>
-
-                    <div class="col border-end-2 p-5 text-center step-cell @(currentStatus >= 2 ? (isRejected ? "rejected" : "active") : "")">
-                        <div class="step-badge mb-2">2</div>
-                        <p class="fw-bold text-uppercase m-0 extra-small">
-                            @(isRejected ? "Geweigerd" : "In Behandeling")
-                        </p>
-                    </div>
-
-                    <div class="col border-end-2 p-5 text-center step-cell @(currentStatus >= 3 ? "active" : "")">
-                        <div class="step-badge mb-2">3</div>
-                        <p class="fw-bold text-uppercase m-0 extra-small">Goedgekeurd</p>
-                    </div>
-
-                    <div class="col border-end-2 p-5 text-center step-cell @(currentStatus >= 4 ? "active" : "")">
-                        <div class="step-badge mb-2">4</div>
-                        <p class="fw-bold text-uppercase m-0 extra-small">Betaling Ontvangen</p>
-                    </div>
-
-                    <div class="col p-5 text-center step-cell @(currentStatus >= 5 ? "active" : "")">
-                        <div class="step-badge mb-2">5</div>
-                        <p class="fw-bold text-uppercase m-0 extra-small">Alles in orde, tot snel!</p>
-                    </div>
-
-                </div>
-                
-                <div class="row g-0 border-bottom-2">
-                    <div class="col-12">
-                        <button type="button" 
-                                onclick="window.location.reload();" 
-                                class="w-100 p-5 text-uppercase fw-bold border-0 bg-transparent nav-block-btn">
-                            Refresh
-                        </button>
-                    </div>
-                </div>
-                
+        <div class="row g-0 border-bottom border-dark border-2">
+            <div class="col-lg-4 p-4 p-lg-5 d-flex flex-column justify-content-between border-bottom border-bottom-lg-0">
+                <span class="text-uppercase small fw-bold text-muted mb-2 mb-lg-0">@ViewData["Title"]</span>
+                <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">@Model.Name</h1>
             </div>
-        </section>
+            <div class="col-lg-8 p-4 p-lg-5 d-flex align-items-center justify-content-start justify-content-lg-end">
+                @if (Model.Status == "Pending")
+                {
+                    <span class="display-4 display-lg-2 font-non-serif text-uppercase color-green fw-light m-0">
+                        In behandeling
+                    </span>
+                }
+                else
+                {
+                    <span class="display-4 display-lg-2 font-non-serif text-uppercase fw-bold m-0">
+                        @Model.Status
+                    </span>
+                }
+            </div>
+        </div>
+        
+        <div class="row g-0">
+            
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @("active")">
+                <span class="font-non-serif d-block mb-2 mb-lg-3">01</span>
+                <p class="fw-bold text-uppercase m-0 small">Aanvraag Ontvangen</p>
+            </div>
 
-    </body>
-</html>
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 2 ? (isRejected ? "rejected" : "active") : "")">
+                <span class="font-non-serif d-block mb-2 mb-lg-3">02</span>
+                <p class="fw-bold text-uppercase m-0 small">
+                    @(isRejected ? "Geweigerd" : "In Behandeling")
+                </p>
+            </div>
+
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 3 ? "active" : "")">
+                <span class="font-non-serif d-block mb-2 mb-lg-3">03</span>
+                <p class="fw-bold text-uppercase m-0 small">Goedgekeurd</p>
+            </div>
+
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 4 ? "active" : "")">
+                <span class="font-non-serif d-block mb-2 mb-lg-3">04</span>
+                <p class="fw-bold text-uppercase m-0 small">Betaling Ontvangen</p>
+            </div>
+
+            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 5 ? "active" : "")">
+                <span class="font-non-serif d-block mb-2 mb-lg-3">05</span>
+                <p class="fw-bold text-uppercase m-0 small">Alles in orde, tot snel!</p>
+            </div>
+
+        </div>
+
+        <div class="booking-tracking row g-0 border-bottom-2 border-top-2">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0">
+                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking nummer</h3>
+            </div>
+            <div class="col-lg-9 p-4 p-lg-5 fw-bold text-break">
+                <p class="m-0 font-monospace">@Model.AccessToken</p>
+            </div>
+        </div>
+
+        <div class="booking-tracking row g-0 border-bottom-2">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0">
+                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking aangevraagd</h3>
+            </div>
+            <div class="col-lg-9 p-4 p-lg-5 d-flex flex-column flex-sm-row align-items-start align-items-sm-baseline gap-1 gap-sm-3">
+                <span class="fw-bold">
+                    @Model.BookingRequested.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
+                </span>
+                <span class="text-muted small">
+                    om @Model.BookingRequested.ToString("HH:mm") uur
+                </span>
+            </div>
+        </div>
+        
+        <div class="booking-tracking row g-0 border-bottom-2">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0">
+                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aantal gasten</h3>
+            </div>
+            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
+                <p class="m-0">@Model.NumberOfGuests</p>
+            </div>
+        </div>
+        
+        <div class="booking-tracking row g-0 border-bottom-2">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0">
+                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aankomst Datum</h3>
+            </div>
+            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
+                <p class="m-0">@Model.StartDate.ToString("dd/MM/yyyy")</p>
+            </div>
+        </div>
+        
+        <div class="booking-tracking row g-0">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0">
+                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Datum van vertrek</h3>
+            </div>
+            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
+                <p class="m-0">@Model.EndDate.ToString("dd/MM/yyyy")</p>
+            </div>
+        </div>
+
+    </div>   
+    
+</section>
