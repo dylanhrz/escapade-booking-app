@@ -19,11 +19,6 @@ public class BookingController : Controller
         _emailService = emailService;
     }
     
-    public IActionResult Index()
-    {
-        return View();
-    }
-    
     [HttpGet]
     public IActionResult CreateBooking()
     {
@@ -85,7 +80,20 @@ public class BookingController : Controller
             await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
         }
 
-        return RedirectToAction("Index");
+        return RedirectToAction(nameof(BookingConfirmation), new { token = booking.AccesToken });
+    }
+    
+    [HttpGet]
+    public IActionResult BookingConfirmation(Guid token)
+    {
+        if (token == Guid.Empty)
+        {
+            return RedirectToAction(nameof(CreateBooking));
+        }
+
+        ViewBag.Token = token;
+        
+        return View();
     }
 
     //[HttpGet("booking/track/{token}")]
