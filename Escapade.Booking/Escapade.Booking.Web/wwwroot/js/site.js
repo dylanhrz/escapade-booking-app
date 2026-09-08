@@ -46,14 +46,17 @@ document.addEventListener("DOMContentLoaded", () => {
 function openConfirmationModal() {
     const emailInput = document.getElementById('Email');
     const confirmEmailDisplay = document.getElementById('confirmEmailDisplay');
+    const emailError = document.getElementById('emailValidationError');
 
     const emailValue = emailInput ? emailInput.value.trim() : '';
 
     if (!emailValue) {
-        alert('Vul een geldig e-mailadres in voordat u de aanvraag verstuurt.');
+        if (emailError) emailError.classList.remove('d-none');
         if (emailInput) emailInput.focus();
         return;
     }
+
+    if (emailError) emailError.classList.add('d-none');
 
     if (confirmEmailDisplay) {
         confirmEmailDisplay.textContent = emailValue;

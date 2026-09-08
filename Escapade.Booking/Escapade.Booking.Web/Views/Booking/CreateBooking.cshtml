@@ -20,118 +20,112 @@
             <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-2"></div>
 
             <div class="row g-0">
-                <div class="form-cell col-12 col-md-6 border-end-2">
-                    <div class="form-content-left">
-                        <label asp-for="Name" class="fw-bolder text-uppercase small">
-                            @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
-                            {
-                                <span asp-validation-for="Name" class="text-danger"></span>
-                            }
-                            else
-                            {
-                                <span class="form-label">Naam</span>
-                            }
-                        </label>
+                <div class="form-cell col-12 col-md-6 border-end-2 border-start-2">
+                    <label asp-for="Name" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span class="form-label">Naam</span>
+                        }
+                    </label>
 
-                        <input asp-for="Name" class="form-input"/>
+                    <input asp-for="Name" class="form-input"/>
+                </div>
+
+                <div class="form-cell col-12 col-md-6 border-end-2">
+                    <label asp-for="Email" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span class="form-label">Email</span>
+                        }
+                    </label>
+
+                    <input asp-for="Email" id="Email" class="form-input"/>
+
+                    <div class="custom-validation-summary d-none mt-2" id="emailValidationError">
+                        <ul>
+                            <li>Vul een geldig e-mailadres in voordat u de aanvraag verstuurt.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="form-cell col-12 col-md-6">
-                    <div class="form-content-right">
-                        <label asp-for="Email" class="fw-bolder text-uppercase small">
-                            @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
-                            {
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            }
-                            else
-                            {
-                                <span class="form-label">Email</span>
-                            }
-                        </label>
+                <div class="form-cell col-12 col-md-6 p-5 border-end-2 border-start-2">
+                    <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
+                        {
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        }
+                        else
+                        {
+                            <span class="form-label">Telefoonnummer</span>
+                        }
+                    </label>
 
-                        <input asp-for="Email" id="Email" class="form-input"/>
-                    </div>
+                    <input asp-for="PhoneNumber" class="form-input"/>    
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5 border-end-2">
-                    <div class="form-content-left">
-                        <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
-                            @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
-                            {
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                            }
-                            else
-                            {
-                                <span class="form-label">Telefoonnummer</span>
-                            }
-                        </label>
+                    <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
+                        @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["NumberOfGuests"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="form-label">Aantal gasten</span>
+                        }
+                    </label>
 
-                        <input asp-for="PhoneNumber" class="form-input"/>
+                    <input asp-for="NumberOfGuests" class="form-input"/>
+                </div>
+
+                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center border-start-2 border-end-2">
+                    <label class="fw-bolder text-uppercase small mb-5">
+                        @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["StartDate"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else if (ViewData.ModelState["EndDate"]?.Errors.Count > 0)
+                        {
+                            <span class="text-danger">
+                                @ViewData.ModelState["EndDate"]!.Errors[0].ErrorMessage
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="form-label">Selecteer Periode</span>
+                        }
+                    </label>
+
+                    <input type="hidden" asp-for="StartDate" id="StartDate"/>
+                    <input type="hidden" asp-for="EndDate" id="EndDate"/>
+
+                    <div class="w-100">
+                        <div id="inline-calendar"></div>
                     </div>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5">
-                    <div class="form-content-right">
-                        <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
-                            @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
-                            {
-                                <span class="text-danger">
-                                    @ViewData.ModelState["NumberOfGuests"]!.Errors[0].ErrorMessage
-                                </span>
-                            }
-                            else
-                            {
-                                <span class="form-label">Aantal gasten</span>
-                            }
-                        </label>
-
-                        <input asp-for="NumberOfGuests" class="form-input"/>
-                    </div>
-                </div>
-
-                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center">
-                    <div class="form-content-left form-content-right">
-                        <label class="fw-bolder text-uppercase small mb-5">
-                            @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
-                            {
-                                <span class="text-danger">
-                                    @ViewData.ModelState["StartDate"]!.Errors[0].ErrorMessage
-                                </span>
-                            }
-                            else if (ViewData.ModelState["EndDate"]?.Errors.Count > 0)
-                            {
-                                <span class="text-danger">
-                                    @ViewData.ModelState["EndDate"]!.Errors[0].ErrorMessage
-                                </span>
-                            }
-                            else
-                            {
-                                <span class="form-label">Selecteer Periode</span>
-                            }
-                        </label>
-
-                        <input type="hidden" asp-for="StartDate" id="StartDate"/>
-                        <input type="hidden" asp-for="EndDate" id="EndDate"/>
-
-                        <div class="w-100">
-                            <div id="inline-calendar"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-cell col-12 p-5">
-                    <div class="form-content-left form-content-right">
-                        <label asp-for="Comment" class="fw-bolder text-uppercase small">
-                            <span class="form-label">Opmerking of Vraag</span>
-                        </label>
-                        <span asp-validation-for="Comment" class="text-danger small d-block"></span>
-                        <textarea asp-for="Comment" id="Comment" class="form-input" rows="5"></textarea>
-                    </div>
+                <div class="form-cell col-12 p-5 border-start-2 border-end-2">
+                    <label asp-for="Comment" class="fw-bolder text-uppercase small">
+                        <span class="form-label">Opmerking of Vraag</span>
+                    </label>
+                    <span asp-validation-for="Comment" class="text-danger small d-block"></span>
+                    <textarea asp-for="Comment" id="Comment" class="form-input" rows="5"></textarea>
                 </div>
 
                 <div class="form-cell form-inverted col-12">
-                    <div class="py-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 padding-left padding-right">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
                         <h3 class="display-6 fw-bold text-white m-0">Klaar om te verzenden?</h3>
                         <button type="button" class="form-btn w-auto px-5" onclick="openConfirmationModal()">
                             Aanvraag Versturen
@@ -146,26 +140,26 @@
 
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border border-dark rounded-0">
-            <div class="modal-header bg-dark text-white rounded-0">
-                <h5 class="modal-title text-uppercase fw-bold" id="confirmationModalLabel">Bevestig uw aanvraag</h5>
+        <div class="modal-content border-2">
+            <div class="modal-header form-inverted border-bottom-2">
+                <h5 class="modal-title text-uppercase font-serif" id="confirmationModalLabel">Bevestig uw aanvraag</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Sluiten"></button>
             </div>
             <div class="modal-body p-4">
                 <p class="mb-3">
                     Controleer uw e-mailadres voordat u de aanvraag definitief verstuurt:
                 </p>
-                <div class="p-3 bg-light border border-dark fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
+                <div class="p-3 border-2 fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
                 </div>
                 <p class="text-muted small m-0">
                     Klopt dit e-mailadres? Dan sturen wij uw boekingaanvraag direct door naar de eigenaar.
                 </p>
             </div>
-            <div class="modal-footer border-top border-dark d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-dark rounded-0 px-4" data-bs-dismiss="modal">
+            <div class="modal-footer border-top-2 d-flex justify-content-between">
+                <button type="button" class="custom-button-outline px-4 py-2 text-uppercase fw-bold" data-bs-dismiss="modal">
                     Aanpassen
                 </button>
-                <button type="button" class="btn btn-dark rounded-0 px-4" onclick="submitForm()">
+                <button type="button" class="custom-button px-4 py-2 text-uppercase fw-bold" onclick="submitForm()">
                     Verstuur naar eigenaar
                 </button>
             </div>
