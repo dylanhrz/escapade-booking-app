@@ -384,7 +384,6 @@ header:hover {
   background-color: var(--offwhite);
   display: flex;
   flex-direction: column;
-  
 }
 
 .split-section-text {
@@ -424,7 +423,7 @@ header:hover {
 
 @media (max-width: 991px) {
   .hero-video-col {
-    width: 25%;
+    width: 40%;
     max-height: 80vh;
   }
 
@@ -433,11 +432,15 @@ header:hover {
   }
 
   .hero-cta-btn {
-    height: 150px;
+    height: 75px;
   }
 
   .hero-cta-btn.nav-block-btn {
     justify-content: center !important;
+  }
+  
+  .split-section-text {
+    text-align: left !important;
   }
 }
 
