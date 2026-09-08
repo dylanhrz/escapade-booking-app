@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home";
 }
 
-<section id="hero-banner" class="full-bleed position-relative d-flex overflow-hidden">
+<section class="full-bleed position-relative d-flex overflow-hidden hero-banner border-start-2 border-end-2">
     <div class="hero-video-col container-fluid">
         <div class="row g-0 align-items-stretch">
             <div class="col-lg-6 d-flex align-items-center p-5 section-border-end">
@@ -20,33 +20,33 @@
     </div>
 
     <div class="hero-cta-col">
-        <div class="hero-cta-content">
-            <h2 class="font-non-serif">
+        <div class="p-5">
+            <h3 class="split-section-text">
                 Je logeert aan het dorpsplein van het rustieke <span class="text-highlight">Rocquigny</span>, ver weg van de dagelijkse drukte. 
                 Ontspannen doe je bij ons in alle stilte, omgeven door <span class="text-highlight">de rustige Franse natuur</span>.
-            </h2>
-        </div>
+            </h3>
 
-        <a asp-controller="Booking"
-           asp-action="CreateBooking"
-           class="nav-block-btn hero-cta-btn text-uppercase text-decoration-none">
-            Vraag je verblijf aan
-        </a>
+            <a asp-controller="Booking"
+               asp-action="CreateBooking"
+               class="nav-block-btn hero-cta-btn text-uppercase text-decoration-none mt-4">
+                Vraag je verblijf aan
+            </a>
+        </div>
     </div>
 </section>
 
 <section class="full-bleed position-relative">
     <div class="container-fluid p-0">
-        <div class="row g-0 align-items-stretch">
+        <div class="row g-0 align-items-stretch border-start-2 border-end-2">
 
             <div class="col-lg-6 d-flex align-items-center p-5 section-border-end">
                 <div class="pe-lg-4">
-                    <p class="split-section-text mb-0">
+                    <h3 class="split-section-text mb-0">
                         Geniet van een rustgevend verblijf in het hart van de franse ardennen. 
                         <br />
                         Onze woning biedt
                         <span class="text-highlight">de perfecte uitvalbasis voor wie even van tussenuit wil in de natuur.</span>
-                    </p>
+                    </h3>
                 </div>
             </div>
 
@@ -63,10 +63,14 @@
     </div>
 </section>
 
-<section class="full-bleed">
-    <a asp-controller="Booking"
-       asp-action="CreateBooking"
-       class="nav-block-btn hero-cta-btn text-uppercase fw-bold text-decoration-none">
-        Vraag je verblijf aan
-    </a>
+<section class="full-bleed position-relative">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <a asp-controller="Booking"
+               asp-action="CreateBooking"
+               class="nav-block-btn hero-cta-btn text-uppercase fw-bold text-decoration-none border-bottom-0">
+                Vraag je verblijf aan
+            </a>
+        </div>
+    </div>
 </section>

@@ -16,93 +16,93 @@
 
 <body class="min-vh-100 d-flex flex-column overflow-x-hidden">
 <header>
-    <nav class="navbar navbar-expand-lg p-0 m-0 align-items-stretch">
-        <div class="container-fluid p-0 d-flex align-items-stretch justify-content-between">
+    <div class="container p-0">
+        <nav class="navbar navbar-expand-lg p-0 m-0 align-items-stretch">
+            <div class="container-fluid p-0 d-flex align-items-stretch justify-content-between">
 
-            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo d-flex align-items-center px-4 py-3 m-0" 
-               asp-controller="Home" 
-               asp-action="Index">
-                L'ESCAPADE ARDENNAISE
-            </a>
+                <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo d-flex align-items-center px-4 py-3 m-0"
+                   asp-controller="Home"
+                   asp-action="Index">
+                    L'ESCAPADE ARDENNAISE
+                </a>
 
-            <button class="navbar-toggler border-0 shadow-none me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler border-0 shadow-none me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse align-items-stretch" id="mainNavbar">
-                <div class="ms-auto d-flex align-items-stretch pe-0">
-                    <ul class="navbar-nav align-items-center my-0 me-0">
-                        
-                        <li class="nav-item d-flex align-items-center">
-                            <a class="nav-block-btn @(current == "Contact" ? "active" : "")"
-                               asp-controller="Contact"
-                               asp-action="Index">
-                                Contact
-                            </a>
-                        </li>
+                <div class="collapse navbar-collapse align-items-stretch" id="mainNavbar">
+                    <div class="ms-auto d-flex align-items-stretch pe-0">
+                        <ul class="navbar-nav align-items-center my-0 me-0">
 
-                        <li class="nav-item d-flex align-items-center">
-                            @if (Context.Session.GetString("AdminId") != null)
-                            {
-                                <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")"
-                                   asp-controller="Admin"
-                                   asp-action="Logout">
-                                    Uitloggen
+                            <li class="nav-item d-flex align-items-center">
+                                <a class="nav-block-btn @(current == "Contact" ? "active" : "")"
+                                   asp-controller="Contact"
+                                   asp-action="Index">
+                                    Contact
                                 </a>
-                            }
-                            else
-                            {
-                                <a class="nav-block-btn @(current == "Booking" ? "active" : "")"
-                                   asp-controller="Booking"
-                                   asp-action="CreateBooking">
-                                    Boek nu
+                            </li>
+
+                            <li class="nav-item d-flex align-items-center">
+                                @if (Context.Session.GetString("AdminId") != null)
+                                {
+                                    <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")"
+                                       asp-controller="Admin"
+                                       asp-action="Logout">
+                                        Uitloggen
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="nav-block-btn @(current == "Booking" ? "active" : "")"
+                                       asp-controller="Booking"
+                                       asp-action="CreateBooking">
+                                        Boek nu
+                                    </a>
+                                }
+                            </li>
+
+                            <li class="nav-item dropdown d-flex align-items-center">
+                                <a class="nav-link dropdown-toggle text-dark text-uppercase fw-bold p-0" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    NL
                                 </a>
-                            }
-                        </li>
+                                <ul class="dropdown-menu dropdown-menu-end text-center shadow-sm" aria-labelledby="languageDropdown">
+                                    <li><a class="dropdown-item" href="?culture=nl">NL</a></li>
+                                    <li><a class="dropdown-item" href="?culture=fr">FR</a></li>
+                                    <li><a class="dropdown-item" href="?culture=en">EN</a></li>
+                                </ul>
+                            </li>
 
-                        <li class="nav-item dropdown d-flex align-items-center">
-                            <a class="nav-link dropdown-toggle text-dark text-uppercase fw-bold p-0" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                NL
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end text-center shadow-sm" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="?culture=nl">NL</a></li>
-                                <li><a class="dropdown-item" href="?culture=fr">FR</a></li>
-                                <li><a class="dropdown-item" href="?culture=en">EN</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </nav>
+            </div>
+        </nav>
+    </div>
 </header>
 
-<div class="container-fluid flex-grow-1">
+<div class="container p-0 flex-grow-1">
     <main role="main">
         @RenderBody()
     </main>
 </div>
 
-<footer class="footer text-muted mt-auto pb-5">
-    <div class="container-fluid mt-5">
-        <div class="px-5">
-            <p class="text-uppercase fw-bold text-dark">L'Escapade Ardennaise</p>
-            <a asp-controller="Booking" asp-action="CreateBooking"
-               class="text-dark custom-hover text-decoration-none">
-                Verblijf aanvragen
-            </a> <br/>
-            <a asp-controller="Contact" asp-action="Index" 
-               class="text-dark custom-hover text-decoration-none">
-                Contact
-            </a> <br/>
-            <a asp-controller="Admin" asp-action="Login"
-               class="text-dark custom-hover text-decoration-none">
-                Admin
-            </a>
-        </div>
-    </div>
+<footer class="footer text-muted mt-auto pb-5 border-top-2">
+    <div class="container mt-5">
+        <p class="text-uppercase fw-bold text-dark">L'Escapade Ardennaise</p>
+        <a asp-controller="Booking" asp-action="CreateBooking"
+           class="text-dark custom-hover text-decoration-none">
+            Verblijf aanvragen
+        </a> <br/>
+        <a asp-controller="Contact" asp-action="Index" 
+           class="text-dark custom-hover text-decoration-none">
+            Contact
+        </a> <br/>
+        <a asp-controller="Admin" asp-action="Login"
+           class="text-dark custom-hover text-decoration-none">
+            Admin
+        </a>     
+    </div>        
 </footer>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
