@@ -5,11 +5,10 @@
 }
 
 <section class="full-bleed position-relative overflow-hidden">
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 border-start-2 border-end-2">
         
         <div class="row g-0 align-items-end border-bottom-2">
             <div class="col-lg-4 p-4 p-lg-5">
-                <span class="text-uppercase small fw-bold text-muted d-block">Dashboard</span>
                 <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
             </div>
             <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
@@ -38,7 +37,7 @@
                                     <span class="display-4 font-non-serif fw-bold lh-1 m-0">
                                         @booking.StartDate.ToString("dd")
                                     </span>
-                                    <div class="d-flex flex-column text-uppercase border-start border-dark border-2 ps-3">
+                                    <div class="d-flex flex-column text-uppercase border-start-2 ps-3">
                                         <span class="fw-bold small lh-1">
                                             @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
                                         </span>
@@ -112,7 +111,7 @@
                                     <span class="display-5 font-non-serif fw-bold lh-1 m-0 text-muted">
                                         @booking.StartDate.ToString("dd")
                                     </span>
-                                    <div class="d-flex flex-column text-uppercase border-start border-secondary border-2 ps-3">
+                                    <div class="d-flex flex-column text-uppercase border-start-2 ps-3">
                                         <span class="fw-bold small lh-1 text-muted">
                                             @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
                                         </span>
