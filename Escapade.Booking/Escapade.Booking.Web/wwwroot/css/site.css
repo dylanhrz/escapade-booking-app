@@ -768,8 +768,8 @@ span.flatpickr-weekday {
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.prevMonthDay,
 .flatpickr-day.nextMonthDay {
-  opacity: 0.2 !important;
-  background-color: transparent !important;
-  border-color: var(--black) !important;
-  color: var(--black) !important;
+  opacity: 0.75 !important;
+  background-color: lightgrey !important;
+  border-color: lightgrey !important;
+  color: lightgrey !important;
 }

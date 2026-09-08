@@ -10,18 +10,18 @@
     ViewData["Title"] = "Boeking Aanvragen";
 }
 
-<section class="full-bleed position-relative">
-    <div class="container-fluid p-0">
+<section class="position-relative">
+    <div class="container px-3 px-md-5">
+
         <form id="booking" asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
-            
+
             @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-2"></div>
             
-            <div asp-validation-summary="ModelOnly" class="text-danger p-3 fw-bold border-bottom border-dark"></div>
+            <div class="row g-0 border-bottom border-start border-dark border-2">
+                <div class="form-cell col-12 col-md-6 p-5">
 
-            <div class="form-grid">
-
-            <div class="form-cell col-12 col-md-6 p-5">
-                    
                     <label asp-for="Name" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
                         {
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    
+
                     <label asp-for="Email" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
                         {
@@ -48,12 +48,12 @@
                             <span class="form-label">Email</span>
                         }
                     </label>
-                    
-                    <input asp-for="Email" id="Email" class="form-input" />
+
+                    <input asp-for="Email" id="Email" class="form-input"/>
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    
+
                     <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
                         {
@@ -64,12 +64,12 @@
                             <span class="form-label">Telefoonnummer</span>
                         }
                     </label>
-                    
-                    <input asp-for="PhoneNumber" class="form-input" />
+
+                    <input asp-for="PhoneNumber" class="form-input"/>
                 </div>
 
                 <div class="form-cell col-12 col-md-6 p-5">
-                    
+
                     <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
                         {
@@ -82,12 +82,12 @@
                             <span class="form-label">Aantal gasten</span>
                         }
                     </label>
-                    
-                    <input asp-for="NumberOfGuests" class="form-input" />
+
+                    <input asp-for="NumberOfGuests" class="form-input"/>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5 d-flex flex-column justify-content-center">
-                    
+                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center">
+
                     <label class="fw-bolder text-uppercase small mb-5">
                         @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
                         {
@@ -106,17 +106,17 @@
                             <span class="form-label">Selecteer Periode</span>
                         }
                     </label>
-                    
-                    <input type="hidden" asp-for="StartDate" id="StartDate" />
-                    <input type="hidden" asp-for="EndDate" id="EndDate" />
-                    
+
+                    <input type="hidden" asp-for="StartDate" id="StartDate"/>
+                    <input type="hidden" asp-for="EndDate" id="EndDate"/>
+
                     <div class="w-100">
                         <div id="inline-calendar"></div>
                     </div>
-                    
+
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5">
+                <div class="form-cell col-12 p-5">
                     <label asp-for="Comment" class="fw-bolder text-uppercase small">
                         <span class="form-label">Opmerking of Vraag</span>
                     </label>
@@ -150,7 +150,7 @@
                 <div class="p-3 bg-light border border-dark fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
                 </div>
                 <p class="text-muted small m-0">
-                    Klopt dit e-mailadres? Zo ja, sturen wij uw boekingaanvraag direct door naar de eigenaar.
+                    Klopt dit e-mailadres? Dan sturen wij uw boekingaanvraag direct door naar de eigenaar.
                 </p>
             </div>
             <div class="modal-footer border-top border-dark d-flex justify-content-between">
