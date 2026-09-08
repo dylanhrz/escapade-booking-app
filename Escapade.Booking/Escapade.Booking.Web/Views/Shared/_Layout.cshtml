@@ -19,7 +19,9 @@
     <nav class="navbar navbar-expand-lg p-0 m-0 align-items-stretch">
         <div class="container-fluid p-0 d-flex align-items-stretch justify-content-between">
 
-            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo d-flex align-items-center px-4 py-3 m-0" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo d-flex align-items-center px-4 py-3 m-0" 
+               asp-controller="Home" 
+               asp-action="Index">
                 L'ESCAPADE ARDENNAISE
             </a>
 
@@ -31,7 +33,9 @@
                 <ul class="navbar-nav ms-auto align-items-center my-0">
 
                     <li class="nav-item d-flex align-items-center">
-                        <a class="nav-block-btn @(current == "Contact" ? "active" : "")" asp-controller="Contact" asp-action="Index">
+                        <a class="nav-block-btn @(current == "Contact" ? "active" : "")" 
+                           asp-controller="Contact" 
+                           asp-action="Index">
                             Contact
                         </a>
                     </li>
@@ -39,13 +43,17 @@
                     <li class="nav-item d-flex align-items-center">
                         @if (Context.Session.GetString("AdminId") != null)
                         {
-                            <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")" asp-controller="Admin" asp-action="Logout">
+                            <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")" 
+                               asp-controller="Admin" 
+                               asp-action="Logout">
                                 Uitloggen
                             </a>
                         }
                         else
                         {
-                            <a class="nav-block-btn @(current == "Booking" ? "active" : "")" asp-controller="Booking" asp-action="CreateBooking">
+                            <a class="nav-block-btn @(current == "Booking" ? "active" : "")" 
+                               asp-controller="Booking" 
+                               asp-action="CreateBooking">
                                 Boek nu
                             </a>
                         }
@@ -76,11 +84,22 @@
 </div>
 
 <footer class="footer text-muted mt-auto pb-5">
-    <div class="container-fluid px-4 px-md-5 mt-5">
+    <div class="container-fluid px-5 px-md-5 mt-5">
         <p class="text-uppercase fw-bold text-dark">L'Escapade Ardennaise</p>
-        <a asp-controller="Booking" asp-action="CreateBooking" class="text-dark custom-hover text-decoration-none">Verblijf aanvragen</a> <br />
-        <a asp-controller="Contact" asp-action="Index" class="text-dark custom-hover text-decoration-none">Contact</a> <br />
-        <a asp-controller="Admin" asp-action="Login" class="text-dark custom-hover text-decoration-none">Admin</a>
+        <a asp-controller="Booking"
+           asp-action="CreateBooking"
+           class="text-dark custom-hover text-decoration-none">
+            Verblijf aanvragen
+        </a> <br />
+        <a asp-controller="Contact"
+           asp-action="Index" class="text-dark custom-hover text-decoration-none">
+            Contact
+        </a> <br />
+        <a asp-controller="Admin"
+           asp-action="Login"
+           class="text-dark custom-hover text-decoration-none">
+            Admin
+        </a>
     </div>
 </footer>
 
