@@ -9,7 +9,7 @@
         
         <div class="row g-0 align-items-end border-bottom-2">
             <div class="col-lg-4 p-4 p-lg-5">
-                <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
+                <h1 class="display-6 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
             </div>
             <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
                 <span class="display-2 font-non-serif text-muted fw-light opacity-50 m-0">
@@ -49,7 +49,7 @@
                             </div>
                             
                             <div class="col-12 col-md-8 col-lg-6 p-4 p-lg-5">
-                                <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif display-6">@booking.Name</h3>
+                                <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif display-6 py-1">@booking.Name</h3>
                                 
                                 <div class="mt-3">
                                     <p class="m-0 text-muted small">Email: <span class="fw-bold text-dark font-monospace">@booking.Email</span></p>
@@ -59,19 +59,26 @@
 
                                 @if (!string.IsNullOrEmpty(booking.Comment))
                                 {
-                                    <div class="mt-4 p-3 border-left-green">
+                                    <div class="mt-4 p-3 border-left-green py-4">
                                         <p class="small m-0 text-muted">@booking.Comment</p>
                                     </div>
                                 }
                             </div>
 
-                            <div class="col-12 col-lg-3 p-4 p-lg-5 d-flex align-items-center justify-content-start justify-content-lg-center">
+                            <div class="col-12 col-lg-3 p-4 p-lg-5 d-flex flex-column justify-content-center gap-3">
                                 <a asp-controller="Booking"
                                    asp-action="TrackBooking"
                                    asp-route-token="@booking.AccessToken"
                                    target="_blank"
-                                   class="btn btn-outline-dark text-uppercase fw-bold w-100 rounded-0 py-3 small">
+                                   class="custom-button-outline text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none">
                                     Tracking Klant
+                                </a>
+
+                                <a asp-controller="Admin"
+                                   asp-action=""
+                                   target="_blank"
+                                   class="custom-button-outline text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none">
+                                    Boeking verwijderen
                                 </a>
                             </div>
 
@@ -83,7 +90,7 @@
         
         <div class="row g-0 align-items-end mt-5 border-bottom-2">
             <div class="col-lg-4 p-4 p-lg-5">
-                <h2 class="display-5 font-non-serif text-uppercase fw-light m-0">Afgelopen Boekingen</h2>
+                <h2 class="display-6 font-non-serif text-uppercase fw-light m-0">Afgelopen Boekingen</h2>
             </div>
             <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
                 <span class="display-2 font-non-serif text-muted fw-light opacity-25 m-0">
