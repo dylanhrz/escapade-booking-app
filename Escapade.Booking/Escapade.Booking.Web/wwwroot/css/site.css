@@ -152,7 +152,7 @@ header .container-fluid,
   justify-content: center;
   height: 100%;
   color: var(--black);
-  font-weight: 500;
+  font-weight: 900;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
@@ -526,12 +526,10 @@ footer {
 }
 
 .split-section-head {
-  font-family: var(--font-non-serif), serif;
+  font-family: var(--font-serif), serif;
   color: var(--offwhite);
   font-size: 4rem;
   font-weight: 900;
-  line-height: 1.25;
-  text-align: center;
 }
 
 .split-section-text {
@@ -543,7 +541,7 @@ footer {
 
 .hero-link-heading {
   font-family: var(--font-non-serif), sans-serif;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.04em;
@@ -556,7 +554,7 @@ footer {
   position: relative;
   overflow: hidden;
   color: var(--offwhite);
-  text-decoration: none;
+  text-decoration: underline;
   vertical-align: top;
 }
 
@@ -572,7 +570,8 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  color: var(--primary-green);
+  color: var(--offwhite);
+  text-decoration: underline;
   transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
@@ -652,7 +651,7 @@ footer {
 .contact-name,
 .contact-heading {
   font-family: var(--font-non-serif), sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.04em;
