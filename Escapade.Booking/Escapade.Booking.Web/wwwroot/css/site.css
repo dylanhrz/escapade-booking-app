@@ -39,13 +39,11 @@ a {
   -webkit-font-smoothing: antialiased;
 }
 
-/*
 .full-bleed {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 }
-*/
 
 .border-right {
   border-right: 2px solid var(--black) !important;
@@ -341,9 +339,6 @@ header:hover {
 .hero-banner {
   position: relative;
   min-height: calc(100vh - 70px);
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
   overflow: hidden;
   border-bottom: 2px solid var(--black);
 }
@@ -361,7 +356,9 @@ header:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
+
 
 .hero-overlay {
   position: absolute;
@@ -369,7 +366,8 @@ header:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: color-mix(in srgb, var(--black) 20%, transparent);
+  background-color: color-mix(in srgb, var(--black) 40%, transparent);
+  z-index: 2;
 }
 
 .hero-video-col {
@@ -380,13 +378,14 @@ header:hover {
 }
 
 .hero-cta-col {
-  width: 50%;
-  background-color: var(--offwhite);
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  background-color: transparent;
 }
 
 .split-section-text {
