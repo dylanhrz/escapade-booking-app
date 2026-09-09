@@ -1,5 +1,6 @@
 ﻿@{
-    var current = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
 }
 
 <!DOCTYPE html>
@@ -21,9 +22,9 @@
             <div class="container-fluid p-0 d-flex align-items-stretch justify-content-between">
 
                 <div class="d-none d-lg-flex align-items-stretch justify-content-end nav-side border-end-1">
-                    <a class="nav-block-btn @(current == "About" ? "active" : "")"
-                       asp-controller=""
-                       asp-action="">
+                    <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                       asp-controller="Home"
+                       asp-action="About">
                         Het verblijf
                     </a>
                 </div>
@@ -47,9 +48,9 @@
                 <div class="collapse navbar-collapse align-items-stretch nav-side" id="mainNavbar">
 
                     <div class="d-flex d-lg-none align-items-stretch">
-                        <a class="nav-block-btn @(current == "About" ? "active" : "")"
-                           asp-controller=""
-                           asp-action="">
+                        <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                           asp-controller="Home"
+                           asp-action="About">
                             Het verblijf
                         </a>
                     </div>
@@ -57,7 +58,7 @@
                     <ul class="navbar-nav align-items-center my-0 w-100">
 
                         <li class="nav-item d-flex align-items-center">
-                            <a class="nav-block-btn @(current == "Contact" ? "active" : "")"
+                            <a class="nav-block-btn @(currentController == "Contact" ? "active" : "")"
                                asp-controller="Contact"
                                asp-action="Index">
                                 Contact
@@ -67,7 +68,7 @@
                         <li class="nav-item d-flex align-items-center">
                             @if (Context.Session.GetString("AdminId") != null)
                             {
-                                <a class="nav-block-btn @(current == "Admin" ? "active-admin" : "")"
+                                <a class="nav-block-btn @(currentController == "Admin" ? "active-admin" : "")"
                                    asp-controller="Admin"
                                    asp-action="Logout">
                                     Uitloggen
@@ -75,7 +76,7 @@
                             }
                             else
                             {
-                                <a class="nav-block-btn @(current == "Booking" ? "active" : "")"
+                                <a class="nav-block-btn @(currentController == "Booking" ? "active" : "")"
                                    asp-controller="Booking"
                                    asp-action="CreateBooking">
                                     Boek nu
@@ -120,7 +121,7 @@
                         <a asp-controller="Home" asp-action="Index" class="footer-link">Het verblijf</a>
                     </li>
                     <li>
-                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">Verblijf aanvragen</a>
+                        <a asp-controller="Home" asp-action="About" class="footer-link">Verblijf aanvragen</a>
                     </li>
                     <li>
                         <a asp-controller="Contact" asp-action="Index" class="footer-link">Contact</a>
