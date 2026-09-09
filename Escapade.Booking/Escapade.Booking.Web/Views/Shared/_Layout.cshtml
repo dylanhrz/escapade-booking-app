@@ -109,24 +109,28 @@
 </div>
 
 <footer class="footer-grid mt-auto">
-    <div class="footer-cell footer-brand-col">
-        <h2 class="footer-title">L'ESCAPADE ARDENNAISE</h2>
-    </div>
-    <div class="footer-cell footer-links-col">
-        <ul class="footer-links">
-            <li>
-                <a asp-controller="Home" asp-action="Index" class="footer-link">Het verblijf</a>
-            </li>
-            <li>
-                <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">Verblijf aanvragen</a>
-            </li>
-            <li>
-                <a asp-controller="Contact" asp-action="Index" class="footer-link">Contact</a>
-            </li>
-            <li>
-                <a asp-controller="Admin" asp-action="Login" class="footer-link">Admin</a>
-            </li>
-        </ul>
+    <div class="container p-0">
+        <div class="row g-0">
+            <div class="col-lg-8 footer-cell footer-brand-col">
+                <h2 class="footer-title">L'ESCAPADE ARDENNAISE</h2>
+            </div>
+            <div class="col-lg-4 footer-cell footer-links-col">
+                <ul class="footer-links">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index" class="footer-link">Het verblijf</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">Verblijf aanvragen</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Contact" asp-action="Index" class="footer-link">Contact</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Login" class="footer-link">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </footer>
 
