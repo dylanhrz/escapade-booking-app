@@ -124,13 +124,15 @@
                     <textarea asp-for="Comment" id="Comment" class="form-input" rows="5"></textarea>
                 </div>
 
-                <div class="form-cell form-inverted col-12">
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                        <h3 class="display-6 fw-bold text-white m-0">Klaar om te verzenden?</h3>
-                        <button type="button" class="form-btn w-auto px-5" onclick="openConfirmationModal()">
-                            Aanvraag Versturen
+                <div class="form-cell form-inverted col-12 d-flex justify-content-center align-items-center">
+                    <h3 class="form-submit-heading m-0 text-center">
+                        <button type="button" 
+                                class="form-submit-link bg-transparent border-0 p-0" 
+                                data-text="AANVRAAG VERSTUREN" 
+                                onclick="openConfirmationModal()">
+                            <span>AANVRAAG VERSTUREN</span>
                         </button>
-                    </div>
+                    </h3>
                 </div>
 
             </div>
