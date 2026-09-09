@@ -17,10 +17,10 @@
 
             @Html.AntiForgeryToken()
 
-            <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-2"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-1"></div>
 
             <div class="row g-0">
-                <div class="form-cell col-12 col-md-6 border-end-2 border-start-2">
+                <div class="form-cell col-12 col-md-6 border-end-1 border-start-1">
                     <label asp-for="Name" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
                         {
@@ -35,7 +35,7 @@
                     <input asp-for="Name" class="form-input"/>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 border-end-2">
+                <div class="form-cell col-12 col-md-6 border-end-1">
                     <label asp-for="Email" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
                         {
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-2 border-start-2">
+                <div class="form-cell col-12 col-md-6 p-5 border-end-1 border-start-1">
                     <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
                         {
@@ -71,7 +71,7 @@
                     <input asp-for="PhoneNumber" class="form-input"/>    
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-2">
+                <div class="form-cell col-12 col-md-6 p-5 border-end-1">
                     <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
                         {
@@ -88,7 +88,7 @@
                     <input asp-for="NumberOfGuests" class="form-input"/>
                 </div>
 
-                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center border-start-2 border-end-2">
+                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center border-start-1 border-end-1">
                     <label class="fw-bolder text-uppercase small mb-5">
                         @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
                         {
@@ -116,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="form-cell col-12 p-5 border-start-2 border-end-2">
+                <div class="form-cell col-12 p-5 border-start-1 border-end-1">
                     <label asp-for="Comment" class="fw-bolder text-uppercase small">
                         <span class="form-label">Opmerking of Vraag</span>
                     </label>
@@ -140,8 +140,8 @@
 
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-2">
-            <div class="modal-header form-inverted border-bottom-2">
+        <div class="modal-content border-1">
+            <div class="modal-header form-inverted border-bottom-1">
                 <h5 class="modal-title text-uppercase font-serif" id="confirmationModalLabel">Bevestig uw aanvraag</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Sluiten"></button>
             </div>
@@ -149,13 +149,13 @@
                 <p class="mb-3">
                     Controleer uw e-mailadres voordat u de aanvraag definitief verstuurt:
                 </p>
-                <div class="p-3 border-2 fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
+                <div class="p-3 border-1 fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
                 </div>
                 <p class="text-muted small m-0">
                     Klopt dit e-mailadres? Dan sturen wij uw boekingaanvraag direct door naar de eigenaar.
                 </p>
             </div>
-            <div class="modal-footer border-top-2 d-flex justify-content-between">
+            <div class="modal-footer border-top-1 d-flex justify-content-between">
                 <button type="button" class="custom-button-outline px-4 py-2 text-uppercase fw-bold" data-bs-dismiss="modal">
                     Aanpassen
                 </button>

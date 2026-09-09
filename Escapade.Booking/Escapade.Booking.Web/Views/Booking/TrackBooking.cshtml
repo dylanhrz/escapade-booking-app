@@ -16,10 +16,10 @@
     bool isRejected = Model.Status == "Rejected";
 }
 
-<section class="position-relative border-start-2 border-end-2">
+<section class="position-relative border-start-1 border-end-1">
     <div class="container-fluid p-0">
         
-        <div class="row g-0 border-bottom-2">
+        <div class="row g-0 border-bottom-1">
             <div class="col-lg-4 p-4 p-lg-5 d-flex flex-column justify-content-between border-bottom border-bottom-lg-0">
                 <span class="text-uppercase small fw-bold text-muted mb-2 mb-lg-0">@ViewData["Title"]</span>
                 <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">@Model.Name</h1>
@@ -41,25 +41,25 @@
         </div>
         
         <div class="row g-0">
-            
-            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @("active") border-end-2">
+    
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 1 ? "active" : "")">
                 <span class="font-non-serif d-block mb-2 mb-lg-3">01</span>
                 <p class="fw-bold text-uppercase m-0 small">Aanvraag Ontvangen</p>
             </div>
 
-            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 2 ? (isRejected ? "rejected" : "active") : "") border-end-2">
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 2 ? (isRejected ? "rejected" : "active") : "")">
                 <span class="font-non-serif d-block mb-2 mb-lg-3">02</span>
                 <p class="fw-bold text-uppercase m-0 small">
                     @(isRejected ? "Geweigerd" : "In Behandeling")
                 </p>
             </div>
 
-            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 3 ? "active" : "") border-end-2">
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 3 ? "active" : "")">
                 <span class="font-non-serif d-block mb-2 mb-lg-3">03</span>
                 <p class="fw-bold text-uppercase m-0 small">Goedgekeurd</p>
             </div>
 
-            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 4 ? "active" : "") border-end-2">
+            <div class="col-12 col-md border-end-md-2 p-4 p-lg-5 text-center step-cell @(currentStatus >= 4 ? "active" : "")">
                 <span class="font-non-serif d-block mb-2 mb-lg-3">04</span>
                 <p class="fw-bold text-uppercase m-0 small">Betaling Ontvangen</p>
             </div>
@@ -71,8 +71,8 @@
 
         </div>
 
-        <div class="booking-tracking row g-0 border-bottom-2 border-top-2">
-            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-2">
+        <div class="booking-tracking row g-0 border-bottom-1 border-top-1">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-1">
                 <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking nummer</h3>
             </div>
             <div class="col-lg-9 p-4 p-lg-5 fw-bold text-break">
@@ -80,8 +80,8 @@
             </div>
         </div>
 
-        <div class="booking-tracking row g-0 border-bottom-2">
-            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-2">
+        <div class="booking-tracking row g-0 border-bottom-1">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-1">
                 <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking aangevraagd</h3>
             </div>
             <div class="col-lg-9 p-4 p-lg-5 d-flex flex-column flex-sm-row align-items-start align-items-sm-baseline gap-1 gap-sm-3">
@@ -94,8 +94,8 @@
             </div>
         </div>
         
-        <div class="booking-tracking row g-0 border-bottom-2">
-            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-2">
+        <div class="booking-tracking row g-0 border-bottom-1">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-1">
                 <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aantal gasten</h3>
             </div>
             <div class="col-lg-9 p-4 p-lg-5 fw-bold">
@@ -103,8 +103,8 @@
             </div>
         </div>
         
-        <div class="booking-tracking row g-0 border-bottom-2">
-            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-2">
+        <div class="booking-tracking row g-0 border-bottom-1">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-1">
                 <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aankomst Datum</h3>
             </div>
             <div class="col-lg-9 p-4 p-lg-5 fw-bold">
@@ -113,7 +113,7 @@
         </div>
         
         <div class="booking-tracking row g-0">
-            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-2">
+            <div class="col-lg-3 p-4 p-lg-5 border-end-lg-2 border-bottom border-bottom-lg-0 border-end-1">
                 <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Datum van vertrek</h3>
             </div>
             <div class="col-lg-9 p-4 p-lg-5 fw-bold">

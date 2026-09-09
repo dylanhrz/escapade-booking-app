@@ -13,13 +13,13 @@
             
             @if (modelOnlyErrors)
             {
-                <div class="form-cell col-12 p-5 border-bottom-2 border-start-2 border-end-2">
+                <div class="form-cell col-12 p-5 border-bottom-1 border-start-1 border-end-1">
                     <div asp-validation-summary="ModelOnly" class="custom-validation-summary"></div>
                 </div>
             }
             
             <div class="row g-0">
-                <div class="form-cell col-12 col-md-6 p-5 border-start-2 border-end-2">
+                <div class="form-cell col-12 col-md-6 p-5 border-start-1 border-end-1">
                     
                     <label asp-for="Email" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
@@ -36,7 +36,7 @@
                     
                 </div>
                 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-2">
+                <div class="form-cell col-12 col-md-6 p-5 border-end-1">
                     
                     <label asp-for="Password" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["Password"]?.Errors.Count > 0)

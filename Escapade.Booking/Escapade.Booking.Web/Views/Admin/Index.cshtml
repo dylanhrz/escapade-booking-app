@@ -5,9 +5,9 @@
 }
 
 <section class="position-relative overflow-hidden">
-    <div class="container-fluid p-0 border-start-2 border-end-2">
+    <div class="container-fluid p-0 border-start-1 border-end-1">
         
-        <div class="row g-0 align-items-end border-bottom-2">
+        <div class="row g-0 align-items-end border-bottom-1">
             <div class="col-lg-4 p-4 p-lg-5">
                 <h1 class="display-6 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
             </div>
@@ -21,7 +21,7 @@
         <div>
             @if (!Model.UpcomingBookings.Any())
             {
-                <div class="p-4 p-lg-5 border-bottom-2">
+                <div class="p-4 p-lg-5 border-bottom-1">
                     <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn momenteel geen aankomende boekingen.</p>
                 </div>
             }
@@ -29,15 +29,15 @@
             {
                 @foreach (var booking in Model.UpcomingBookings)
                 {
-                    <div class="border-bottom-2">
+                    <div class="border-bottom-1">
                         <div class="row g-0">
 
-                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 d-flex align-items-center border-end-2">
+                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 d-flex align-items-center border-end-1">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="display-4 font-non-serif fw-bold lh-1 m-0">
                                         @booking.StartDate.ToString("dd")
                                     </span>
-                                    <div class="d-flex flex-column text-uppercase border-start-2 ps-3">
+                                    <div class="d-flex flex-column text-uppercase border-start-1 ps-3">
                                         <span class="fw-bold small lh-1">
                                             @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
                                         </span>
@@ -88,7 +88,7 @@
             }
         </div>
         
-        <div class="row g-0 align-items-end mt-5 border-bottom-2">
+        <div class="row g-0 align-items-end mt-5 border-bottom-1">
             <div class="col-lg-4 p-4 p-lg-5">
                 <h2 class="display-6 font-non-serif text-uppercase fw-light m-0">Afgelopen Boekingen</h2>
             </div>
@@ -102,7 +102,7 @@
         <div>
             @if (!Model.PastBookings.Any())
             {
-                <div class="p-4 p-lg-5 border-bottom-2">
+                <div class="p-4 p-lg-5 border-bottom-1">
                     <p class="m-0 text-muted small text-uppercase fw-bold">Er zijn geen eerdere boekingen te vinden.</p>
                 </div>
             }
@@ -110,15 +110,15 @@
             {
                 @foreach (var booking in Model.PastBookings)
                 {
-                    <div class="border-bottom-2 opacity-75">
+                    <div class="border-bottom-1 opacity-75">
                         <div class="row g-0">
 
-                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 border-end-2 d-flex align-items-center">
+                            <div class="col-12 col-md-4 col-lg-3 p-4 p-lg-5 border-end-1 d-flex align-items-center">
                                 <div class="d-flex align-items-center gap-3">
                                     <span class="display-5 font-non-serif fw-bold lh-1 m-0 text-muted">
                                         @booking.StartDate.ToString("dd")
                                     </span>
-                                    <div class="d-flex flex-column text-uppercase border-start-2 ps-3">
+                                    <div class="d-flex flex-column text-uppercase border-start-1 ps-3">
                                         <span class="fw-bold small lh-1 text-muted">
                                             @booking.StartDate.ToString("MMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
                                         </span>
