@@ -28,7 +28,7 @@
                     </a>
                 </div>
 
-                <a class="navbar-brand text-dark fw-bolder text-uppercase brand-logo d-flex align-items-center justify-content-center py-3 m-0 px-4 border-start-1"
+                <a class="navbar-brand fw-bolder text-uppercase d-flex align-items-center justify-content-center py-3 m-0 px-4 border-start-1"
                    asp-controller="Home"
                    asp-action="Index">
                     L'ESCAPADE ARDENNAISE
@@ -108,26 +108,26 @@
     </main>
 </div>
 
-<footer class="footer text-muted mt-auto pb-5 border-top-1">
-    <div class="container mt-5 px-4 px-lg-0">
-        <p class="text-uppercase fw-bold text-dark">L'Escapade Ardennaise</p>
-        <a asp-controller="Booking" asp-action="CreateBooking"
-           class="text-dark custom-hover text-decoration-none">
-            Het verblijf
-        </a> <br/>
-        <a asp-controller="Booking" asp-action="CreateBooking"
-           class="text-dark custom-hover text-decoration-none">
-            Verblijf aanvragen
-        </a> <br/>
-        <a asp-controller="Contact" asp-action="Index"
-           class="text-dark custom-hover text-decoration-none">
-            Contact
-        </a> <br/>
-        <a asp-controller="Admin" asp-action="Login"
-           class="text-dark custom-hover text-decoration-none">
-            Admin
-        </a>
-    </div>        
+<footer class="footer-grid mt-auto">
+    <div class="footer-cell footer-brand-col">
+        <h2 class="footer-title">L'ESCAPADE ARDENNAISE</h2>
+    </div>
+    <div class="footer-cell footer-links-col">
+        <ul class="footer-links">
+            <li>
+                <a asp-controller="Home" asp-action="Index" class="footer-link">Het verblijf</a>
+            </li>
+            <li>
+                <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">Verblijf aanvragen</a>
+            </li>
+            <li>
+                <a asp-controller="Contact" asp-action="Index" class="footer-link">Contact</a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Login" class="footer-link">Admin</a>
+            </li>
+        </ul>
+    </div>
 </footer>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
