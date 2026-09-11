@@ -1,11 +1,11 @@
 @{
-    ViewData["Title"] = "Contact";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <section class="section-header full-bleed text-center">
     <div>
-        <p class="text-uppercase">Contact</p>
-        <h2>Neem contact met ons op voor alle vragen</h2>
+        <p class="text-uppercase">@Localizer["SectionTag"]</p>
+        <h2>@Localizer["SectionHeading"]</h2>
     </div>
 </section>
 
@@ -16,7 +16,7 @@
             <div class="col-lg-4 d-flex flex-column border-start-1 border-end-1">
                 <div class="w-100 flex-grow-1 min-vh-50 position-relative">
                     <iframe
-                        src="https://maps.google.com/maps?q=20+Place+Jean+Mermoz,+08220+Rocquigny,+France&hl=nl&z=16&iwloc=near&output=embed"
+                        src="https://maps.google.com/maps?q=20+Place+Jean+Mermoz,+08220+Rocquigny,+France&hl=@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName&z=16&iwloc=near&output=embed"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
@@ -28,14 +28,14 @@
             <div class="col-lg-8 contact-section d-flex flex-column gap-5 mt-5">
                 
                 <div>
-                    <span class="contact-label">Eigenaar</span>
+                    <span class="contact-label">@Localizer["LabelOwner"]</span>
                     <h3 class="contact-heading mt-2">
                         Wendy Martens
                     </h3>
                 </div>
 
                 <div>
-                    <span class="contact-label">Adres</span>
+                    <span class="contact-label">@Localizer["LabelAddress"]</span>
                     <h3 class="contact-heading mt-2">
                         <a href="https://www.google.com/maps/search/?api=1&query=20+Place+Jean+Mermoz,+08220+Rocquigny,+France"
                            target="_blank"
@@ -52,7 +52,7 @@
                 </div>
 
                 <div>
-                    <span class="contact-label">Telefoon</span>
+                    <span class="contact-label">@Localizer["LabelPhone"]</span>
                     <h3 class="contact-heading mt-2">
                         <a href="tel:+33673081169" class="contact-link" data-text="+33 6 730 811 69">
                             <span>+33 6 730 811 69</span>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div>
-                    <span class="contact-label">E-mail</span>
+                    <span class="contact-label">@Localizer["LabelEmail"]</span>
                     <h3 class="contact-heading mt-2">
                         <a href="mailto:wendymartens19@gmail.com" class="contact-link" data-text="WENDYMARTENS19@GMAIL.COM">
                             <span>WENDYMARTENS19@GMAIL.COM</span>
