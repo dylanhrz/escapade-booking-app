@@ -12,6 +12,16 @@
                 <h1 class="display-6 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
             </div>
         </div>
+        
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0 border-0 border-bottom-1" role="alert">
+                <div class="container-fluid py-2">
+                    <span class="fw-bold text-uppercase small">@TempData["Message"]</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        }
 
         <div>
             @if (!Model.UpcomingBookings.Any())
@@ -74,13 +84,23 @@
                                 </h3>
                                 
                                 <h3 class="contact-heading mt-2">
+                                    <form asp-controller="Admin" asp-action="ApproveBooking" asp-route-id="@booking.Id" method="post" class="d-inline">
+                                        <button type="submit" 
+                                                class="bg-transparent border-0 p-0 text-start contact-link text-decoration-underline fw-bolder text-uppercase" 
+                                                data-text="Goedkeuren">
+                                            <span>Goedkeuren</span>
+                                        </button>
+                                    </form>
+                                </h3>
+                                
+                                <h3 class="contact-heading mt-2">
                                     <a asp-controller="Admin"
                                        asp-action="Delete"
                                        asp-route-id="@booking.Id"
                                        target="_blank"
                                        class="contact-link text-decoration-underline" 
                                        data-text="Boeking verwijderen">
-                                        <span>Boeking verwijderen</span>
+                                        <span>Verwijderen</span>
                                     </a>
                                 </h3>
                             </div>

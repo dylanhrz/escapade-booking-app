@@ -120,6 +120,32 @@ public class AdminController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ApproveBooking(int id)
+    {
+        if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
+        {
+            return RedirectToAction("Login");
+        }
+
+        var booking = await _escapadeDbContext.Bookings.FindAsync(id);
+
+        if (booking == null)
+        {
+            return NotFound();
+        }
+
+        booking.Status = Core.Entities.Booking.BookingStatus.Approved; 
+    
+        _escapadeDbContext.Bookings.Update(booking);
+        await _escapadeDbContext.SaveChangesAsync();
+        
+        TempData["Message"] = $"Boeking voor '{booking.Name}' is goedgekeurd!";
+
+        return RedirectToAction(nameof(Index));
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Delete(AdminDeleteBookingViewModel adminDeleteBookingViewModel)
     {
         if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
