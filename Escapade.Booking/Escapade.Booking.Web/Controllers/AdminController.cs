@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using Escapade.Booking.Web.Data;
+using Escapade.Booking.Web.Models;
 using Escapade.Booking.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,7 @@ public class AdminController : Controller
         var bookings = _escapadeDbContext.Bookings
             .Select(b => new BaseViewModel()
             {
+                Id = b.Id,
                 Name = b.Name,
                 Email = b.Email,
                 PhoneNumber = b.PhoneNumber,
@@ -95,5 +98,52 @@ public class AdminController : Controller
     {
         HttpContext.Session.Clear();
         return RedirectToAction("Index", "Home");
+    }
+    
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var booking = _escapadeDbContext.Bookings.FirstOrDefault(p => p.Id == id);
+
+        if (booking == null) return NotFound();
+
+        AdminDeleteBookingViewModel adminDeleteBookingViewModel = new()
+        {
+            Id = booking.Id,
+            Name = booking.Name,
+            StartDate = booking.StartDate,
+            EndDate = booking.EndDate
+        };
+
+        return View(adminDeleteBookingViewModel);
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Delete(AdminDeleteBookingViewModel adminDeleteBookingViewModel)
+    {
+        if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
+        {
+            return RedirectToAction("Login");
+        }
+        
+        var booking = _escapadeDbContext.Bookings.FirstOrDefault(p => p.Id == adminDeleteBookingViewModel.Id);
+        
+        if (booking == null) return NotFound();
+    
+        _escapadeDbContext.Bookings.Remove(booking);
+
+        try
+        {
+            _escapadeDbContext.SaveChanges();
+            TempData["Message"] = $"Boeking voor '{booking.Name}' ({booking.StartDate:dd/MM/yyyy} - {booking.EndDate:dd/MM/yyyy}) is verwijderd!";
+        }
+        catch (DbUpdateException ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return View("Error", new ErrorViewModel());
+        }
+
+        return RedirectToAction("Index");
     }
 }
