@@ -4,14 +4,14 @@
     ViewData["Title"] = "Boeking Verwijderen";
 }
 
-<section class="section-header border-bottom-1 text-center py-5 border-start-1 border-end-1">
-    <div class="px-3">
-        <p class="text-uppercase fw-bold small text-danger mb-2">Beheerdersactie / Onomkeerbaar</p>
-        <h1 class="display-5 font-serif text-uppercase fw-bold m-0">Boeking Verwijderen</h1>
+<section class="section-header full-bleed text-center">
+    <div>
+        <p class="text-uppercase text-danger">Beheerdersactie / Onomkeerbaar</p>
+        <h2>Boeking Verwijderen</h2>
     </div>
 </section>
 
-<section class="border-bottom-1 border-start-1 border-end-1">
+<section class="border-end-1 border-start-1 my-5">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
 
@@ -31,7 +31,7 @@
                         @Model.Name
                     </h3>
 
-                    <div class="border-1 ps-3 py-2 my-4">
+                    <div class="my-4">
                         <p class="text-uppercase info-label mb-1">Gereserveerde Periode</p>
                         <p class="h4 font-monospace m-0">
                             @Model.StartDate?.ToString("dd/MM/yyyy") — @Model.EndDate?.ToString("dd/MM/yyyy")
@@ -45,16 +45,23 @@
                     <input type="hidden" asp-for="Id"/>
 
                     <div class="d-flex flex-column gap-3">
-                        <button type="submit"
-                                class="custom-button-outline bg-danger text-white border-danger text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none border-0">
-                            Bevestig & Verwijder Boeking #@Model.Id
-                        </button>
-
-                        <a asp-controller="Admin"
-                           asp-action="Index"
-                           class="custom-button-outline text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none text-dark">
-                            Annuleren
-                        </a>
+                        
+                        <h3 class="contact-heading mt-2">
+                            <button type="submit" 
+                                    class="contact-link border-0 bg-transparent p-0 text-start fw-bolder text-uppercase text-decoration-underline" 
+                                    data-text="Bevestig & Verwijder Boeking #@Model.Id">
+                                <span>Bevestig & Verwijder Boeking #@Model.Id</span>
+                            </button>
+                        </h3>
+                        
+                        <h3 class="contact-heading mt-2">
+                            <a asp-controller="Admin"
+                               asp-action="Index"
+                               class="contact-link text-decoration-underline my-2" 
+                               data-text="Annuleren">
+                                <span>Annuleren</span>
+                            </a>
+                        </h3>
                     </div>
                 </form>
             </div>

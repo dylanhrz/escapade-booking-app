@@ -8,13 +8,8 @@
     <div class="container-fluid p-0 border-start-1 border-end-1">
         
         <div class="row g-0 align-items-end border-bottom-1">
-            <div class="col-lg-4 p-4 p-lg-5">
+            <div class="col-lg-12 p-5">
                 <h1 class="display-6 font-non-serif text-uppercase fw-light m-0">Aankomende Boekingen</h1>
-            </div>
-            <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
-                <span class="display-2 font-non-serif text-muted fw-light opacity-50 m-0">
-                    @DateTime.Now.Year
-                </span>
             </div>
         </div>
 
@@ -48,7 +43,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-12 col-md-8 col-lg-6 p-4 p-lg-5">
+                            <div class="col-12 col-md-8 col-lg-5 p-4 p-lg-5">
                                 <h3 class="text-uppercase fw-bold m-0 text-dark font-non-serif display-6 py-1">@booking.Name</h3>
                                 
                                 <div class="mt-3">
@@ -65,21 +60,29 @@
                                 }
                             </div>
 
-                            <div class="col-12 col-lg-3 p-4 p-lg-5 d-flex flex-column justify-content-center gap-3">
-                                <a asp-controller="Booking"
-                                   asp-action="TrackBooking"
-                                   asp-route-token="@booking.AccessToken"
-                                   target="_blank"
-                                   class="custom-button-outline text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none">
-                                    Tracking Klant
-                                </a>
-
-                                <a asp-controller="Admin"
-                                   asp-action="Delete"
-                                   asp-route-id="@booking.Id"
-                                   class="custom-button-outline text-uppercase fw-bold w-100 py-3 small text-center text-decoration-none">
-                                    Boeking verwijderen
-                                </a>
+                            <div class="col-12 col-lg-4 p-4 p-lg-5 d-flex flex-column justify-content-center gap-3 border-start-1">
+                                
+                                <h3 class="contact-heading mt-2">
+                                    <a asp-controller="Booking"
+                                       asp-action="TrackBooking"
+                                       asp-route-token="@booking.AccessToken"
+                                       target="_blank"
+                                       class="contact-link text-decoration-underline" 
+                                       data-text="Tracking Klant">
+                                        <span>Tracking Klant</span>
+                                    </a>
+                                </h3>
+                                
+                                <h3 class="contact-heading mt-2">
+                                    <a asp-controller="Admin"
+                                       asp-action="Delete"
+                                       asp-route-id="@booking.Id"
+                                       target="_blank"
+                                       class="contact-link text-decoration-underline" 
+                                       data-text="Boeking verwijderen">
+                                        <span>Boeking verwijderen</span>
+                                    </a>
+                                </h3>
                             </div>
 
                         </div>
@@ -88,14 +91,9 @@
             }
         </div>
         
-        <div class="row g-0 align-items-end mt-5 border-bottom-1">
-            <div class="col-lg-4 p-4 p-lg-5">
+        <div class="row g-0 align-items-end border-bottom-1">
+            <div class="col-lg-12 p-5">
                 <h2 class="display-6 font-non-serif text-uppercase fw-light m-0">Afgelopen Boekingen</h2>
-            </div>
-            <div class="col-lg-8 p-4 p-lg-5 text-start text-lg-end">
-                <span class="display-2 font-non-serif text-muted fw-light opacity-25 m-0">
-                    Archief
-                </span>
             </div>
         </div>
 
@@ -146,7 +144,8 @@
         
         <div class="row g-0">
             <div class="col-12">
-                <a asp-controller="Admin" asp-action="" class="d-block w-100 p-4 p-lg-5 text-center text-uppercase fw-bold text-dark text-decoration-none">
+                <a asp-controller="Admin" asp-action="" 
+                   class="d-block w-100 p-4 p-lg-5 text-center text-uppercase fw-bold text-dark text-decoration-none nav-block-btn">
                     Bekijk alle afgelopen boekingen
                 </a>
             </div>
