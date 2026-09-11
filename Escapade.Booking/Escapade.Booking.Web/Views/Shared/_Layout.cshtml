@@ -1,10 +1,15 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    var currentCulture = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName.ToUpper();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path}{Context.Request.QueryString}";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName">
 
 <head>
     <meta charset="utf-8"/>
@@ -25,7 +30,7 @@
                     <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                        asp-controller="Home"
                        asp-action="About">
-                        Het verblijf
+                        @Localizer["HetVerblijf"]
                     </a>
                 </div>
 
@@ -51,7 +56,7 @@
                         <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                            asp-controller="Home"
                            asp-action="About">
-                            Het verblijf
+                            @Localizer["HetVerblijf"]
                         </a>
                     </div>
 
@@ -61,7 +66,7 @@
                             <a class="nav-block-btn @(currentController == "Contact" ? "active" : "")"
                                asp-controller="Contact"
                                asp-action="Index">
-                                Contact
+                                @Localizer["Contact"]
                             </a>
                         </li>
 
@@ -71,7 +76,7 @@
                                 <a class="nav-block-btn @(currentController == "Admin" ? "active-admin" : "")"
                                    asp-controller="Admin"
                                    asp-action="Logout">
-                                    Uitloggen
+                                    @Localizer["Uitloggen"]
                                 </a>
                             }
                             else
@@ -79,19 +84,31 @@
                                 <a class="nav-block-btn @(currentController == "Booking" ? "active" : "")"
                                    asp-controller="Booking"
                                    asp-action="CreateBooking">
-                                    Boek nu
+                                    @Localizer["BoekNu"]
                                 </a>
                             }
                         </li>
 
                         <li class="nav-item dropdown d-flex align-items-center">
                             <a class="nav-link dropdown-toggle text-dark text-uppercase p-0 w-100 h-100 d-flex align-items-center justify-content-center" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                NL
+                                @currentCulture
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="?culture=nl">NL</a></li>
-                                <li><a class="dropdown-item" href="?culture=fr">FR</a></li>
-                                <li><a class="dropdown-item" href="?culture=en">EN</a></li>
+                                <li>
+                                    <form asp-controller="Language" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" asp-route-culture="nl" method="post">
+                                        <button type="submit" class="dropdown-item @(currentCulture == "NL" ? "fw-bold" : "")">NL</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form asp-controller="Language" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" asp-route-culture="fr" method="post">
+                                        <button type="submit" class="dropdown-item @(currentCulture == "FR" ? "fw-bold" : "")">FR</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form asp-controller="Language" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" asp-route-culture="en" method="post">
+                                        <button type="submit" class="dropdown-item @(currentCulture == "EN" ? "fw-bold" : "")">EN</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
 
@@ -118,13 +135,13 @@
             <div class="col-lg-4 footer-cell footer-links-col">
                 <ul class="footer-links">
                     <li>
-                        <a asp-controller="Home" asp-action="About" class="footer-link">Het verblijf</a>
+                        <a asp-controller="Home" asp-action="About" class="footer-link">@Localizer["HetVerblijf"]</a>
                     </li>
                     <li>
-                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">Verblijf aanvragen</a>
+                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">@Localizer["VerblijfAanvragen"]</a>
                     </li>
                     <li>
-                        <a asp-controller="Contact" asp-action="Index" class="footer-link">Contact</a>
+                        <a asp-controller="Contact" asp-action="Index" class="footer-link">@Localizer["Contact"]</a>
                     </li>
                     <li>
                         <a asp-controller="Admin" asp-action="Login" class="footer-link">Admin</a>

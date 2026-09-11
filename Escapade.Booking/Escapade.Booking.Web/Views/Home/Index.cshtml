@@ -1,11 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Home";
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <section class="full-bleed position-relative overflow-hidden hero-banner border-start-1 border-end-1">
     <video autoplay loop muted playsinline id="hero-video">
         <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
-        Je browser ondersteunt geen videotag.
+        @Localizer["VideoNotSupported"]
     </video>
 
     <div class="hero-overlay"></div>
@@ -15,7 +18,7 @@
             <div class="p-5">
                 <h3 class="split-section-head text-center">
                     <span class="text-highlight"> Rocquigny, </span> <br />
-                    weg van de dagelijkse drukte. 
+                    @Localizer["HeroSubtitle"]
                 </h3>
 
                 <div class="d-flex align-items-center justify-content-center gap-5 mt-5">
@@ -23,8 +26,8 @@
                         <a asp-controller="Home"
                            asp-action="About"
                            class="hero-link"
-                           data-text="Verkennen">
-                            <span>Verkennen</span>
+                           data-text="@Localizer["Verkennen"]">
+                            <span>@Localizer["Verkennen"]</span>
                         </a>
                     </h3>
 
@@ -32,8 +35,8 @@
                         <a asp-controller="Booking"
                            asp-action="CreateBooking"
                            class="hero-link"
-                           data-text="Aanvragen">
-                            <span>Aanvragen</span>
+                           data-text="@Localizer["Aanvragen"]">
+                            <span>@Localizer["Aanvragen"]</span>
                         </a>
                     </h3>
                 </div>
