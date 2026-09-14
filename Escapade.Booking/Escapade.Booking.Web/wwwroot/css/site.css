@@ -477,6 +477,9 @@ footer {
 .hero-banner {
   position: relative;
   min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow: hidden;
   border-bottom: 1px solid var(--black);
 }
@@ -516,12 +519,7 @@ footer {
   position: relative;
   z-index: 3;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  background-color: transparent;
-  margin-bottom: 150px;
+  margin-bottom: 500px;
 }
 
 .head-center {

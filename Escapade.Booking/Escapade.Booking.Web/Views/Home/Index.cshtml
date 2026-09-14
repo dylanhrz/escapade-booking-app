@@ -2,26 +2,26 @@
     ViewData["Title"] = Localizer["PageTitle"];
 }
 
-<section class="full-bleed position-relative overflow-hidden hero-banner min-vh-100 d-flex align-items-end pb-5">
+<section class="hero-banner full-bleed position-relative overflow-hidden min-vh-100 d-flex flex-column justify-content-between pb-5">
     <video autoplay loop muted playsinline id="hero-video">
-        <source src="@Url.Content("~/videos/dummy-hero-video.mp4")" type="video/mp4"/>
+        <source src="@Url.Content("~/videos/cows-video-2.mp4")" type="video/mp4"/>
         @Localizer["VideoNotSupported"]
     </video>
 
     <div class="hero-overlay"></div>
-
-    <div class="container position-relative">
-        <div class="hero-cta-col d-flex flex-column align-items-start">
-            <h2 class="head-center mb-4">
-                @Localizer["Title"]
-            </h2>     
-            <a asp-controller="Booking"
-               asp-action="CreateBooking"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="hero-btn">
-                Vraag je verblijf aan
-            </a>
+    
+    <div class="container position-relative z-3 my-auto my-md-0 mt-md-auto py-5">
+        <div class="row justify-content-end align-items-end">
+            <div class="col-12 col-md-6 col-lg-5">
+                <div class="hero-cta-col text-light text-uppercase">
+                    <p class="hero-text mb-0">
+                        Galicia is more than just a stunning setting; it's a region with deep roots, vibrant culture and a warm, welcoming community.
+                    </p>
+                    <p class="hero-text mt-3 mb-0">
+                        The nearest airport is only 1h away. Once you arrive, you’ll find a region where nature and innovation go hand in hand. With its rugged coastline, lush forests and strong traditions, it’s an ideal setting for focused work and a refreshing change of pace from city life.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
