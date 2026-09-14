@@ -1,4 +1,23 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿function openLightbox(src) {
+    const modal = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    modal.showModal();
+}
+
+const cursor = document.getElementById('custom-cursor');
+const imgContainers = document.querySelectorAll('.img-container');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+});
+
+imgContainers.forEach(container => {
+    container.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    container.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
 
     const calendarContainer = document.getElementById("inline-calendar");
     if (calendarContainer) {
