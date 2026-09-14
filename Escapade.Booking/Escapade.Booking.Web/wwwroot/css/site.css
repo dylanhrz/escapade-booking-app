@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
 
 :root {
   --black: #1a1a1a;
@@ -9,7 +9,7 @@
   --primary-red: #F43F5E;
 
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-non-serif: "Helvetica", Helvetica, Arial, sans-serif;
+  --font-non-serif: 'Inter', "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -124,7 +124,6 @@ a {
 
 header {
   border-bottom: 1px solid var(--black) !important;
-  background-color: var(--offwhite);
 }
 
 header nav,
@@ -535,59 +534,58 @@ footer {
   background-color: transparent;
 }
 
-.split-section-head {
-  font-family: var(--font-serif), serif;
-  color: var(--offwhite);
-  font-size: 4rem;
-  font-weight: 900;
-}
-
-.split-section-text {
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1.25;
-  font-family: var(--font-non-serif), serif;
-}
-
-.hero-link-heading {
+.head-center {
   font-family: var(--font-non-serif), sans-serif;
-  font-size: 1.5rem;
+  color: var(--offwhite);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 0;
-}
-
-.hero-link {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  color: var(--offwhite);
-  text-decoration: underline;
-  vertical-align: top;
-}
-
-.hero-link span {
-  display: block;
-  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-.hero-link::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 100%;
-  left: 0;
+  text-align: center;
+  max-width: 800px;
   width: 100%;
-  height: 100%;
-  color: var(--offwhite);
-  text-decoration: underline;
-  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  margin: 0 auto;
 }
 
-.hero-link:hover span,
-.hero-link:hover::after {
-  transform: translateY(-100%);
+@media (max-width: 991px) {
+  .head-center {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+  }
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.5rem;
+  background-color: transparent;
+  color: var(--offwhite);
+  border: 1px solid var(--offwhite);
+  font-family: var(--font-non-serif), sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+  color: var(--offwhite);
+}
+
+@media (max-width: 991px) {
+  .hero-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 1.5rem;
+    font-size: 0.8rem;
+  }
 }
 
 .hero-cta-col .contact-link {

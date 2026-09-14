@@ -11,33 +11,19 @@
     <div class="hero-overlay"></div>
 
     <div class="container position-relative">
-        <div class="hero-cta-col">
-            <div class="p-5">
-                <h3 class="split-section-head text-center">
-                    <span class="text-highlight"> Rocquigny, </span> <br />
-                    @Localizer["HeroSubtitle"]
-                </h3>
-
-                <div class="d-flex align-items-center justify-content-center gap-5 mt-5">
-                    <h3 class="hero-link-heading m-0">
-                        <a asp-controller="Home"
-                           asp-action="About"
-                           class="hero-link"
-                           data-text="@Localizer["Verkennen"]">
-                            <span>@Localizer["Verkennen"]</span>
-                        </a>
-                    </h3>
-
-                    <h3 class="hero-link-heading m-0">
-                        <a asp-controller="Booking"
-                           asp-action="CreateBooking"
-                           class="hero-link"
-                           data-text="@Localizer["Aanvragen"]">
-                            <span>@Localizer["Aanvragen"]</span>
-                        </a>
-                    </h3>
-                </div>
-            </div>
+        <div class="hero-cta-col align-items-center text-center">
+            <h3 class="head-center mb-5">
+                @Localizer["Title"]
+            </h3>     
+            <a asp-controller="Booking"
+               asp-action="CreateBooking"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="hero-btn">
+                Vraag je verblijf aan
+            </a>
         </div>
     </div>
+    
+    
 </section>

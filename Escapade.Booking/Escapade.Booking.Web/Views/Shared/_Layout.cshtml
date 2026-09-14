@@ -27,7 +27,7 @@
                     <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                        asp-controller="Home"
                        asp-action="About">
-                        @Localizer["HetVerblijf"]
+                        @Localizer["About"]
                     </a>
                 </div>
 
@@ -53,7 +53,7 @@
                         <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                            asp-controller="Home"
                            asp-action="About">
-                            @Localizer["HetVerblijf"]
+                            @Localizer["About"]
                         </a>
                     </div>
 
@@ -73,7 +73,7 @@
                                 <a class="nav-block-btn @(currentController == "Admin" ? "active-admin" : "")"
                                    asp-controller="Admin"
                                    asp-action="Logout">
-                                    @Localizer["Uitloggen"]
+                                    @Localizer["SignOut"]
                                 </a>
                             }
                             else
@@ -81,7 +81,7 @@
                                 <a class="nav-block-btn @(currentController == "Booking" ? "active" : "")"
                                    asp-controller="Booking"
                                    asp-action="CreateBooking">
-                                    @Localizer["BoekNu"]
+                                    @Localizer["Book"]
                                 </a>
                             }
                         </li>
@@ -132,10 +132,10 @@
             <div class="col-lg-4 footer-cell footer-links-col">
                 <ul class="footer-links">
                     <li>
-                        <a asp-controller="Home" asp-action="About" class="footer-link">@Localizer["HetVerblijf"]</a>
+                        <a asp-controller="Home" asp-action="About" class="footer-link">@Localizer["About"]</a>
                     </li>
                     <li>
-                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">@Localizer["VerblijfAanvragen"]</a>
+                        <a asp-controller="Booking" asp-action="CreateBooking" class="footer-link">@Localizer["Book"]</a>
                     </li>
                     <li>
                         <a asp-controller="Contact" asp-action="Index" class="footer-link">@Localizer["Contact"]</a>

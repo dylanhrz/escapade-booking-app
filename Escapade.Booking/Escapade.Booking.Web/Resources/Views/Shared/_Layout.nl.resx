@@ -57,19 +57,16 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="HetVerblijf" xml:space="preserve">
+    <data name="About" xml:space="preserve">
         <value>Het verblijf</value>
     </data>
     <data name="Contact" xml:space="preserve">
         <value>Contact</value>
     </data>
-    <data name="BoekNu" xml:space="preserve">
+    <data name="Book" xml:space="preserve">
         <value>Boek nu</value>
     </data>
-    <data name="Uitloggen" xml:space="preserve">
+    <data name="SignOut" xml:space="preserve">
         <value>Uitloggen</value>
-    </data>
-    <data name="VerblijfAanvragen" xml:space="preserve">
-        <value>Verblijf aanvragen</value>
     </data>
 </root>
