@@ -10,7 +10,7 @@
     ViewData["Title"] = "Boeking Aanvragen";
 }
 
-<section class="section-header full-bleed text-center">
+<section class="section-header full-bleed text-center border-bottom-1">
     <div>
         <p class="text-uppercase">Nieuwe boeking</p>
         <h2>Vraag je verblijf aan</h2>
@@ -21,8 +21,6 @@
     <div class="container-fluid p-0">
         
         <form id="booking" asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
-
-            @Html.AntiForgeryToken()
 
             <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-1"></div>
 

@@ -112,7 +112,6 @@ a {
 
 .section-header {
   padding: 10rem 0;
-  border-bottom: 1px solid var(--black);
 }
 
 .section-header h2 {
@@ -123,15 +122,18 @@ a {
 /* header / navigation */
 
 header {
-  border-bottom: 1px solid var(--black) !important;
+  border-bottom: 1px solid var(--black);
 }
 
 .navbar-brand {
-  font-family: var(--font-serif), sans-serif !important;
-  font-size: 1.5rem !important;
+  font-family: var(--font-non-serif), sans-serif;
+  letter-spacing: 0.1em;
   padding-left: 50px !important;
   padding-right: 50px !important;
-  transform: translateY(-2px);
+  color: var(--black) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  height: 100%;
+  transition: opacity 0.2s ease;
 }
 
 .brand-logo:hover,
@@ -150,7 +152,10 @@ header {
   justify-content: center;
   height: 100%;
   color: var(--black);
-  font-weight: 500;
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 100;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.15s ease-in-out;
@@ -296,8 +301,13 @@ header {
   }
 
   .navbar-collapse {
-    width: 100% !important;
-    padding-top: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--offwhite);
+    border-top: 1px solid var(--black);
+    z-index: 1000;
   }
 
   .navbar-nav {
@@ -479,7 +489,7 @@ footer {
   min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   overflow: hidden;
   border-bottom: 1px solid var(--black);
 }
@@ -516,9 +526,21 @@ footer {
 
 .hero-text {
   font-family: var(--font-non-serif), sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   letter-spacing: 0.04em;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+}
+
+.hero-cta a {
+  color: var(--offwhite);
+}
+
+.hero-cta a:hover {
+  color: var(--black);
 }
 
 /* index - section / gallery */
@@ -588,6 +610,21 @@ footer {
   object-fit: contain;
   display: block;
   margin: auto;
+}
+
+.hero-img-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  height: 60vh;
+}
+
+.hero-img-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
 }
 
 /* contact */

@@ -21,13 +21,25 @@
 <header>
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg p-0 m-0 align-items-stretch">
-            <div class="container-fluid p-0 d-flex align-items-stretch justify-content-between">
+            <div class="container-fluid p-0 d-flex flex-wrap align-items-stretch justify-content-between">
 
-                <div class="d-none d-lg-flex align-items-stretch justify-content-end nav-side border-end-1">
-                    <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                <div class="d-none d-lg-flex align-items-stretch justify-content-end nav-side">
+                    <a class="nav-block-btn border-start-1 border-end-1 @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                        asp-controller="Home"
                        asp-action="About">
                         @Localizer["About"]
+                    </a>
+
+                    <a class="nav-block-btn border-end-1"
+                       asp-controller=""
+                       asp-action="">
+                        Kamers
+                    </a>
+
+                    <a class="nav-block-btn border-end-1"
+                       asp-controller=""
+                       asp-action="">
+                        Rocquigny
                     </a>
                 </div>
 
@@ -48,19 +60,37 @@
                 </button>
 
                 <div class="collapse navbar-collapse align-items-stretch nav-side" id="mainNavbar">
-
-                    <div class="d-flex d-lg-none align-items-stretch">
-                        <a class="nav-block-btn @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                    
+                    <div class="d-flex d-lg-none flex-column w-100">
+                        <a class="nav-block-btn w-100 @(currentController == "Home" && currentAction == "About" ? "active" : "")"
                            asp-controller="Home"
                            asp-action="About">
                             @Localizer["About"]
                         </a>
+                        <a class="nav-block-btn w-100 border-top-1 border-bottom-1"
+                           asp-controller=""
+                           asp-action="">
+                            Kamers
+                        </a>
+                        <a class="nav-block-btn w-100"
+                           asp-controller=""
+                           asp-action="">
+                            Rocquigny
+                        </a>
                     </div>
 
-                    <ul class="navbar-nav align-items-center my-0 w-100">
-
+                    <ul class="navbar-nav w-100 d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center my-0">
+                        
                         <li class="nav-item d-flex align-items-center">
-                            <a class="nav-block-btn @(currentController == "Contact" ? "active" : "")"
+                            <a class="nav-block-btn w-100"
+                               asp-controller=""
+                               asp-action="">
+                                Accommodatie
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="nav-block-btn w-100 @(currentController == "Contact" ? "active" : "")"
                                asp-controller="Contact"
                                asp-action="Index">
                                 @Localizer["Contact"]
@@ -86,6 +116,7 @@
                             }
                         </li>
 
+                        <!--
                         <li class="nav-item dropdown d-flex align-items-center">
                             <a class="nav-link dropdown-toggle text-dark text-uppercase p-0 w-100 h-100 d-flex align-items-center justify-content-center" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 @currentCulture
@@ -108,10 +139,11 @@
                                 </li>
                             </ul>
                         </li>
+                        -->
+
 
                     </ul>
                 </div>
-
             </div>
         </nav>
     </div>
