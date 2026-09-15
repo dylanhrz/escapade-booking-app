@@ -24,7 +24,7 @@
             <div class="container-fluid p-0 d-flex flex-wrap align-items-stretch justify-content-between">
 
                 <div class="d-none d-lg-flex align-items-stretch justify-content-end nav-side">
-                    <a class="nav-block-btn border-start-1 border-end-1"
+                    <a class="nav-block-btn border-start-1 border-end-1 @(currentController == "About" && currentAction == "Index" ? "active" : "")"
                        asp-controller="About"
                        asp-action="Index">
                         @Localizer["About"]
@@ -36,7 +36,7 @@
                         Kamers
                     </a>
 
-                    <a class="nav-block-btn border-end-1"
+                    <a class="nav-block-btn border-end-1 @(currentController == "About" && currentAction == "Rocquingy" ? "active" : "")"
                        asp-controller="About"
                        asp-action="Rocquingy">
                         Rocquigny
@@ -62,7 +62,7 @@
                 <div class="collapse navbar-collapse align-items-stretch nav-side" id="mainNavbar">
                     
                     <div class="d-flex d-lg-none flex-column w-100">
-                        <a class="nav-block-btn w-100 @(currentController == "Home" && currentAction == "About" ? "active" : "")"
+                        <a class="nav-block-btn w-100 @(currentController == "About" && currentAction == "Index" ? "active" : "")"
                            asp-controller="About"
                            asp-action="Index">
                             @Localizer["About"]
@@ -72,7 +72,7 @@
                            asp-action="Rooms">
                             Kamers
                         </a>
-                        <a class="nav-block-btn w-100"
+                        <a class="nav-block-btn w-100 @(currentController == "About" && currentAction == "Rocquingy" ? "active" : "")"
                            asp-controller="About"
                            asp-action="Rocquingy">
                             Rocquigny
@@ -199,11 +199,13 @@
                             @Localizer["Contact"]
                         </a>
                     </li>
+                    <!--
                     <li>
                         <a asp-controller="Admin" asp-action="Login">
                             Admin
                         </a>
                     </li>
+                    -->
                 </ul>
             </div>
         </div>
