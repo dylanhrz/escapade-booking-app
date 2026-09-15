@@ -1302,6 +1302,10 @@ span.flatpickr-weekday {
   font-family: inherit;
 }
 
+.rooms-accordion-section:has(.accordion-item:not(.active)):hover {
+  background-color: var(--primary-green);
+}
+
 .accordion-header {
   width: 100%;
   display: flex;
@@ -1340,7 +1344,7 @@ span.flatpickr-weekday {
 .accordion-icon::after {
   content: '';
   position: absolute;
-  background-color: #1a1a1a;
+  background-color: var(--black);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1348,13 +1352,13 @@ span.flatpickr-weekday {
 }
 
 .accordion-icon::before {
-  width: 24px;
+  width: 25px;
   height: 2px;
 }
 
 .accordion-icon::after {
   width: 2px;
-  height: 24px;
+  height: 25px;
 }
 
 .accordion-item.active .accordion-icon::after {
