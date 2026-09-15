@@ -1175,6 +1175,31 @@ span.flatpickr-weekday {
   color: lightgrey !important;
 }
 
+/* BOOKING CTA */
+
+.cta-section {
+  min-height: 90vh;
+}
+
+.cta-section-content {
+  text-align: center;
+}
+
+.cta-section-content h3 {
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 5rem;
+  font-weight: 100;
+  text-decoration: underline;
+}
+
+.cta-section-content p {
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+  
+/* ROOM CAROUSEL */
+
 .rooms-hero-container {
   position: relative;
   height: 90vh;
