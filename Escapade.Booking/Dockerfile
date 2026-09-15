@@ -1,12 +1,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Kopieer het .csproj bestand vanuit de submap
+# 1. Kopieer de .csproj vanuit de submap naar de juiste structuur in de container
 COPY ["Escapade.Booking/Escapade.Booking.csproj", "Escapade.Booking/"]
+
+# 2. Voer restore uit op dat exacte pad
 RUN dotnet restore "Escapade.Booking/Escapade.Booking.csproj"
 
-# Kopieer de rest van de broncode
+# 3. Kopieer alle broncode
 COPY . .
+
+# 4. Navigeer naar de projectmap en bouw de Release
 WORKDIR "/src/Escapade.Booking"
 RUN dotnet publish "Escapade.Booking.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
