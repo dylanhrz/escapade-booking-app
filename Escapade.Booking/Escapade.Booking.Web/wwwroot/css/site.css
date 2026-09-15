@@ -124,7 +124,7 @@ a {
   background-color: transparent !important;
   color: var(--black) !important;
   border: 1px solid var(--black) !important;
-  padding: 1rem 2rem !important;
+  padding: 1.5rem 3.5rem !important;
   font-weight: 500;
 }
 
@@ -138,7 +138,8 @@ a {
   background-color: var(--primary-green) !important;
   color: var(--offwhite) !important;
   border: 1px solid var(--primary-green) !important;
-  padding: 1rem 2rem !important;
+  border-radius: 100vmax !important;
+  padding: 1.5rem 3.5rem !important;
   font-weight: 500;
 }
 
@@ -577,6 +578,7 @@ footer {
 
 .hero-cta {
   margin-top: 2rem;
+  font-weight: 900;
 }
 
 .hero-cta a {
