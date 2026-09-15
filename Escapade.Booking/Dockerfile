@@ -1,11 +1,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["Escapade.Booking.csproj", "./"]
-RUN dotnet restore "Escapade.Booking.csproj"
+# Kopieer alle .csproj bestanden in de huidige map
+COPY *.csproj ./
+RUN dotnet restore
 
+# Kopieer de rest van de broncode en bouw het project
 COPY . .
-RUN dotnet publish "Escapade.Booking.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
