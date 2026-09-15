@@ -30,7 +30,7 @@
                         @Localizer["About"]
                     </a>
 
-                    <a class="nav-block-btn border-end-1"
+                    <a class="nav-block-btn border-end-1 @(currentController == "About" && currentAction == "Rooms" ? "active" : "")"
                        asp-controller="About"
                        asp-action="Rooms">
                         Kamers
@@ -67,7 +67,7 @@
                            asp-action="Index">
                             @Localizer["About"]
                         </a>
-                        <a class="nav-block-btn w-100 border-top-1 border-bottom-1"
+                        <a class="nav-block-btn w-100 border-top-1 border-bottom-1 @(currentController == "About" && currentAction == "Rooms" ? "active" : "")"
                            asp-controller="About"
                            asp-action="Rooms">
                             Kamers
