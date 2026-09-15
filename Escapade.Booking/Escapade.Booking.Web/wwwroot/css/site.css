@@ -119,6 +119,40 @@ a {
   font-size: 4rem;
 }
 
+.btn-custom {
+  background-color: transparent !important;
+  color: var(--black) !important;
+  border: 1px solid var(--primary-green) !important;
+  padding: 1rem 2rem !important;
+  font-weight: 500;
+}
+
+.btn-custom:hover {
+  background-color: var(--primary-green) !important;
+}
+
+.btn-custom-outline {
+  background-color: var(--primary-green) !important;
+  color: var(--black) !important;
+  border: 1px solid var(--primary-green) !important;
+  padding: 1rem 2rem !important;
+  font-weight: 500;
+}
+
+
+.btn-custom-outline:hover {
+  background-color: var(--black) !important;
+  color: var(--offwhite) !important;
+  border: 1px solid var(--black) !important;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.paragraph {
+}
+
 /* header / navigation */
 
 header {
