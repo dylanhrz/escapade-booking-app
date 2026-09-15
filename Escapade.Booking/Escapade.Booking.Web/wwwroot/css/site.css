@@ -116,24 +116,27 @@ a {
 
 .section-header h2 {
   font-weight: 300;
-  font-size: 4rem;
+  font-size: 100%;
+  text-transform: uppercase;
 }
 
 .btn-custom {
   background-color: transparent !important;
   color: var(--black) !important;
-  border: 1px solid var(--primary-green) !important;
+  border: 1px solid var(--black) !important;
   padding: 1rem 2rem !important;
   font-weight: 500;
 }
 
 .btn-custom:hover {
+  color: var(--offwhite) !important;
   background-color: var(--primary-green) !important;
+  border: 1px solid var(--primary-green) !important;
 }
 
 .btn-custom-outline {
   background-color: var(--primary-green) !important;
-  color: var(--black) !important;
+  color: var(--offwhite) !important;
   border: 1px solid var(--primary-green) !important;
   padding: 1rem 2rem !important;
   font-weight: 500;
@@ -156,7 +159,14 @@ a {
 /* header / navigation */
 
 header {
+  background-color: var(--offwhite);
   border-bottom: 1px solid var(--black);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  transition: transform 0.3s ease-in-out;
 }
 
 .navbar-brand {
@@ -853,7 +863,7 @@ button.form-submit-link span {
   display: block;
   color: var(--offwhite);
   transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 
 button.form-submit-link::after {
@@ -863,7 +873,7 @@ button.form-submit-link::after {
   left: 0;
   width: 100%;
   height: 100%;
-  color: var(--primary-green);
+  color: var(--offwhite);
   transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   text-decoration: underline !important;
 
