@@ -155,6 +155,12 @@ a {
   font-size: 2rem;
 }
 
+.title-section h2 {
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 6rem;
+  font-weight: 100;
+}
+
 .paragraph {
 }
 
@@ -600,11 +606,24 @@ footer {
   object-fit: cover;
 }
 
+.grid-img-2 {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
 .img-container {
   position: relative;
   overflow: hidden;
   cursor: none;
 }
+
+.crop-top        { object-position: top; }
+.crop-bottom     { object-position: bottom; }
+.crop-left       { object-position: left; }
+.crop-right      { object-position: right; }
+.crop-top-left   { object-position: top left; }
+.crop-top-right  { object-position: top right; }
 
 /* image pointer / custom cursor */
 

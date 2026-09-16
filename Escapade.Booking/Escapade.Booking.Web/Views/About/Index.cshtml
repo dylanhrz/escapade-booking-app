@@ -35,3 +35,100 @@
         <h1>VERBLIJF</h1>
     </div>
 </section>
+
+<section class="container">
+    <p class="text-uppercase my-5 py-5">
+        Nunc quis risus pulvinar, commodo nisi non, facilisis enim. Aliquam sed efficitur odio, et facilisis libero. 
+        Fusce erat nulla, gravida quis ante in, ullamcorper tempor justo. Ut placerat ex a venenatis tempus. 
+        Aliquam suscipit quam laoreet, porttitor tellus a, posuere arcu. Pellentesque sit amet tincidunt velit. 
+        Pellentesque euismod enim non tellus blandit tincidunt. 
+    </p>
+</section>
+
+<section>
+    <div class="title-section mb-5">
+        <h2>KEUKEN</h2>
+        <p class="text-uppercase w-50 p-1">
+            Aliquam suscipit quam laoreet, porttitor tellus a, posuere arcu. Pellentesque sit amet tincidunt velit. Pellentesque euismod enim non tellus blandit tincidunt. 
+        </p>
+    </div>
+    
+    <div class="row g-1">
+        <div class="col-lg-3 col-sm-6">
+
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4928.JPG")')">
+                <img src="~/images/house/IMG_4928.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4940.JPG")')">
+                <img src="~/images/house/IMG_4940.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2 crop-left"/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4938.JPG")')">
+                <img src="~/images/house/IMG_4938.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-1 mt-1">
+        <div class="col-lg-3 col-sm-6">
+
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4936.JPG")')">
+                <img src="~/images/house/IMG_4936.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4937.JPG")')">
+                <img src="~/images/house/IMG_4937.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2 crop-left"/>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            
+        </div>
+        
+    </div>
+</section>
+
+<section class="cta-section d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+        <div class="row mb-5 g-4 align-items-center">
+            <div class="cta-section-content col-lg-12">
+                <h3>
+                    Verblijven in <br/>
+                    L'Escapade Ardennaise?
+                </h3>    
+                <p class="w-75 mx-auto">
+                    Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en
+                    dorpscharme.
+                </p>   
+                <a asp-controller="Booking"
+                   asp-action="CreateBooking"
+                   class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+                    Vraag een verblijf aan
+                </a>   
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div id="custom-cursor">BEKIJK</div>
+        
+<dialog id="lightbox" onclick="this.close()">
+    <img id="lightbox-img" src="" alt="Full view"/>
+</dialog>
