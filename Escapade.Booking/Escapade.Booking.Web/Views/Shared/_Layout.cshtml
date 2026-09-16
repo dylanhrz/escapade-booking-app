@@ -81,8 +81,8 @@
 
                     <ul class="navbar-nav w-100 d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center my-0">
                         
-                        <li class="nav-item d-flex align-items-center @(currentController == "About" && currentAction == "Facilities" ? "active" : "")">
-                            <a class="nav-block-btn w-100"
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="nav-block-btn w-100 @(currentController == "About" && currentAction == "Facilities" ? "active" : "")"
                                asp-controller="About"
                                asp-action="Facilities">
                                 Faciliteiten
