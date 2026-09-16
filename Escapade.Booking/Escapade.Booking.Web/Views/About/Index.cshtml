@@ -45,67 +45,22 @@
     </p>
 </section>
 
-<!-- KEUKEN -->
-<section class="room-section">
-    <div class="title-section mb-5">
-        <h2>KEUKEN</h2>
-        <p class="text-uppercase w-50 p-1">
-            Aliquam suscipit quam laoreet, porttitor tellus a, posuere arcu. Pellentesque sit amet tincidunt velit. Pellentesque euismod enim non tellus blandit tincidunt. 
-        </p>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-6 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4928.JPG")')">
-                <img src="~/images/house/IMG_4928.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4700.JPG")')">
-                <img src="~/images/house/IMG_4700.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4940.JPG")')">
-                <img src="~/images/house/IMG_4940.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row g-1 mt-1">
-        <div class="col-lg-3 col-sm-6">
-
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4936.JPG")')">
-                <img src="~/images/house/IMG_4936.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4937.JPG")')">
-                <img src="~/images/house/IMG_4937.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            
-        </div>
-        
+<section class="container my-5 text-center">
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#livingroom" class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+            Woonkamer
+        </a>
+        <a href="#bathroom" class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+            Badkamers
+        </a>
+        <a href="#kitchen" class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+            Keuken
+        </a>
     </div>
 </section>
 
 <!-- WOONKAMER -->
-<section class="room-section">
+<section id="livingroom" class="room-section">
     <div class="title-section text-center mb-5">
         <h2>WOONKAMER</h2>
         <p class="text-uppercase w-50 mx-auto p-1">
@@ -139,7 +94,7 @@
 </section>
 
 <!-- BADKAMERS -->
-<section class="room-section">
+<section id="bathroom" class="room-section">
     <div class="title-section mb-5 text-end">
         <h2>BADKAMERS</h2>
         <p class="text-uppercase w-25 p-1 ms-auto">
@@ -155,6 +110,7 @@
                      class="grid-img"/>
             </div>
         </div>
+        
         <div class="col-lg-8 col-sm-6">
             <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4931.JPG")')">
                 <img src="~/images/house/IMG_4931.JPG"
@@ -166,18 +122,81 @@
     
     <div class="row g-1 mt-1">
         <div class="col-lg-4 col-sm-6">
-            
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            
-        </div>
-        <div class="col-lg-4 col-sm-6">
             <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4810.JPG")')">
                 <img src="~/images/house/IMG_4810.JPG"
                      alt="L'Escapade Ardennaise"
                      class="grid-img"/>
             </div>
         </div>
+        <div class="col-lg-4 col-sm-6">
+
+        </div>
+        <div class="col-lg-4 col-sm-6">
+
+        </div>
+
+    </div>
+</section>
+
+<!-- KEUKEN -->
+<section id="kitchen" class="room-section">
+    <div class="title-section mb-5">
+        <h2>KEUKEN</h2>
+        <p class="text-uppercase w-50 p-1">
+            Aliquam suscipit quam laoreet, porttitor tellus a, posuere arcu. Pellentesque sit amet tincidunt velit. Pellentesque euismod enim non tellus blandit tincidunt. 
+        </p>
+    </div>
+    
+    <div class="row g-1">
+        
+        <div class="col-lg-3 col-sm-6">
+            
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+            
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4940.JPG")')">
+                <img src="~/images/house/IMG_4940.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2 crop-left"/>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+            
+        </div>
+        
+    </div>
+    
+    <div class="row g-1 mt-1">
+        
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4936.JPG")')">
+                <img src="~/images/house/IMG_4936.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4937.JPG")')">
+                <img src="~/images/house/IMG_4937.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2 crop-left"/>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4928.JPG")')">
+                <img src="~/images/house/IMG_4928.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        
     </div>
 </section>
 
