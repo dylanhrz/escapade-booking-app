@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "Tarieven";
+}
+
+<section class="section-header full-bleed border-bottom-1">
+    <div class="title-section text-center">
+        <h2>@ViewData["Title"]</h2>
+        <p class="text-uppercase w-50 mx-auto">
+            Een transparant overzicht van onze tarieven voor een ontspannen verblijf in L'Escapade Ardennaise. 
+            De prijzen zijn afgestemd op de groepsgrootte en de duur van je verblijf.
+        </p>
+    </div>
+</section>
+
+<section class="container my-5 py-5">
+    <div class="row g-5">
+        
+        <div class="col-lg-6">
+            <div class="border-1 p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <h2 class="title mb-3">Tot 10 Personen</h2>
+                    <p class="text-uppercase small mb-4">
+                        Ideaal voor grotere groepen, families of vrienden die het volledige verblijf optimaal willen benutten.
+                    </p>
+
+                    <ul class="list-unstyled text-uppercase my-4">
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>2 Nachten</span>
+                            <span class="fw-bold">€ 799</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>3 Nachten</span>
+                            <span class="fw-bold">€ 995</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>7 Nachten / 1 Week</span>
+                            <span class="fw-bold">€ 1.995</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-3">
+                    <a asp-controller="Booking"
+                       asp-action="CreateBooking"
+                       class="btn btn-custom-outline w-100 text-uppercase">
+                        Boek voor 10 personen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="border-1 p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <h2 class="title mb-3">Tot 6 Personen</h2>
+                    <p class="text-uppercase small mb-4">
+                        Perfect voor een intiemer gezelschap dat wil genieten van alle rust en ruimte in ons verblijf.
+                    </p>
+
+                    <ul class="list-unstyled text-uppercase my-4">
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>2 Nachten</span>
+                            <span class="fw-bold">€ 660</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>3 Nachten</span>
+                            <span class="fw-bold">€ 850</span>
+                        </li>
+                        <li class="d-flex justify-content-between border-bottom-1 py-2">
+                            <span>7 Nachten / 1 Week</span>
+                            <span class="fw-bold">€ 1.495</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-3">
+                    <a asp-controller="Booking"
+                       asp-action="CreateBooking"
+                       class="btn btn-custom-outline w-100 text-uppercase">
+                        Boek voor 6 personen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

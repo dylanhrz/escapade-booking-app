@@ -18,4 +18,14 @@ public class AboutController : Controller
     {
         return View();
     }
+    
+    public IActionResult Facilities()
+    {
+        return View();
+    }
+    
+    public IActionResult Prices()
+    {
+        return View();
+    }
 }

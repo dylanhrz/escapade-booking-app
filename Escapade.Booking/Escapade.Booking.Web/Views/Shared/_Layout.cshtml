@@ -81,15 +81,23 @@
 
                     <ul class="navbar-nav w-100 d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center my-0">
                         
-                        <!--
+                        
                         <li class="nav-item d-flex align-items-center">
                             <a class="nav-block-btn w-100"
-                               asp-controller=""
-                               asp-action="">
-                                Accommodatie
+                               asp-controller="About"
+                               asp-action="Facilities">
+                                Faciliteiten
                             </a>
                         </li>
-                        -->
+                        
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="nav-block-btn w-100"
+                               asp-controller="About"
+                               asp-action="Prices">
+                                Prijzen
+                            </a>
+                        </li>
+                        
                         
                         <li class="nav-item d-flex align-items-center">
                             <a class="nav-block-btn w-100 @(currentController == "Contact" ? "active" : "")"
@@ -181,13 +189,17 @@
                         </a>
                     </li>
                     
-                    <!--
                     <li>
-                        <a asp-controller="" asp-action="">
-                            Accommodatie
+                        <a asp-controller="About" asp-action="Facilities">
+                            Faciliteiten
                         </a>
                     </li>
-                    -->
+                    
+                    <li>
+                        <a asp-controller="About" asp-action="Prices">
+                            Prijzen
+                        </a>
+                    </li>
                     
                     <li>
                         <a asp-controller="Booking" asp-action="CreateBooking">
