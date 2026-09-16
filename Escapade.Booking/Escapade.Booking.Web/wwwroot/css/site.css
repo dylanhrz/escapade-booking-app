@@ -153,13 +153,15 @@ a {
 }
 
 .title {
-  font-size: 2rem;
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .title-section h2 {
   font-family: var(--font-non-serif), sans-serif;
-  font-size: 6rem;
-  font-weight: 100;
+  font-size: 5rem;
+  font-weight: 900;
 }
 
 .paragraph {
