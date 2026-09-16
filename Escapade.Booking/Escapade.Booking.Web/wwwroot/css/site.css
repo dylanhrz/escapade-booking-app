@@ -600,6 +600,10 @@ footer {
 
 /* index - section / gallery */
 
+.room-section {
+  margin: 10rem 0;
+}
+
 .grid-img {
   width: 100%;
   aspect-ratio: 1 / 1;
