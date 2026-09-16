@@ -56,6 +56,9 @@
         <a href="#kitchen" class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
             Keuken
         </a>
+        <a href="#bedroom" class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+            Slaapkamers
+        </a>
     </div>
 </section>
 
@@ -205,6 +208,52 @@
             </div>
         </div>
         
+    </div>
+</section>
+
+<!-- SLAAPKAMERS -->
+<section id="bedroom" class="room-section">
+    <div class="title-section text-center mb-5">
+        <h2>SLAAPKAMERS</h2>
+        <p class="text-uppercase w-50 mx-auto p-1">
+            Rust en comfort staan centraal tijdens je verblijf. Geniet na een dag in de natuur van onze ruime, 
+            karaktervolle kamers en van een heerlijke nachtrust in een ontspannen omgeving. 
+            L'Escapade Ardennaise biedt plaats aan groepen tot 10 personen, inclusief comfortabele bedden en 
+            aanwezig bedlinnen. 's Morgens word je uitgerust wakker, klaar om te genieten van de rust en 
+            het mooie uitzicht op de Ardense natuur.
+        </p>
+    </div>
+    
+    <div class="row g-1">
+        <div class="col-lg-4 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/evasion/IMG_4819.JPG")')">
+                <img src="~/images/evasion/IMG_4819.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4875.JPG")')">
+                <img src="~/images/IMG_4875.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4896.JPG")')">
+                <img src="~/images/IMG_4896.JPG"
+                     alt="L'Escapade Ardennaise"
+                     class="grid-img-2"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-5">
+        <a asp-controller="About"
+           asp-action="Rooms"
+           class="btn btn-outline-dark btn-custom text-uppercase px-4 py-2 border-1 rounded-0 w-100">
+            Ontdek alle slaapkamers
+        </a>  
     </div>
 </section>
 
