@@ -29,14 +29,6 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>_Layout.nl.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Views\Shared\_Layout.fr.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>_Layout.fr.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Views\Shared\_Layout.en.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>_Layout.en.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
       <EmbeddedResource Update="Resources\Views\Home\Index.nl.resx">
         <LastGenOutput>Index.nl.Designer.cs</LastGenOutput>
       </EmbeddedResource>
