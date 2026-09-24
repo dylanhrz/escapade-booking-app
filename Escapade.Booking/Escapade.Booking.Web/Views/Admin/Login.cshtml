@@ -6,69 +6,60 @@
     var modelOnlyErrors = ViewData.ModelState[string.Empty]?.Errors.Count > 0;
 }
 
-<section class="section-header full-bleed text-center">
-    <div>
-        <p class="text-uppercase">Log-in</p>
-        <h2>Admin dashboard</h2>
-    </div>
-</section>
-
-<section class="position-relative">
-    <div class="container-fluid p-0">
-        
-        <form asp-controller="Admin" asp-action="Login" method="post" class="d-flex flex-column">
-            
-            @if (modelOnlyErrors)
-            {
-                <div class="form-cell col-12 p-5 border-bottom-1 border-start-1 border-end-1">
-                    <div asp-validation-summary="ModelOnly" class="custom-validation-summary"></div>
-                </div>
-            }
-            
-            <div class="row g-0">
-                <div class="form-cell col-12 col-md-6 p-5 border-start-1 border-end-1">
-                    
-                    <label asp-for="Email" class="fw-bolder text-uppercase small">
-                        @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
-                        {
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        }
-                        else
-                        {
-                            <span class="form-label">Email</span>
-                        }
-                    </label>
-
-                    <input asp-for="Email" class="form-input"/>
-                    
-                </div>
+<section class="min-vh-100 d-flex align-items-center justify-content-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
                 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-1">
+                <form asp-controller="Admin" asp-action="Login" method="post" class="d-flex flex-column border-bottom-1">
                     
-                    <label asp-for="Password" class="fw-bolder text-uppercase small">
-                        @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
-                        {
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        }
-                        else
-                        {
-                            <span class="form-label">Wachtwoord</span>
-                        }
-                    </label>
-
-                    <input asp-for="Password" type="password" class="form-input"/>
+                    @if (modelOnlyErrors)
+                    {
+                        <div class="col-12 p-4 border-top-1 border-start-1 border-end-1">
+                            <div asp-validation-summary="ModelOnly" class="custom-validation-summary"></div>
+                        </div>
+                    }
                     
-                </div>
-            </div>
-            
-            <div class="row g-0">
-                <div class="col-12">
-                    <button type="submit" class="form-btn py-4 fs-5 d-flex align-items-center justify-content-center gap-3 border-top-0">
-                        <span>Aanmelden</span>
-                    </button>
-                </div>
-            </div>
+                    <div class="row g-0">
+                        <div class="col-8 col-md-9 d-flex flex-column">
+                            <div class="p-4 border-top-1 border-start-1 border-end-1">
+                                <label asp-for="Email" class="fw-bolder text-uppercase small mb-2 d-block">
+                                    @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
+                                    {
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="form-label">Email</span>
+                                    }
+                                </label>
+                                <input asp-for="Email" class="form-input w-100"/>
+                            </div>
+                            
+                            <div class="p-4 border-top-1 border-start-1 border-end-1">
+                                <label asp-for="Password" class="fw-bolder text-uppercase small mb-2 d-block">
+                                    @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
+                                    {
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="form-label">Wachtwoord</span>
+                                    }
+                                </label>
+                                <input asp-for="Password" type="password" class="form-input w-100"/>
+                            </div>
+                        </div>
 
-        </form>
+                        <div class="col-4 col-md-3 d-flex">
+                            <button type="submit" class="form-btn border-0 border-top-1 border-end-1">
+                                <span>Aanmelden</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
 </section>
