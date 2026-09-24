@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
@@ -17,11 +18,17 @@ builder.Services.AddDbContext<EscapadeDbContext>(options =>
 );
 
 builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromHours(8);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+});
+
+builder.Services.Configure<RouteOptions>(options => 
+{
+    options.LowercaseUrls = true;
 });
 
 var app = builder.Build();
@@ -54,6 +61,11 @@ app.MapControllerRoute(
     name: "admin",
     pattern: "admin/{action=Login}/{id?}",
     defaults: new { controller = "Admin" });
+
+app.MapControllerRoute(
+    name: "createBooking",
+    pattern: "booking/request",
+    defaults: new { controller = "Booking", action = "CreateBooking" });
 
 app.MapControllerRoute(
         name: "default",
