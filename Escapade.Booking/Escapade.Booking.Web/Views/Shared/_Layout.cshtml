@@ -27,7 +27,8 @@
                     <a class="nav-block-btn border-start-1 border-end-1 @(currentController == "About" && currentAction == "Index" ? "active" : "")"
                        asp-controller="About"
                        asp-action="Index">
-                        @Localizer["About"]
+                        <!--@Localizer["About"]-->
+                        Het verblijf
                     </a>
 
                     <a class="nav-block-btn border-end-1 @(currentController == "About" && currentAction == "Rooms" ? "active" : "")"
@@ -65,7 +66,7 @@
                         <a class="nav-block-btn w-100 @(currentController == "About" && currentAction == "Index" ? "active" : "")"
                            asp-controller="About"
                            asp-action="Index">
-                            @Localizer["About"]
+                            Het verblijf
                         </a>
                         <a class="nav-block-btn w-100 border-top-1 border-bottom-1 @(currentController == "About" && currentAction == "Rooms" ? "active" : "")"
                            asp-controller="About"
@@ -102,7 +103,7 @@
                             <a class="nav-block-btn w-100 @(currentController == "Contact" ? "active" : "")"
                                asp-controller="Contact"
                                asp-action="Index">
-                                @Localizer["Contact"]
+                                Contact
                             </a>
                         </li>
 
@@ -112,7 +113,7 @@
                                 <a class="nav-block-btn @(currentController == "Admin" ? "active-admin" : "")"
                                    asp-controller="Admin"
                                    asp-action="Logout">
-                                    @Localizer["SignOut"]
+                                    Uitloggen
                                 </a>
                             }
                             else
@@ -120,7 +121,7 @@
                                 <a class="nav-block-btn @(currentController == "Booking" ? "active" : "")"
                                    asp-controller="Booking"
                                    asp-action="CreateBooking">
-                                    @Localizer["Book"]
+                                    Boek nu
                                 </a>
                             }
                         </li>
@@ -174,7 +175,7 @@
                 <ul>
                     <li>
                         <a asp-controller="About" asp-action="Index">
-                            @Localizer["About"]
+                            Het verblijf
                         </a>
                     </li>
                     <li>
@@ -202,12 +203,12 @@
                     
                     <li>
                         <a asp-controller="Booking" asp-action="CreateBooking">
-                            @Localizer["Book"]
+                            Boek nu
                         </a>
                     </li>
                     <li>
                         <a asp-controller="Contact" asp-action="Index">
-                            @Localizer["Contact"]
+                            Contact
                         </a>
                     </li>
                 </ul>
