@@ -1,6 +1,8 @@
+using System.Globalization;
 using Escapade.Booking.Web.Data;
 using Escapade.Booking.Web.Services;
 using Escapade.Booking.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,11 +35,19 @@ builder.Services.Configure<RouteOptions>(options =>
 
 var app = builder.Build();
 
-var supportedCultures = new[] { "nl", "fr", "en" };
-var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture("nl")
-    .AddSupportedCultures(supportedCultures)
-    .AddSupportedUICultures(supportedCultures);
+var supportedCultures = new[]
+{
+    new CultureInfo("nl"),
+    new CultureInfo("fr"),
+    new CultureInfo("en")
+};
+
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("nl"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+};
 
 app.UseRequestLocalization(localizationOptions);
 
