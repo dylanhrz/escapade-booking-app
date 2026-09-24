@@ -59,8 +59,8 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "admin",
-    pattern: "admin/{action=Login}/{id?}",
-    defaults: new { controller = "Admin" });
+    pattern: "admin",
+    defaults: new { controller = "Admin", action = "Login" });
 
 app.MapControllerRoute(
     name: "createBooking",

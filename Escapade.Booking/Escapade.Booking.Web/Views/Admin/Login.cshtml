@@ -15,9 +15,14 @@
                     
                     @if (modelOnlyErrors)
                     {
-                        <div class="col-12 p-4 border-top-1 border-start-1 border-end-1">
-                            <div asp-validation-summary="ModelOnly" class="custom-validation-summary"></div>
-                        </div>
+                        <div class="col-12 p-4 pb-4 pb-0 border-top-1 border-start-1 border-end-1">
+                            <div class="custom-validation-summary">
+                                @foreach (var modelError in ViewData.ModelState[string.Empty]!.Errors)
+                                {
+                                    <div>@modelError.ErrorMessage</div>
+                                }
+                            </div>
+                        </div>    
                     }
                     
                     <div class="row g-0">

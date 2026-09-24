@@ -939,14 +939,14 @@ button.form-submit-link:hover::after {
 .custom-validation-summary,
 .custom-validation-summary p {
   margin: 0 !important;
-  margin-top: 2rem !important;
+  /*margin-top: 2rem !important;*/
   padding: 0 !important;
   list-style: none !important;
   color: var(--bs-danger) !important;
-  font-weight: 800 !important;
-  font-size: 1rem !important;
+  font-weight: 900 !important;
+  font-size: 0.9rem !important;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
 }
 
 .booking-confirmation {
