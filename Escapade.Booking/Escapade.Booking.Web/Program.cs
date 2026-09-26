@@ -1,13 +1,16 @@
 using System.Globalization;
-using Escapade.Booking.Web.Data;
-using Escapade.Booking.Web.Services;
-using Escapade.Booking.Web.Services.Interfaces;
+using Escapade.Booking.Core.Data;
+using Escapade.Booking.Core.Services;
+using Escapade.Booking.Core.Services.Interfaces;
+using Escapade.Booking.Core.Services.Models;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
@@ -23,7 +26,7 @@ builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromHours(8);
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -59,8 +62,10 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseSession();
 app.UseStaticFiles();
+
+app.UseSession();
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -69,8 +74,8 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "admin",
-    pattern: "admin",
-    defaults: new { controller = "Admin", action = "Login" });
+    pattern: "admin/{action=Login}/{id?}",
+    defaults: new { controller = "Admin" });
 
 app.MapControllerRoute(
     name: "createBooking",

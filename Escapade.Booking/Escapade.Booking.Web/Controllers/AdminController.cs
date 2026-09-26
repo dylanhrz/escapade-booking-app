@@ -1,23 +1,24 @@
-using System.Diagnostics;
-using Escapade.Booking.Web.Data;
+using Escapade.Booking.Core.Services.Interfaces;
+using Escapade.Booking.Core.Services.Models.RequestModels;
 using Escapade.Booking.Web.Models;
 using Escapade.Booking.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Escapade.Booking.Web.Controllers;
 
 public class AdminController : Controller
 {
-    private readonly EscapadeDbContext _escapadeDbContext;
+    private readonly IBookingService _bookingService;
+    private readonly IUserService _userService;
 
-    public AdminController(EscapadeDbContext escapadeDbContext)
+    public AdminController(IBookingService bookingService, IUserService userService)
     {
-        _escapadeDbContext = escapadeDbContext;
+        _bookingService = bookingService;
+        _userService = userService;
     }
     
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         string? adminName = HttpContext.Session.GetString("AdminName");
         string? adminId = HttpContext.Session.GetString("AdminId");
@@ -28,20 +29,25 @@ public class AdminController : Controller
         }
 
         var today = DateTime.Today;
+        var result = await _bookingService.GetAllAsync();
+        
+        if (!result.IsSuccess)
+        {
+            return View("Error", new ErrorViewModel());
+        }
 
-        var bookings = _escapadeDbContext.Bookings
-            .Select(b => new BaseViewModel()
-            {
-                Id = b.Id,
-                Name = b.Name,
-                Email = b.Email,
-                PhoneNumber = b.PhoneNumber,
-                NumberOfGuests = b.NumberOfGuests,
-                Comment = b.Comment,
-                StartDate = b.StartDate,
-                EndDate = b.EndDate,
-                AccessToken = b.AccesToken
-            }).ToList();
+        var bookings = result.Items.Select(b => new BaseViewModel()
+        {
+            Id = b.Id,
+            Name = b.Name,
+            Email = b.Email,
+            PhoneNumber = b.PhoneNumber,
+            NumberOfGuests = b.NumberOfGuests,
+            Comment = b.Comment,
+            StartDate = b.StartDate,
+            EndDate = b.EndDate,
+            AccessToken = b.AccesToken
+        }).ToList();
         
         AdminIndexViewModel adminIndexViewModel = new()
         {
@@ -72,23 +78,31 @@ public class AdminController : Controller
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Login(AdminLoginViewModel adminLoginViewModel)
+    public async Task<IActionResult> Login(AdminLoginViewModel adminLoginViewModel)
     {
         if (!ModelState.IsValid) return View(adminLoginViewModel);
-
-        var user = _escapadeDbContext.Users
-            .Include(u => u.UserRole)
-            .FirstOrDefault(u => u.Email == adminLoginViewModel.Email && u.Password == adminLoginViewModel.Password);
-
-        if (user != null)
+        
+        var requestModel = new UserLoginRequestModel
         {
+            Email = adminLoginViewModel.Email,
+            Password = adminLoginViewModel.Password
+        };
+        
+        var result = await _userService.LoginAsync(requestModel);
+
+        if (result.IsSuccess)
+        {
+            var user = result.Items.First();
             HttpContext.Session.SetString("AdminId", user.Id.ToString());
             HttpContext.Session.SetString("AdminName", user.UserName);
 
             return RedirectToAction("Index");
         }
-
-        ModelState.AddModelError(string.Empty, "Ongeldige login gegevens");
+        
+        foreach (var error in result.Errors)
+        {
+            ModelState.AddModelError(string.Empty, error);
+        }
         
         return View(adminLoginViewModel);
     }
@@ -101,12 +115,14 @@ public class AdminController : Controller
     }
     
     [HttpGet]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var booking = _escapadeDbContext.Bookings.FirstOrDefault(p => p.Id == id);
-
-        if (booking == null) return NotFound();
-
+        var result = await _bookingService.GetByIdAsync(id);
+        
+        if (!result.IsSuccess) return NotFound();
+        
+        var booking = result.Items.First();
+        
         AdminDeleteBookingViewModel adminDeleteBookingViewModel = new()
         {
             Id = booking.Id,
@@ -127,49 +143,35 @@ public class AdminController : Controller
             return RedirectToAction("Login");
         }
 
-        var booking = await _escapadeDbContext.Bookings.FindAsync(id);
-
-        if (booking == null)
+        var result = await _bookingService.ApproveBookingAsync(id);
+        
+        if (!result.IsSuccess)
         {
             return NotFound();
         }
 
-        booking.Status = Core.Entities.Booking.BookingStatus.Approved; 
-    
-        _escapadeDbContext.Bookings.Update(booking);
-        await _escapadeDbContext.SaveChangesAsync();
+        TempData["Message"] = "Boeking is succesvol goedgekeurd!";
         
-        TempData["Message"] = $"Boeking voor '{booking.Name}' is goedgekeurd!";
-
         return RedirectToAction(nameof(Index));
     }
     
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Delete(AdminDeleteBookingViewModel adminDeleteBookingViewModel)
+    public async Task<IActionResult> Delete(AdminDeleteBookingViewModel adminDeleteBookingViewModel)
     {
         if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
         {
             return RedirectToAction("Login");
         }
         
-        var booking = _escapadeDbContext.Bookings.FirstOrDefault(p => p.Id == adminDeleteBookingViewModel.Id);
-        
-        if (booking == null) return NotFound();
-    
-        _escapadeDbContext.Bookings.Remove(booking);
+        var result = await _bookingService.DeleteBookingAsync(adminDeleteBookingViewModel.Id);
 
-        try
+        if (!result.IsSuccess)
         {
-            _escapadeDbContext.SaveChanges();
-            TempData["Message"] = $"Boeking voor '{booking.Name}' ({booking.StartDate:dd/MM/yyyy} - {booking.EndDate:dd/MM/yyyy}) is verwijderd!";
-        }
-        catch (DbUpdateException ex)
-        {
-            Debug.WriteLine(ex.Message);
             return View("Error", new ErrorViewModel());
         }
 
+        TempData["Message"] = "Boeking is succesvol verwijderd!";
         return RedirectToAction("Index");
     }
 }

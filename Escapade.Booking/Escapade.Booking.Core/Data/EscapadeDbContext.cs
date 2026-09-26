@@ -1,9 +1,11 @@
+using Escapade.Booking.Web.Data;
 using Microsoft.EntityFrameworkCore;
+
 using RoleEntity = Escapade.Booking.Core.Entities.Role;
 using UserEntity = Escapade.Booking.Core.Entities.User;
 using BookingEntity = Escapade.Booking.Core.Entities.Booking;
 
-namespace Escapade.Booking.Web.Data;
+namespace Escapade.Booking.Core.Data;
 
 public class EscapadeDbContext : DbContext
 {

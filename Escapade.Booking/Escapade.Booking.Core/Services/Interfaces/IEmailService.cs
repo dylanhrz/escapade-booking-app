@@ -1,4 +1,4 @@
-namespace Escapade.Booking.Web.Services.Interfaces;
+namespace Escapade.Booking.Core.Services.Interfaces;
 
 public interface IEmailService
 {

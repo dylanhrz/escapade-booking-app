@@ -1,8 +1,9 @@
 using System.Net;
 using System.Net.Mail;
-using Escapade.Booking.Web.Services.Interfaces;
+using Escapade.Booking.Core.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 
-namespace Escapade.Booking.Web.Services;
+namespace Escapade.Booking.Core.Services;
 
 public class EmailService : IEmailService
 {

@@ -1,30 +1,27 @@
 using System.Diagnostics;
-using Escapade.Booking.Web.Data;
+using Escapade.Booking.Core.Services.Interfaces;
+using Escapade.Booking.Core.Services.Models.RequestModels;
 using Escapade.Booking.Web.Models;
-using Escapade.Booking.Web.Services.Interfaces;
 using Escapade.Booking.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Escapade.Booking.Web.Controllers;
 
 public class BookingController : Controller
 {
-    private readonly EscapadeDbContext _escapadeDbContext;
+    private readonly IBookingService _bookingService;
     private readonly IEmailService _emailService;
 
-    public BookingController(EscapadeDbContext escapadeDbContext, IEmailService emailService)
+    public BookingController(IBookingService bookingService, IEmailService emailService)
     {
-        _escapadeDbContext = escapadeDbContext;
+        _bookingService = bookingService;
         _emailService = emailService;
     }
     
     [HttpGet]
     public IActionResult CreateBooking()
     {
-
-        BookingCreateBookingViewModel bookingCreateBookingViewModel = new BookingCreateBookingViewModel();
-
+        BookingCreateBookingViewModel bookingCreateBookingViewModel = new ();
         return View(bookingCreateBookingViewModel);
     }
 
@@ -45,7 +42,7 @@ public class BookingController : Controller
             return View(bookingCreateBookingViewModel);
         }
 
-        var booking = new Core.Entities.Booking()
+        var requestModel = new BookingCreateRequestModel
         {
             Name = bookingCreateBookingViewModel.Name,
             Email = bookingCreateBookingViewModel.Email,
@@ -53,21 +50,18 @@ public class BookingController : Controller
             NumberOfGuests = bookingCreateBookingViewModel.NumberOfGuests,
             Comment = bookingCreateBookingViewModel.Comment,
             StartDate = bookingCreateBookingViewModel.StartDate!.Value,
-            EndDate = bookingCreateBookingViewModel.EndDate!.Value,
+            EndDate = bookingCreateBookingViewModel.EndDate!.Value
         };
         
-        _escapadeDbContext.Bookings.Add(booking);
-        
-        try
+        var result = await _bookingService.CreateBookingAsync(requestModel);
+
+        if (!result.IsSuccess)
         {
-            await _escapadeDbContext.SaveChangesAsync();
-        }
-        catch (DbUpdateException dbUpdateException)
-        {
-            Debug.WriteLine(dbUpdateException.Message);
             return View("Error", new ErrorViewModel());
         }
         
+        var booking = result.Items.First();
+
         var tracking = Url.Action(
             action: nameof(TrackBooking),
             controller: "Booking",
@@ -92,17 +86,20 @@ public class BookingController : Controller
         }
 
         ViewBag.Token = token;
-        
         return View();
     }
 
-    //[HttpGet("booking/track/{token}")]
+    [HttpGet]
     public async Task<IActionResult> TrackBooking(Guid token)
     {
-        var booking = await _escapadeDbContext.Bookings
-            .FirstOrDefaultAsync(b => b.AccesToken == token);
-
-        if (booking == null) return NotFound();
+        var result = await _bookingService.GetByTokenAsync(token);
+        
+        if (!result.IsSuccess)
+        {
+            return NotFound();
+        }
+        
+        var booking = result.Items.First();
 
         BookingTrackBooking bookingTrackBooking = new BookingTrackBooking()
         {
