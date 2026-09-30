@@ -1,114 +1,136 @@
 @{
-    ViewData["Title"] = "Faciliteiten";
+    ViewData["Title"] = "Faciliteiten | Sauna, tuin, keuken en parkeren";
+    ViewData["MetaDescription"] = "Alle faciliteiten van L'Escapade Ardennaise in Rocquigny: volledig uitgeruste keuken, infraroodsauna, tuin met terras, gratis parkeren, wifi en meer.";
+
+    var groups = new[]
+    {
+        new
+        {
+            Id = "keuken",
+            Title = "Keuken & uitrusting",
+            Intro = "Volledig uitgerust voor grote en kleine gezelschappen.",
+            Items = new[]
+            {
+                "Gasfornuis & oven (meerdere ovenruimtes)",
+                "2 koelkasten (waarvan 1 met diepvries)",
+                "Vaatwasser, magnetron & klein oventje",
+                "Koffiezetapparaat, Tassimo, waterkoker & broodrooster"
+            }
+        },
+        new
+        {
+            Id = "wellness",
+            Title = "Wellness & ontspanning",
+            Intro = "Geniet van extra rust in onze ontspanningskamer.",
+            Items = new[]
+            {
+                "Infraroodsauna",
+                "Andullatiematras",
+                "Houtkachel / haard (hout beschikbaar)",
+                "Massages op aanvraag (nek-, rug-, sportmassage & voetreflexologie)"
+            }
+        },
+        new
+        {
+            Id = "tuin",
+            Title = "Tuin & terras",
+            Intro = "Optimaal genieten van de buitenlucht en de rust.",
+            Items = new[]
+            {
+                "Ruime tuin met terras & tuinmeubilair",
+                "Terrasluifel",
+                "Barbecue",
+                "Waslijnen buiten"
+            }
+        },
+        new
+        {
+            Id = "parkeren",
+            Title = "Parkeren & garage",
+            Intro = "Veilige opbergruimte en gratis parkeergelegenheid.",
+            Items = new[]
+            {
+                "Gratis parkeren voor de deur en op het plein",
+                "Afgesloten garage / schuur voor fietsen en motorfietsen"
+            }
+        },
+        new
+        {
+            Id = "wassen",
+            Title = "Wassen & verwarming",
+            Intro = "Praktisch voor langere verblijven.",
+            Items = new[]
+            {
+                "Wasmachine, droogkast & droogrek",
+                "Centrale verwarming via pellets & warmtepomp"
+            }
+        },
+        new
+        {
+            Id = "media",
+            Title = "Media & extra comfort",
+            Intro = "Alles aanwezig voor een comfortabel verblijf.",
+            Items = new[]
+            {
+                "Gratis wifi (Livebox)",
+                "TV Vlaanderen",
+                "Extra beddengoed, dekens en kussens aanwezig",
+                "Rookmelders & brandblusser aanwezig"
+            }
+        }
+    };
 }
 
 <section class="intro-section mt-5 min-vh-50 d-flex align-items-center">
     <div class="title-section text-center w-100">
+        <h1 class="visually-hidden">Faciliteiten van L'Escapade Ardennaise</h1>
         <p class="w-100 mx-auto">
             Ontdek al het comfort en de voorzieningen die L'Escapade Ardennaise biedt voor een zorgeloos en ontspannen verblijf.
         </p>
     </div>
 </section>
 
-<section class="container my-5 py-4">
-    <div class="row g-4">
-
-        <div class="col-lg-6">
-            <div class="border-1 p-4 p-md-5 h-100">
-                <h3 class="title mb-3 fs-4">Keuken & Uitrusting</h3>
-                <p class="text-uppercase small mb-4">Volledig uitgerust voor grote en kleine gezelschappen.</p>
-                
-                <ul class="list-unstyled text-uppercase">
-                    <li class="border-bottom-1 py-2">Gasfornuis & Oven (meerdere ovenruimtes)</li>
-                    <li class="border-bottom-1 py-2">2 Koelkasten (waarvan 1 met diepvries)</li>
-                    <li class="border-bottom-1 py-2">Vaatwasser, Magnetron & Klein oventje</li>
-                    <li class="border-bottom-1 py-2">Koffiezetapparaat, Tassimo, Waterkoker & Broodrooster</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="border-1 p-4 p-md-5 h-100">
-                <h3 class="title mb-3 fs-4">Wellness & Ontspanning</h3>
-                <p class="text-uppercase small mb-4">Geniet van extra rust in onze ontspanningskamer.</p>
-                
-                <ul class="list-unstyled text-uppercase">
-                    <li class="border-bottom-1 py-2">Infraroodsauna</li>
-                    <li class="border-bottom-1 py-2">Andullatiematras</li>
-                    <li class="border-bottom-1 py-2">Houtkachel / Haard (hout beschikbaar)</li>
-                    <li class="border-bottom-1 py-2">Massages op aanvraag (nek-, rug-, sportmassage & voetreflexologie)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="border-1 p-4 p-md-5 h-100">
-                <h3 class="title mb-3 fs-4">Tuin & Terras</h3>
-                <p class="text-uppercase small mb-4">Optimaal genieten van de buitenlucht en de rust.</p>
-                
-                <ul class="list-unstyled text-uppercase">
-                    <li class="border-bottom-1 py-2">Ruime tuin met terras & tuinmeubilair</li>
-                    <li class="border-bottom-1 py-2">Terrasluifel</li>
-                    <li class="border-bottom-1 py-2">Barbecue</li>
-                    <li class="border-bottom-1 py-2">Waslijnen buiten</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="border-1 p-4 p-md-5 h-100">
-                <h3 class="title mb-3 fs-4">Parkeren & Garage</h3>
-                <p class="text-uppercase small mb-4">Veilige opbergruimte en gratis parkeergelegenheid.</p>
-                
-                <ul class="list-unstyled text-uppercase">
-                    <li class="border-bottom-1 py-2">Gratis parkeren voor de deur en op het plein</li>
-                    <li class="border-bottom-1 py-2">Afgesloten garage / schuur voor fietsen en motorfietsen</li>
-                    <li class="border-bottom-1 py-2">Wasmachine, Droogkast & Droogrek</li>
-                    <li class="border-bottom-1 py-2">Centrale verwarming via pellets & warmtepomp</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-lg-12">
-            <div class="border-1 p-4 p-md-5">
-                <h3 class="title mb-3 fs-4">Media & Extra Comfort</h3>
-                <p class="text-uppercase small mb-4">Alles aanwezig voor een comfortabel verblijf.</p>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-unstyled text-uppercase mb-0">
-                            <li class="border-bottom-1 py-2">Gratis Wifi (Livebox)</li>
-                            <li class="border-bottom-1 py-2">TV Vlaanderen</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="list-unstyled text-uppercase mb-0">
-                            <li class="border-bottom-1 py-2">Extra beddengoed, dekens en kussens aanwezig</li>
-                            <li class="border-bottom-1 py-2">Rookmelders & Brandblusser aanwezig</li>
-                        </ul>
-                    </div>
+<section class="container facility-section">
+    @foreach (var group in groups)
+    {
+        <article class="row g-4 facility-group" id="@group.Id">
+            <div class="col-lg-4">
+                <div class="facility-info">
+                    <h2>@group.Title</h2>
+                    <p class="section-text">@group.Intro</p>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="col-lg-8">
+                <ul class="facility-list">
+                    @foreach (var item in group.Items)
+                    {
+                        <li class="facility-item border-1">@item</li>
+                    }
+                </ul>
+            </div>
+        </article>
+    }
 </section>
+
+<div class="full-bleed border-top-1"></div>
 
 <section class="cta-section d-flex flex-column justify-content-center align-items-center">
     <div class="container">
         <div class="row mb-5 g-4 align-items-center">
             <div class="cta-section-content col-lg-12">
-                <h3>
+                <h2>
                     Verblijven in <br/>
                     L'Escapade Ardennaise?
-                </h3>    
+                </h2>
                 <p class="w-75 mx-auto">
-                    Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en dorpscharme.
-                </p>   
+                    Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en
+                    dorpscharme.
+                </p>
                 <a asp-controller="Booking"
                    asp-action="CreateBooking"
                    class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
-                    Vraag een verblijf aan
-                </a>   
+                    Vraag je verblijf aan
+                </a>
             </div>
         </div>
     </div>
