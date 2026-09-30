@@ -7,6 +7,17 @@
     }
 }
 
+document.addEventListener('click', e => {
+    const tile = e.target.closest('[data-lightbox]');
+    if (tile) openLightbox(tile.dataset.lightbox);
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const tile = e.target.closest('[data-lightbox]');
+    if (tile) openLightbox(tile.dataset.lightbox);
+});
+
 function openConfirmationModal() {
     const emailInput = document.getElementById('Email');
     const confirmEmailDisplay = document.getElementById('confirmEmailDisplay');
