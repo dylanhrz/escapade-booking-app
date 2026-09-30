@@ -1,33 +1,34 @@
 @{
-    ViewData["Title"] = "Rocquingy";
+    ViewData["Title"] = "Rocquigny en omgeving | Winkels, restaurants en wandelen";
+    ViewData["MetaDescription"] = "Alles in en rond Rocquigny: bakkers en supermarkten, restaurants en cafés, wandelroutes en uitstappen in de Franse Ardennen.";
 }
 
 <section class="rooms-hero-container full-bleed">
     <div class="hero-carousel-track">
         <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_4948.JPG" alt="rocquigny" />
+            <img src="~/images/roquigny/IMG_4948.JPG" alt="Dorpszicht op Rocquigny" />
         </div>
         <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_4944.JPG" alt="rocquigny" />
+            <img src="~/images/IMG_1871.JPG" alt="Landschap rond Rocquigny" />
         </div>
         <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_0001.JPG" alt="rocquigny" />
+            <img src="~/images/IMG_1884.JPG" alt="Omgeving van Rocquigny" />
         </div>
         <div class="hero-image-item" style="max-width: 200px;">
-            <img src="~/images/roquigny/IMG_0002.JPG" alt="rocquigny" />
+            <img src="~/images/roquigny/IMG_0002.JPG" alt="Detail uit Rocquigny" />
         </div>
-        
-        <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_4948.JPG" alt="rocquigny" />
+
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/roquigny/IMG_4948.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_4944.JPG" alt="rocquigny" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/roquigny/IMG_4944.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_0001.JPG" alt="rocquigny" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/IMG_1883.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/roquigny/IMG_0002.JPG" alt="rocquigny" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/roquigny/IMG_0002.JPG" alt="" loading="lazy" />
         </div>
     </div>
 
@@ -42,147 +43,41 @@
     </p>
 </section>
 
-<!-- 1. WINKELS & BOODSCHAPPEN -->
-<section class="rooms-accordion-section full-bleed">
-    <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
-            <div class="room-titles">
-                <h2>Winkels & Boodschappen</h2>
-                <span class="text-uppercase">Supermarkten / Bakkerij / Apotheek / Tankstations</span>
-            </div>
-            <span class="accordion-icon"></span>
-        </button>
-
-        <div class="accordion-content">
-            <div class="room-detail-grid">
-                <div class="room-info">
-                    <p>
-                        In en rond Rocquigny zijn verschillende mogelijkheden voor je dagelijkse boodschappen, vers brood en medische voorzieningen.
-                    </p>
-                    
-                    <div>
-                        <h3>Supermarkten</h3>
-                        <div class="room-info-col mb-4">
-                            <span><strong>Intermarché Contact</strong> (Rozoy-Sur-Serre)</span>
-                            <span>Ma - Za: 08:45 – 19:00 | Zo: 09:00 – 12:00</span>
-                            <span>Overige supermarkten in Rethel: Carrefour, Aldi, BricoMarché, Action & Intermarché</span>
-                        </div>
-
-                        <h3>Bakkers</h3>
-                        <div class="room-info-col mb-4">
-                            <span><strong>Boulangerie Pâtisserie Bailly</strong> (Rocquigny - Place Jean Mermoz 27)</span>
-                            <span>Di, Do, Vr, Ma: 06:30–12:30 & 16:00–19:00</span>
-                            <span>Za: 07:00–13:00 & 17:00–19:00 | Zo: 07:00–13:00 (Woensdag gesloten)</span>
-                            <span><em>Verse pizza's op vrijdag (bestellen in de voormiddag)</em></span>
-                            <br/>
-                            <span><strong>Au Fournil Chaumontais</strong> (Chaumont-Porcien - Place de la Mairie 30)</span>
-                            <span>Di t/m Zo: 06:30–13:00 (Maandag gesloten)</span>
-                            <span><em>Ook belegde broodjes verkrijgbaar</em></span>
-                        </div>
-
-                        <h3>Apotheek & Tanken</h3>
-                        <div class="room-info-col">
-                            <span><strong>Pharmacie Sainte Croix</strong> (Chaumont-Porcien) — +33 3 24 72 60 83</span>
-                            <span>Ma t/m Vr: 09:00–12:00 & 14:00–19:00 | Za: 09:00–13:00</span>
-                            <span><strong>Tankstations:</strong> 2x Rozoy-sur-Serre (bij Intermarché), 1x Signy L'Abbaye, diverse in Rethel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="full-bleed border-top-1">
+    <div class="info-split">
+        <div class="info-split-photo">
+            <img src="~/images/IMG_1884.JPG" alt="Dorpszicht op Rocquigny" loading="lazy" />
+        </div>
+        <div class="info-split-text">
+            <span class="contact-label mb-3">01</span>
+            <h2>Winkels &amp; boodschappen</h2>
+            <partial name="~/Views/Shared/Rocquigny/_Shops.cshtml" />
         </div>
     </div>
 </section>
 
-<!-- 2. ETEN & DRINKEN -->
-<section class="rooms-accordion-section full-bleed">
-    <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
-            <div class="room-titles">
-                <h2>Eten & Drinken</h2>
-                <span class="text-uppercase">Restaurants / Café / Streekspecialiteiten</span>
-            </div>
-            <span class="accordion-icon"></span>
-        </button>
-
-        <div class="accordion-content">
-            <div class="room-detail-grid">
-                <div class="room-info">
-                    <p>
-                        Proef de streekspecialiteiten zoals Boudin Blanc (Demoizet) en Pâté Croûte, of geniet van een hapje en drankje in de buurt.
-                    </p>
-
-                    <div>
-                        <h3>Favoriete restaurants (reserveren aanbevolen)</h3>
-                        <div class="room-info-col mb-4">
-                            <span>La Table Saint-Berthauld (Chaumont-Porcien)</span>
-                            <span>Entre Nous (Rozoy–sur-Serre)</span>
-                            <span>Le Relais de la Chouette (Parfondeval)</span>
-                            <span>Le Moderne (Rethel)</span>
-                            <span>La Gambetta (Rethel)</span>
-                            <span>Le Marcassin (Rethel)</span>
-                            <span>Auberge de L’Abbaye (Signy L’Abbaye)</span>
-                        </div>
-
-                        <h3>Café / Terras</h3>
-                        <div class="room-info-col">
-                            <span><strong>Le Saint Christophe</strong> (Rocquigny - Place Jean Mermoz 28)</span>
-                            <span>Ma, Do: 08:00–12:30 & 17:00–20:00</span>
-                            <span>Di: 08:00–12:30 | Vr: 08:00–12:30 & 17:00–21:00</span>
-                            <span>Za, Zo: 09:00–13:30 & 16:30–21:00 (Woensdag gesloten)</span>
-                            <span><em>Extra: Kruidenierswaren, Friterie op maandagavond, Karaoke op vrijdag, IJskar in de zomer!</em></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="full-bleed border-top-1">
+    <div class="info-split flip">
+        <div class="info-split-photo">
+            <img src="~/images/IMG_1871.JPG" alt="Landschap rond Rocquigny" loading="lazy" />
+        </div>
+        <div class="info-split-text">
+            <span class="contact-label mb-3">02</span>
+            <h2>Eten &amp; drinken</h2>
+            <partial name="~/Views/Shared/Rocquigny/_Food.cshtml" />
         </div>
     </div>
 </section>
 
-<!-- 3. WANDELEN, NATUUR & OMGEVING -->
-<section class="rooms-accordion-section full-bleed">
-    <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
-            <div class="room-titles">
-                <h2>Wandelen & Omgeving</h2>
-                <span class="text-uppercase">Natuur / Bezienswaardigheden / Bij slecht weer</span>
-            </div>
-            <span class="accordion-icon"></span>
-        </button>
-
-        <div class="accordion-content">
-            <div class="room-detail-grid">
-                <div class="room-info">
-                    <p>
-                        De omgeving van Rocquigny is ideaal voor wie van rust, natuur, wandelen en fietsen houdt.
-                    </p>
-
-                    <div>
-                        <h3>Bezienswaardigheden & Natuur</h3>
-                        <div class="room-info-col mb-4">
-                            <span>Wandelingen & fietstochten door het landschap en de bossen</span>
-                            <span>Novion-Porcien — Musée de Guerre</span>
-                            <span>Signy L’Abbaye — Le Forêt</span>
-                            <span>Lalobbe — Cidrerie Les Bulles Ardennaises</span>
-                        </div>
-
-                        <h3>Bij slecht weer</h3>
-                        <div class="room-info-col mb-4">
-                            <span>Lokale musea en marktjes bezoeken</span>
-                            <span>Gezellig tafelen in de buurt</span>
-                            <span>Ontspannen in de infraroodsauna, andullatiematras of massage op aanvraag</span>
-                            <span>Daguitstappen naar: Rethel, Sedan, Charleville-Mézières, Givet, Laon, Reims</span>
-                        </div>
-
-                        <h3>Met kinderen</h3>
-                        <div class="room-info-col">
-                            <span>Speeltuinen & kindvriendelijke fietstochtjes</span>
-                            <span>Wandelingen geschikt voor kinderwagens</span>
-                            <span>Zwembad in Rethel</span>
-                            <span>Escape Game bij Les Bulles Ardennaises</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="full-bleed border-top-1">
+    <div class="info-split">
+        <div class="info-split-photo">
+            <img src="~/images/roquigny/IMG_4948.JPG" alt="Dorpszicht op Rocquigny" loading="lazy" />
+        </div>
+        <div class="info-split-text">
+            <span class="contact-label mb-3">03</span>
+            <h2>Wandelen &amp; omgeving</h2>
+            <partial name="~/Views/Shared/Rocquigny/_Nature.cshtml" />
         </div>
     </div>
 </section>
