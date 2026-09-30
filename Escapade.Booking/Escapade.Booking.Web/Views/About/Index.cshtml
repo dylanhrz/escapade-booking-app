@@ -1,5 +1,6 @@
 @{
     ViewData["Title"] = "Het verblijf";
+    ViewData["MetaDescription"] = "Ontdek de woonkamer, keuken, slaapkamers, ontspanningskamer, tuin en schuur van L'Escapade Ardennaise, een vakantiewoning voor groepen tot 10 personen in Rocquigny.";
 }
 
 <section class="rooms-hero-container full-bleed">
@@ -17,17 +18,17 @@
             <img src="~/images/house/IMG_4794.JPG" alt="" />
         </div>
 
-        <div class="hero-image-item">
-            <img src="~/images/house/IMG_4787.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/house/IMG_4787.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/house/IMG_4928.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/house/IMG_4928.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/house/IMG_4925.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/house/IMG_4925.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/house/IMG_4794.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/house/IMG_4794.JPG" alt="" loading="lazy" />
         </div>
     </div>
 
@@ -45,7 +46,7 @@
 </section>
 
 <section class="container text-center pb-5 mb-5">
-    <div class="d-flex justify-content-center gap-2 flex-wrap">
+    <nav class="d-flex justify-content-center gap-2 flex-wrap" aria-label="Ruimtes">
         <a href="#livingroom" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Woonkamer</a>
         <a href="#bathroom" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Badkamers</a>
         <a href="#kitchen" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Keuken</a>
@@ -54,12 +55,12 @@
         <a href="#garden" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Tuin</a>
         <a href="#farm" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Boerderij</a>
         <a href="#barn" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Schuur</a>
-    </div>
+    </nav>
 </section>
 
 <div class="py-5 my-5"></div>
 
-<!-- WOONKAMER -->
+@* WOONKAMER *@
 <section id="livingroom" class="room-split-section full-bleed border-top-1">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -75,12 +76,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/house/IMG_4794.JPG" alt="Woonkamer" class="carousel-img active" />
-                        <img src="~/images/house/IMG_4918.JPG" alt="Woonkamer" class="carousel-img" />
-                        <img src="~/images/house/IMG_4793.JPG" alt="Woonkamer" class="carousel-img" />
+                        <img src="~/images/house/IMG_4918.JPG" alt="Woonkamer" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4793.JPG" alt="Woonkamer" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -88,7 +89,7 @@
     </div>
 </section>
 
-<!-- BADKAMERS -->
+@* BADKAMERS *@
 <section id="bathroom" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -107,12 +108,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/house/IMG_4931.JPG" alt="Badkamer" class="carousel-img active" />
-                        <img src="~/images/house/IMG_4836.JPG" alt="Badkamer" class="carousel-img" />
-                        <img src="~/images/house/IMG_4810.JPG" alt="Badkamer" class="carousel-img" />
+                        <img src="~/images/house/IMG_4836.JPG" alt="Badkamer" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4810.JPG" alt="Badkamer" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -120,7 +121,7 @@
     </div>
 </section>
 
-<!-- KEUKEN -->
+@* KEUKEN *@
 <section id="kitchen" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -138,14 +139,14 @@
             <div class="col-lg-6">
                 <div class="room-carousel border-start-2">
                     <div class="carousel-track">
-                        <img src="~/images/house/IMG_4936.JPG" alt="Keuken" class="carousel-img" />
-                        <img src="~/images/house/IMG_4937.JPG" alt="Keuken" class="carousel-img" />
-                        <img src="~/images/house/IMG_4940.JPG" alt="Keuken" class="carousel-img" />
+                        <img src="~/images/house/IMG_4936.JPG" alt="Keuken" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4937.JPG" alt="Keuken" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4940.JPG" alt="Keuken" class="carousel-img" loading="lazy" />
                         <img src="~/images/house/IMG_4928.JPG" alt="Keuken" class="carousel-img active" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -153,7 +154,7 @@
     </div>
 </section>
 
-<!-- SLAAPKAMERS -->
+@* SLAAPKAMERS *@
 <section id="bedroom" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -174,12 +175,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/evasion/IMG_4819.JPG" alt="Slaapkamers" class="carousel-img active" />
-                        <img src="~/images/IMG_4875.JPG" alt="Slaapkamers" class="carousel-img" />
-                        <img src="~/images/IMG_4896.JPG" alt="Slaapkamers" class="carousel-img" />
+                        <img src="~/images/IMG_4875.JPG" alt="Slaapkamers" class="carousel-img" loading="lazy" />
+                        <img src="~/images/IMG_4896.JPG" alt="Slaapkamers" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -187,7 +188,7 @@
     </div>
 </section>
 
-<!-- ONTSPANNINGSRUIMTE -->
+@* ONTSPANNINGSKAMER *@
 <section id="massage" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -225,12 +226,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/detente/IMG_4855.JPG" alt="Ontspanningskamer" class="carousel-img active" />
-                        <img src="~/images/detente/IMG_4859.JPG" alt="Ontspanningskamer" class="carousel-img" />
-                        <img src="~/images/detente/IMG_4862.JPG" alt="Ontspanningskamer" class="carousel-img" />
+                        <img src="~/images/detente/IMG_4859.JPG" alt="Ontspanningskamer" class="carousel-img" loading="lazy" />
+                        <img src="~/images/detente/IMG_4862.JPG" alt="Ontspanningskamer" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -238,7 +239,7 @@
     </div>
 </section>
 
-<!-- TUIN -->
+@* TUIN *@
 <section id="garden" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -257,12 +258,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/house/IMG_4781.JPG" alt="Tuin" class="carousel-img active" />
-                        <img src="~/images/house/IMG_4666.JPG" alt="Tuin" class="carousel-img" />
-                        <img src="~/images/house/IMG_4791.JPG" alt="Tuin" class="carousel-img" />
+                        <img src="~/images/house/IMG_4666.JPG" alt="Tuin" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4791.JPG" alt="Tuin" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -270,7 +271,7 @@
     </div>
 </section>
 
-<!-- BOERDERIJ -->
+@* BOERDERIJ *@
 <section id="farm" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -289,12 +290,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/house/IMG_4621.JPG" alt="Boerderij" class="carousel-img active" />
-                        <img src="~/images/house/IMG_4623.JPG" alt="Boerderij" class="carousel-img" />
-                        <img src="~/images/house/IMG_4787.JPG" alt="Boerderij" class="carousel-img" />
+                        <img src="~/images/house/IMG_4623.JPG" alt="Boerderij" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4787.JPG" alt="Boerderij" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -302,7 +303,7 @@
     </div>
 </section>
 
-<!-- SCHUUR -->
+@* SCHUUR *@
 <section id="barn" class="room-split-section full-bleed">
     <div class="container-fluid p-0">
         <div class="row g-0 align-items-stretch">
@@ -321,12 +322,12 @@
                 <div class="room-carousel">
                     <div class="carousel-track">
                         <img src="~/images/house/IMG_4618.JPG" alt="Schuur" class="carousel-img active" />
-                        <img src="~/images/house/IMG_4786.JPG" alt="Schuur" class="carousel-img" />
-                        <img src="~/images/house/IMG_4785.JPG" alt="Schuur" class="carousel-img" />
+                        <img src="~/images/house/IMG_4786.JPG" alt="Schuur" class="carousel-img" loading="lazy" />
+                        <img src="~/images/house/IMG_4785.JPG" alt="Schuur" class="carousel-img" loading="lazy" />
                     </div>
                     <div class="carousel-controls">
-                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
-                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                        <button type="button" class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button type="button" class="carousel-btn next-btn" aria-label="Volgende">›</button>
                     </div>
                 </div>
             </div>
@@ -338,20 +339,20 @@
     <div class="container">
         <div class="row mb-5 g-4 align-items-center">
             <div class="cta-section-content col-lg-12">
-                <h3>
+                <h2>
                     Verblijven in <br/>
                     L'Escapade Ardennaise?
-                </h3>    
+                </h2>
                 <p class="w-75 mx-auto">
                     Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en
                     dorpscharme.
-                </p>   
+                </p>
                 <a asp-controller="Booking"
                    asp-action="CreateBooking"
                    class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
-                    Vraag een verblijf aan
-                </a>   
+                    Vraag je verblijf aan
+                </a>
             </div>
         </div>
     </div>
-</section>  
+</section>
