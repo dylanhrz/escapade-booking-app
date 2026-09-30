@@ -37,44 +37,33 @@
     
 </section>
 
-<section class="py-5 my-5 d-flex flex-column justify-content-center align-items-center" style="min-height: 90vh;">
-    <div class="container-fluid px-4">
-        <div class="row mb-5">
-            <div class="col-12">
-                <h3 class="mb-4 font-non-serif title">
-                    Rust in de Franse Ardennen
-                </h3>
-                <p class="text-uppercase mb-5 paragraph">
-                    L’Escapade Ardennaise is een idyllische vakantiewoning met een unieke, rustgevende ligging aan
-                    de Place Jean Mermoz in het schilderachtige Franse Rocquigny.
-                    Je verblijft er in het hart van de Franse Ardennen, omgeven door glooiende landschappen en
-                    op een boogscheut van gezellige lokale bakkers, authentieke bistro’s en historische dorpen.
-                </p>
-            </div>
-        </div>
-
-        <div class="row g-2">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4624.JPG")')">
-                    <img src="~/images/IMG_4624.JPG"
-                         alt="L'Escapade Ardennaise"
-                         class="grid-img"/>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4658.JPG")')">
-                    <img src="~/images/IMG_4658.JPG"
-                         alt="L'Escapade Ardennaise"
-                         class="grid-img"/>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+<section class="mt-5 pt-5">
+    <div class="container">
+        <div class="row align-items-start g-4 g-md-5">
+            
+            <div class="col-12 col-md-5">
                 <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4653.JPG")')">
                     <img src="~/images/IMG_4653.JPG"
                          alt="L'Escapade Ardennaise"
-                         class="grid-img"/>
+                         class="img-solo border-1" />
                 </div>
             </div>
+
+            <div class="col-12 col-md-7">
+                <p class="about-text">
+                    Rust en comfort staan centraal tijdens je verblijf. Geniet na een dag in de natuur van onze ruime, 
+                    karaktervolle kamers en van een heerlijke nachtrust in een ontspannen omgeving. 
+                    L'Escapade Ardennaise biedt plaats aan groepen tot 10 personen, inclusief comfortabele bedden en 
+                    aanwezig bedlinnen. 's Morgens word je uitgerust wakker, klaar om te genieten van de rust en 
+                    het mooie uitzicht op de Ardense natuur.
+                </p>
+                <div class="d-flex flex-column gap-2 mt-4">
+                    <a asp-controller="About" asp-action="Index" class="custom-link">Over ons</a>
+                    <a asp-controller="About" asp-action="Rooms" class="custom-link">De kamers</a>
+                    <a asp-controller="About" asp-action="Facilities" class="custom-link">Faciliteiten</a>
+                </div>
+            </div>
+
         </div>
 
         <div id="custom-cursor">BEKIJK</div>
@@ -85,27 +74,36 @@
     </div>
 </section>
 
-<section class="d-flex flex-column justify-content-center align-items-center" style="min-height: 90vh;">
+<section class="ticker-wrapper">
+    <div class="ticker-track">
+        <span class="mx-4">RUSTGEVEND</span>
+        <span class="mx-4">FRANSE ARDENNEN</span>
+        <span class="mx-4">IDYLLISCH</span>
+        <span class="mx-4">HISTORISCH</span>
+        <span class="mx-4">NATUUR</span>
+    </div>
+</section>
+
+<section class="container-fluid">
+    <img src="~/images/IMG_4658.JPG"
+         class="img-container-fluid"
+         alt="L'Escapade Ardennaise" />
+</section>
+
+<section class="d-flex flex-column justify-content-center align-items-center my-5 pt-5">
     <div class="container-fluid px-4">
-        <div class="row mb-5 g-4 align-items-center">
+        <div class="row mb-5">
     
             <div class="col-lg-5">
-                <h3 class="mb-4 font-non-serif title">
-                    Sfeervol overnachten
-                </h3>
-                <p class="text-uppercase mb-5 paragraph">
+                <p class="about-text mb-5">
                     Rust en comfort staan centraal tijdens je verblijf. Geniet na een dag in de natuur van onze ruime, 
                     karaktervolle kamers en van een heerlijke nachtrust in een ontspannen omgeving. 
                     L'Escapade Ardennaise biedt plaats aan groepen tot 10 personen, inclusief comfortabele bedden en 
                     aanwezig bedlinnen. 's Morgens word je uitgerust wakker, klaar om te genieten van de rust en 
                     het mooie uitzicht op de Ardense natuur.
                 </p>
-        
-                <a asp-controller="About"
-                   asp-action="Rooms"
-                   class="btn btn-outline-dark btn-custom text-uppercase px-4 py-2 border-1 rounded-0">
-                    Kamers
-                </a>    
+                
+                <a asp-controller="About" asp-action="Rooms" class="custom-link">Ontdek onze kamers</a>
             </div>  
             
             <div class="col-lg-1">
@@ -115,13 +113,13 @@
             <div class="col-lg-3 d-flex flex-column gap-3">
                 <div class="img-container" onclick="openLightbox('@Url.Content("~/images/evasion/IMG_4820.JPG")')">
                     <img src="~/images/evasion/IMG_4820.JPG"
-                         class="w-100 object-fit-cover grid-img"
+                         class="w-100 object-fit-cover grid-img border-1"
                          style="height: 200px;"
                          alt="L'Escapade Ardennaise" />
                 </div>
                 <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4871.JPG")')">
                     <img src="~/images/IMG_4871.JPG"
-                         class="w-100 object-fit-cover grid-img"
+                         class="w-100 object-fit-cover grid-img border-1"
                          style="height: 380px;"
                          alt="L'Escapade Ardennaise" />
                 </div>
@@ -130,13 +128,13 @@
             <div class="col-lg-3 d-flex flex-column gap-3">
                 <div class="img-container" onclick="openLightbox('@Url.Content("~/images/reves/IMG_4846.JPG")')">
                     <img src="~/images/reves/IMG_4846.JPG"
-                         class="w-100 object-fit-cover grid-img"
+                         class="w-100 object-fit-cover grid-img border-1"
                          style="height: 380px;"
                          alt="L'Escapade Ardennaise" />
                 </div>
                 <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4875.JPG")')">
                     <img src="~/images/IMG_4875.JPG"
-                         class="w-100 object-fit-cover grid-img"
+                         class="w-100 object-fit-cover grid-img border-1"
                          style="height: 200px;"
                          alt="L'Escapade Ardennaise" />
                 </div>
@@ -146,20 +144,12 @@
     </div>
 </section>
 
-<section class="d-flex flex-column justify-content-center align-items-center" style="min-height: 90vh;">
+<section class="d-flex flex-column justify-content-center align-items-center">
     <div class="container-fluid px-4">
         <div class="row mb-5 g-5">
-            <div class="col-lg-7">
-                <img src="~/images/IMG_4945.JPG"
-                     style="width: 100%"
-                     alt="L'Escapade Ardennaise" />
-            </div>
             
-            <div class="col-lg-5 align-self-center">
-                <h3 class="mb-4 font-non-serif title">
-                    Ontdek Rocquigny & de Franse Ardennen
-                </h3>
-                <p class="text-uppercase mb-5 paragraph">
+            <div class="col-lg-6 align-self-start">
+                <p class="mb-5 about-text">
                     Rocquigny en het omliggende Ardeense landschap bieden een heerlijke mix van rust, natuur en
                     authentieke Franse dorpscharme. Trek eropuit voor een ontspannende boswandeling,
                     verken de streek op de fiets of ontdek historische stadjes en lokale streekspecialiteiten.
@@ -169,11 +159,19 @@
                 <div>
                     <a asp-controller="About"
                        asp-action="Rocquingy"
-                       class="btn btn-outline-dark btn-custom text-uppercase px-4 py-2 border-1 rounded-0">
+                       class="custom-link">
                         Ontdek Rocquigny
                     </a>
                 </div>
-            </div>    
+            </div>  
+            
+            <div class="col-lg-6">
+                <img src="~/images/IMG_4945.JPG"
+                     class="border-1"
+                     style="width: 100%"
+                     alt="L'Escapade Ardennaise" />
+            </div>
+            
         </div>
     </div>
 </section>
@@ -199,11 +197,3 @@
         </div>
     </div>
 </section>  
-
-
-<!--
-<section class="full-bleed hero-img-section border-bottom-1 position-relative border-top-1 my-5">
-    <img src="~/images/IMG_4787.JPG"
-         alt="L'Escapade Ardennaise" />
-</section>
--->

@@ -167,6 +167,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".ticker-track");
+    if (!track) return;
+
+    const originalHTML = track.innerHTML;
+
+    while (track.offsetWidth < window.innerWidth * 2) {
+        track.innerHTML += originalHTML;
+    }
+
+    track.innerHTML += track.innerHTML;
+});
+
 function scrollToTop() {
     window.scrollTo({
         top: 0,

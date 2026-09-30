@@ -108,6 +108,25 @@ a {
   background-color: var(--primary-red);
 }
 
+.img-container-fluid {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.custom-link {
+  color: #1a1a1a;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  transition: opacity 0.2s ease;
+  font-weight: bolder;
+}
+
+.custom-link:hover {
+  color: var(--primary-green);
+}
+
 .custom-hover:hover {
   color: var(--primary-green) !important;
 }
@@ -634,9 +653,21 @@ footer {
 }
 
 .img-container {
-  position: relative;
-  overflow: hidden;
-  cursor: none;
+  width: 100%;
+}
+
+.img-solo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-text {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 .crop-top        { object-position: top; }
@@ -1216,7 +1247,7 @@ span.flatpickr-weekday {
 /* BOOKING CTA */
 
 .cta-section {
-  min-height: 90vh;
+  min-height: 80vh;
 }
 
 .cta-section-content {
@@ -1231,7 +1262,7 @@ span.flatpickr-weekday {
 }
 
 .cta-section-content p {
-  text-transform: uppercase;
+  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
@@ -1587,4 +1618,40 @@ span.flatpickr-weekday {
 
 .scroll-to-top-btn:active {
   transform: translateY(-2px);
+}
+
+.ticker-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 2rem 0;
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
+}
+
+.ticker-track span {
+  font-size: 10rem;
+  font-weight: 100;
+  color: var(--black);
+  letter-spacing: -0.05em;
+  padding: 0 2rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
