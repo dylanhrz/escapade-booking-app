@@ -44,384 +44,292 @@
     </p>
 </section>
 
-<section class="container my-5 text-center">
+<section class="container text-center pb-5 mb-5">
     <div class="d-flex justify-content-center gap-2 flex-wrap">
-        <a href="#livingroom" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Woonkamer
-        </a>
-        <a href="#bathroom" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Badkamers
-        </a>
-        <a href="#kitchen" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Keuken
-        </a>
-        <a href="#bedroom" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Slaapkamers
-        </a>
-        <a href="#massage" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Ontspanningskamer
-        </a>
-        <a href="#garden" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Tuin
-        </a>
-        <a href="#farm" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Boerderij
-        </a>
-        <a href="#barn" 
-           class="btn btn-outline-dark btn-custom text-uppercase rounded-5">
-            Schuur
-        </a>
+        <a href="#livingroom" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Woonkamer</a>
+        <a href="#bathroom" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Badkamers</a>
+        <a href="#kitchen" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Keuken</a>
+        <a href="#bedroom" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Slaapkamers</a>
+        <a href="#massage" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Ontspanningskamer</a>
+        <a href="#garden" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Tuin</a>
+        <a href="#farm" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Boerderij</a>
+        <a href="#barn" class="btn btn-outline-dark btn-custom text-uppercase rounded-5">Schuur</a>
     </div>
 </section>
 
+<div class="py-5 my-5"></div>
+
 <!-- WOONKAMER -->
-<section id="livingroom" class="room-section">
-    <div class="title-section text-start mb-5">
-        <h2>Woonkamer</h2>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4794.JPG")')">
-                <img src="~/images/house/IMG_4794.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="livingroom" class="room-split-section full-bleed border-top-1">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Woonkamer</h2>
+                    <p class="mt-4">
+                        Een ruime, sfeervolle woonkamer ingericht om samen te komen. Geniet van gezellige avonden bij de kachel of een goed boek in de comfortabele zithoek.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4918.JPG")')">
-                <img src="~/images/house/IMG_4918.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4793.JPG")')">
-                <img src="~/images/house/IMG_4793.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4794.JPG" alt="Woonkamer" class="carousel-img active" />
+                        <img src="~/images/house/IMG_4918.JPG" alt="Woonkamer" class="carousel-img" />
+                        <img src="~/images/house/IMG_4793.JPG" alt="Woonkamer" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- BADKAMERS -->
-<section id="bathroom" class="room-section">
-    <div class="title-section mb-5 text-end">
-        <h2>Badkamer</h2>
-    </div>
-    
-    <div class="row g-1">
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4931.JPG")')">
-                <img src="~/images/house/IMG_4931.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="bathroom" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Badkamers</h2>
+                    <p class="mt-4">
+                        Moderne en verzorgde sanitairvoorzieningen uitgerust met alle comfort voor een verfrissende start van de dag.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
             </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4836.JPG")')">
-                <img src="~/images/house/IMG_4836.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4810.JPG")')">
-                <img src="~/images/house/IMG_4810.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4931.JPG" alt="Badkamer" class="carousel-img active" />
+                        <img src="~/images/house/IMG_4836.JPG" alt="Badkamer" class="carousel-img" />
+                        <img src="~/images/house/IMG_4810.JPG" alt="Badkamer" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- KEUKEN -->
-<section id="kitchen" class="room-section">
-    <div class="title-section mb-5">
-        <h2>Keuken</h2>
-    </div>
-    
-    <div class="row g-1">
-        
-        <div class="col-lg-3 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            
-        </div>
-        
-    </div>
-    
-    <div class="row g-1 mt-1">
-        
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4936.JPG")')">
-                <img src="~/images/house/IMG_4936.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="kitchen" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Keuken</h2>
+                    <p class="mt-4">
+                        Volledig uitgeruste keuken met alle benodigde apparatuur om heerlijke maaltijden te bereiden voor het hele gezelschap.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="room-carousel border-start-2">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4936.JPG" alt="Keuken" class="carousel-img" />
+                        <img src="~/images/house/IMG_4937.JPG" alt="Keuken" class="carousel-img" />
+                        <img src="~/images/house/IMG_4940.JPG" alt="Keuken" class="carousel-img" />
+                        <img src="~/images/house/IMG_4928.JPG" alt="Keuken" class="carousel-img active" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4937.JPG")')">
-                <img src="~/images/house/IMG_4937.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
-            </div>
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4940.JPG")')">
-                <img src="~/images/house/IMG_4940.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
-            </div>
-        </div>
-        
-        <div class="col-lg-3 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4928.JPG")')">
-                <img src="~/images/house/IMG_4928.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        
     </div>
 </section>
 
 <!-- SLAAPKAMERS -->
-<section id="bedroom" class="room-section">
-    <div class="title-section text-end mb-5">
-        <h2>Slaapkamers</h2>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/evasion/IMG_4819.JPG")')">
-                <img src="~/images/evasion/IMG_4819.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="bedroom" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Slaapkamers</h2>
+                    <p class="mt-4">
+                        Comfortabele en karaktervolle slaapkamers ontworpen voor een optimale nachtrust tijdens uw verblijf.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="About" asp-action="Rooms" class="btn btn-outline-dark text-uppercase px-4 py-2 border-1 rounded-0">
+                        Ontdek alle slaapkamers
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4875.JPG")')">
-                <img src="~/images/IMG_4875.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/evasion/IMG_4819.JPG" alt="Slaapkamers" class="carousel-img active" />
+                        <img src="~/images/IMG_4875.JPG" alt="Slaapkamers" class="carousel-img" />
+                        <img src="~/images/IMG_4896.JPG" alt="Slaapkamers" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/IMG_4896.JPG")')">
-                <img src="~/images/IMG_4896.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row g-0">
-        <div class="text-center mt-5 col-lg-4">
-            <a asp-controller="About"
-               asp-action="Rooms"
-               class="btn btn-outline-dark btn-custom text-uppercase px-4 py-2 border-1 rounded-0 w-100">
-                Ontdek alle slaapkamers
-            </a>  
         </div>
     </div>
 </section>
 
 <!-- ONTSPANNINGSRUIMTE -->
-<section id="massage" class="room-section">
-    <div class="title-section mb-5 text-start">
-        <h2>Ontspanningskamer</h2>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/detente/IMG_4855.JPG")')">
-                <img src="~/images/detente/IMG_4855.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="massage" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Ontspanningskamer</h2>
+                    <p class="mt-4 mb-4">
+                        Kies voor pure ontspanning met onze infraroodsauna, andullatiematras of boek een heerlijke massage.
+                    </p>
+                    <div class="text-uppercase row g-3 my-5 py-5">
+                        <div class="col-6">
+                            <p class="fw-bold mb-0">Relax massage nek</p>
+                            <p class="text-muted mb-0">15 min. / €20</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fw-bold mb-0">Relax massage rug</p>
+                            <p class="text-muted mb-0">20 min. / €25</p>
+                            <p class="text-muted mb-0">+ manuele therapie + €10</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fw-bold mb-0">Sportmassage benen</p>
+                            <p class="text-muted mb-0">20 min. / €25</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="fw-bold mb-0">Voetreflexologie</p>
+                            <p class="text-muted mb-0">20 min. / €30</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/detente/IMG_4859.JPG")')">
-                <img src="~/images/detente/IMG_4859.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/detente/IMG_4855.JPG" alt="Ontspanningskamer" class="carousel-img active" />
+                        <img src="~/images/detente/IMG_4859.JPG" alt="Ontspanningskamer" class="carousel-img" />
+                        <img src="~/images/detente/IMG_4862.JPG" alt="Ontspanningskamer" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/detente/IMG_4862.JPG")')">
-                <img src="~/images/detente/IMG_4862.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row text-uppercase my-5">
-        <div class="col-md-12 col-sm-6 mb-3">
-            <p class="fw-bold mb-0">Relax massage nek</p>
-            <p class="text-muted mb-0">15 min. / €20</p>
-        </div>
-        <div class="col-md-12 col-sm-6 mb-3">
-            <p class="fw-bold mb-0">Relax massage rug</p>
-            <p class="text-muted mb-0">20 min. / €25</p>
-            <p class="text-muted mb-0">+ manuele therapie + €10</p>
-        </div>
-        <div class="col-md-12 col-sm-6 mb-3">
-            <p class="fw-bold mb-0">Sportmassage benen</p>
-            <p class="text-muted mb-0">20 min. / €25</p>
-        </div>
-        <div class="col-md-12 col-sm-6 mb-3">
-            <p class="fw-bold mb-0">Voetreflexologie</p>
-            <p class="text-muted mb-0">20 min. / €30</p>
         </div>
     </div>
 </section>
 
 <!-- TUIN -->
-<section id="garden" class="room-section">
-    <div class="title-section mb-5 text-end">
-        <h2>Tuin</h2>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-4 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4781.JPG")')">
-                <img src="~/images/house/IMG_4781.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="garden" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Tuin</h2>
+                    <p class="mt-4">
+                        Grote groene tuin met een ruim terras, ideaal om buiten te tafelen of te genieten van het zicht op de Ardense natuur.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
+            </div>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4781.JPG" alt="Tuin" class="carousel-img active" />
+                        <img src="~/images/house/IMG_4666.JPG" alt="Tuin" class="carousel-img" />
+                        <img src="~/images/house/IMG_4791.JPG" alt="Tuin" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4666.JPG")')">
-                <img src="~/images/house/IMG_4666.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row g-1 mt-1">
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4791.JPG")')">
-                <img src="~/images/house/IMG_4791.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-
-        </div>
-        <div class="col-lg-4 col-sm-6">
-
-        </div>
-
     </div>
 </section>
 
-<!-- Boerderij -->
-<section id="farm" class="room-section">
-    <div class="title-section mb-5">
-        <h2>Boerderij</h2>
-    </div>
-    
-    <div class="row g-1">
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4621.JPG")')">
-                <img src="~/images/house/IMG_4621.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<!-- BOERDERIJ -->
+<section id="farm" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Boerderij</h2>
+                    <p class="mt-4">
+                        Authentieke kenmerken van het historische gebouw die zorgen voor een unieke en rustieke sfeer.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4623.JPG")')">
-                <img src="~/images/house/IMG_4623.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4787.JPG")')">
-                <img src="~/images/house/IMG_4787.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4621.JPG" alt="Boerderij" class="carousel-img active" />
+                        <img src="~/images/house/IMG_4623.JPG" alt="Boerderij" class="carousel-img" />
+                        <img src="~/images/house/IMG_4787.JPG" alt="Boerderij" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- SCHUUR -->
-<section id="barn" class="room-section">
-    <div class="title-section mb-5 text-end">
-        <h2>Schuur</h2>
-    </div>
-    
-    <div class="row g-1">
-    
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4618.JPG")')">
-                <img src="~/images/house/IMG_4618.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2"/>
+<section id="barn" class="room-split-section full-bleed">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+            <div class="col-lg-6 room-info-side d-flex flex-column justify-content-between p-5">
+                <div>
+                    <h2>Schuur</h2>
+                    <p class="mt-4">
+                        Karaktervolle overdekte schuurruimte geschikt voor diverse ontspanningsactiviteiten.
+                    </p>
+                </div>
+                <div class="pt-5">
+                    <a asp-controller="Booking" asp-action="CreateBooking" class="custom-link">Vraag een verblijf aan</a>
+                </div>
             </div>
-        </div>    
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4786.JPG")')">
-                <img src="~/images/house/IMG_4786.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-left"/>
+            <div class="col-lg-6 border-start-2">
+                <div class="room-carousel">
+                    <div class="carousel-track">
+                        <img src="~/images/house/IMG_4618.JPG" alt="Schuur" class="carousel-img active" />
+                        <img src="~/images/house/IMG_4786.JPG" alt="Schuur" class="carousel-img" />
+                        <img src="~/images/house/IMG_4785.JPG" alt="Schuur" class="carousel-img" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Vorige">‹</button>
+                        <button class="carousel-btn next-btn" aria-label="Volgende">›</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            <div class="img-container" onclick="openLightbox('@Url.Content("~/images/house/IMG_4785.JPG")')">
-                <img src="~/images/house/IMG_4785.JPG"
-                     alt="L'Escapade Ardennaise"
-                     class="grid-img-2 crop-right"/>
-            </div>
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            
-        </div>
-        
-        <div class="col-lg-4 col-sm-6">
-            
         </div>
     </div>
 </section>
@@ -447,16 +355,3 @@
         </div>
     </div>
 </section>  
-
-<div id="custom-cursor">BEKIJK</div>
-        
-<dialog id="lightbox" onclick="this.close()">
-    <img id="lightbox-img" src="" alt="Full view"/>
-</dialog>
-
-<button id="scrollToTopBtn" 
-        class="scroll-to-top-btn border-0 bg-transparent text-uppercase p-0" 
-        title="Terug naar boven"
-        onclick="scrollToTop()">
-    <span class="btn-text">↑</span>
-</button>
