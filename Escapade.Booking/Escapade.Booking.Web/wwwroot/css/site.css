@@ -1408,6 +1408,132 @@ header {
   }
 }
 
+.pricing-ticket {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  overflow: hidden;
+  color: var(--offwhite);
+}
+
+.pricing-ticket + .pricing-ticket {
+  margin-top: 3rem;
+}
+
+.pricing-ticket-dark {
+  background-color: var(--black);
+}
+
+.pricing-ticket-green {
+  background-color: var(--primary-green);
+}
+
+.pricing-ticket-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 3.5rem 3rem;
+}
+
+.pricing-ticket-main h2 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.pricing-ticket-button {
+  align-self: flex-start;
+  padding: 1rem 2rem;
+  border-radius: 100vmax;
+  background-color: var(--offwhite);
+  color: var(--black);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.pricing-ticket-stub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 18rem;
+  padding: 2rem;
+  border-left: 3px dashed rgba(247, 242, 236, 0.5);
+}
+
+.pricing-ticket-stub::before,
+.pricing-ticket-stub::after {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--offwhite);
+}
+
+.pricing-ticket-stub::before {
+  top: -0.75rem;
+}
+
+.pricing-ticket-stub::after {
+  bottom: -0.75rem;
+}
+
+.pricing-ticket-stub .contact-label {
+  color: var(--offwhite);
+}
+
+.pricing-ticket-amount {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+@media (max-width: 991px) {
+  .pricing-ticket {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-ticket-main {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .pricing-ticket-stub {
+    min-height: 0;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.75rem 1.5rem;
+    border-left: none;
+    border-top: 3px dashed rgba(247, 242, 236, 0.5);
+  }
+
+  .pricing-ticket-stub::before,
+  .pricing-ticket-stub::after {
+    top: -0.75rem;
+    bottom: auto;
+  }
+
+  .pricing-ticket-stub::before {
+    left: -0.75rem;
+  }
+
+  .pricing-ticket-stub::after {
+    left: auto;
+    right: -0.75rem;
+  }
+
+  .pricing-ticket-amount {
+    margin-left: auto;
+    font-size: 2.25rem;
+  }
+}
+
 .contact-section {
   padding: 4rem 3rem;
 }
