@@ -7,23 +7,25 @@
 }
 
 @{
-    ViewData["Title"] = "Boeking Aanvragen";
+    ViewData["Title"] = "Verblijf aanvragen | Boekingsaanvraag";
+    ViewData["MetaDescription"] = "Vraag je verblijf in L'Escapade Ardennaise aan: kies je periode, geef het aantal gasten door en stuur je aanvraag direct naar de eigenaars.";
 }
 
 <section class="full-bleed intro-section mt-5 min-vh-50 d-flex align-items-center border-bottom-1">
     <div class="title-section text-center w-100">
+        <h1 class="visually-hidden">Verblijf aanvragen bij L'Escapade Ardennaise</h1>
         <p class="w-100 mx-auto">
-            Vraag je verblijf aan door volgende formulier in te vullen
-        </p>    
+            Vraag je verblijf aan door het volgende formulier in te vullen
+        </p>
     </div>
 </section>
 
 <section class="position-relative">
     <div class="container-fluid p-0">
-        
-        <form id="booking" asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data">
 
-            <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-1"></div>
+        <form id="booking" asp-controller="Booking" asp-action="CreateBooking" method="post" enctype="multipart/form-data" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger p-4 fw-bold border-bottom border-dark border-1" role="alert"></div>
 
             <div class="row g-0">
                 <div class="form-cell col-12 col-md-6 border-end-1 border-start-1">
@@ -38,7 +40,7 @@
                         }
                     </label>
 
-                    <input asp-for="Name" class="form-input"/>
+                    <input asp-for="Name" class="form-input" autocomplete="name"/>
                 </div>
 
                 <div class="form-cell col-12 col-md-6 border-end-1">
@@ -49,20 +51,20 @@
                         }
                         else
                         {
-                            <span class="form-label">Email</span>
+                            <span class="form-label">E-mail</span>
                         }
                     </label>
 
-                    <input asp-for="Email" id="Email" class="form-input"/>
+                    <input asp-for="Email" class="form-input" type="email" autocomplete="email" inputmode="email"/>
 
-                    <div class="custom-validation-summary d-none" id="emailValidationError">
+                    <div class="custom-validation-summary d-none" id="emailValidationError" role="alert">
                         <p class="mt-2">
-                            Vul een geldig e-mailadres in voordat u de aanvraag verstuurt.
-                        </p> 
+                            Vul een geldig e-mailadres in voordat je de aanvraag verstuurt.
+                        </p>
                     </div>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-1 border-start-1">
+                <div class="form-cell col-12 col-md-6 border-end-1 border-start-1">
                     <label asp-for="PhoneNumber" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["PhoneNumber"]?.Errors.Count > 0)
                         {
@@ -74,10 +76,10 @@
                         }
                     </label>
 
-                    <input asp-for="PhoneNumber" class="form-input"/>    
+                    <input asp-for="PhoneNumber" class="form-input" type="tel" autocomplete="tel" inputmode="tel"/>
                 </div>
 
-                <div class="form-cell col-12 col-md-6 p-5 border-end-1">
+                <div class="form-cell col-12 col-md-6 border-end-1">
                     <label asp-for="NumberOfGuests" class="fw-bolder text-uppercase small">
                         @if (ViewData.ModelState["NumberOfGuests"]?.Errors.Count > 0)
                         {
@@ -91,11 +93,11 @@
                         }
                     </label>
 
-                    <input asp-for="NumberOfGuests" class="form-input"/>
+                    <input asp-for="NumberOfGuests" class="form-input" inputmode="numeric" min="1" max="10"/>
                 </div>
 
-                <div class="form-cell col-12 p-5 d-flex flex-column justify-content-center border-start-1 border-end-1">
-                    <label class="fw-bolder text-uppercase small mb-5">
+                <div class="form-cell col-12 d-flex flex-column justify-content-center border-start-1 border-end-1">
+                    <label class="fw-bolder text-uppercase small mb-5" for="inline-calendar">
                         @if (ViewData.ModelState["StartDate"]?.Errors.Count > 0)
                         {
                             <span class="text-danger">
@@ -110,35 +112,30 @@
                         }
                         else
                         {
-                            <span class="form-label">Selecteer Periode</span>
+                            <span class="form-label">Selecteer periode</span>
                         }
                     </label>
 
-                    <input type="hidden" asp-for="StartDate" id="StartDate"/>
-                    <input type="hidden" asp-for="EndDate" id="EndDate"/>
+                    <input type="hidden" asp-for="StartDate"/>
+                    <input type="hidden" asp-for="EndDate"/>
 
                     <div class="w-100">
                         <div id="inline-calendar"></div>
                     </div>
                 </div>
 
-                <div class="form-cell col-12 p-5 border-start-1 border-end-1">
+                <div class="form-cell col-12 border-start-1 border-end-1">
                     <label asp-for="Comment" class="fw-bolder text-uppercase small">
-                        <span class="form-label">Opmerking of Vraag</span>
+                        <span class="form-label">Opmerking of vraag</span>
                     </label>
                     <span asp-validation-for="Comment" class="text-danger small d-block"></span>
-                    <textarea asp-for="Comment" id="Comment" class="form-input" rows="5"></textarea>
+                    <textarea asp-for="Comment" class="form-input" rows="5"></textarea>
                 </div>
 
-                <div class="form-cell form-inverted col-12 d-flex justify-content-center align-items-center">
-                    <h3 class="form-submit-heading m-0 text-center">
-                        <button type="button" 
-                                class="form-submit-link bg-transparent border-0 p-0" 
-                                data-text="AANVRAAG VERSTUREN" 
-                                onclick="openConfirmationModal()">
-                            <span>AANVRAAG VERSTUREN</span>
-                        </button>
-                    </h3>
+                <div class="form-inverted col-12">
+                    <button type="button" class="form-submit-button" onclick="openConfirmationModal()">
+                        <span>Aanvraag versturen</span>
+                    </button>
                 </div>
 
             </div>
@@ -150,17 +147,16 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-1">
             <div class="modal-header form-inverted border-bottom-1">
-                <h5 class="modal-title text-uppercase font-serif" id="confirmationModalLabel">Bevestig uw aanvraag</h5>
+                <h2 class="modal-title fs-5 text-uppercase font-serif" id="confirmationModalLabel">Bevestig je aanvraag</h2>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Sluiten"></button>
             </div>
             <div class="modal-body p-4">
                 <p class="mb-3">
-                    Controleer uw e-mailadres voordat u de aanvraag definitief verstuurt:
+                    Controleer je e-mailadres voordat je de aanvraag definitief verstuurt:
                 </p>
-                <div class="p-3 border-1 fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay">
-                </div>
+                <div class="p-3 border-1 fw-bold text-break mb-3 fs-5" id="confirmEmailDisplay"></div>
                 <p class="text-muted small m-0">
-                    Klopt dit e-mailadres? Dan sturen wij uw boekingaanvraag direct door naar de eigenaar.
+                    Klopt dit e-mailadres? Dan sturen wij je boekingsaanvraag direct door naar de eigenaars.
                 </p>
             </div>
             <div class="modal-footer border-top-1 d-flex justify-content-between">

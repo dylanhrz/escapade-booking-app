@@ -1668,6 +1668,48 @@ header {
   }
 }
 
+.form-submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 5rem 2rem;
+  border: 0;
+  background-color: transparent;
+  color: var(--offwhite);
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.form-submit-button:hover {
+  background-color: var(--primary-green);
+}
+
+.form-submit-button:focus-visible {
+  outline: 3px solid var(--primary-green);
+  outline-offset: -3px;
+}
+
+.form-submit-arrow {
+  transition: transform 0.2s ease;
+}
+
+.form-submit-button:hover .form-submit-arrow {
+  transform: translateX(12px);
+}
+
+@media (max-width: 991px) {
+  .form-submit-button {
+    padding: 3rem 1.5rem;
+  }
+}
+
 .form-grid {
   display: flex;
   flex-wrap: wrap;
