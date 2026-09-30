@@ -1064,6 +1064,31 @@ header {
   position: relative;
 }
 
+.accordion-header:focus-visible,
+.slider-btn:focus-visible,
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-track,
+  .ticker-wrapper div,
+  .slot-track {
+    animation: none;
+  }
+}
+
+.accordion-content {
+  visibility: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), padding 0.5s ease, visibility 0s 0.5s;
+}
+
+.accordion-item.active .accordion-content {
+  visibility: visible;
+  transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1), padding 0.5s ease, visibility 0s;
+}
+
 .image-wrapper {
   position: relative;
   width: 100%;

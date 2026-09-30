@@ -1,5 +1,6 @@
 @{
-    ViewData["Title"] = "Kamers";
+    ViewData["Title"] = "Kamers | Slaapkamers voor groepen tot 10 personen";
+    ViewData["MetaDescription"] = "Bekijk de slaapkamers en de ontspanningskamer van L'Escapade Ardennaise in Rocquigny: sfeervolle kamers voor groepen tot 10 personen, met infraroodsauna en grote tuin.";
 }
 
 <section class="rooms-hero-container full-bleed">
@@ -17,68 +18,66 @@
             <img src="~/images/IMG_4899.JPG" alt="" />
         </div>
 
-        <div class="hero-image-item">
-            <img src="~/images/evasion/IMG_4816.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/evasion/IMG_4816.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/IMG_4871.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/IMG_4871.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/IMG_4877.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/IMG_4877.JPG" alt="" loading="lazy" />
         </div>
-        <div class="hero-image-item">
-            <img src="~/images/IMG_4899.JPG" alt="" />
+        <div class="hero-image-item" aria-hidden="true">
+            <img src="~/images/IMG_4899.JPG" alt="" loading="lazy" />
         </div>
     </div>
 
     <div class="hero-text-overlay">
-        <h1>@ViewData["Title"]</h1>
+        <h1>Kamers</h1>
     </div>
 </section>
 
 <section class="container intro-section">
     <p class="text-uppercase my-5 py-5 text-center">
-        L’Escapade Ardennaise beschikt over sfeervolle slaapkamers geschikt voor groepen tot 10 personen. 
-        Alle gasten hebben tijdens hun verblijf toegang tot de grote tuin met terras, de infraroodsauna en 
-        de ontspanningsruimte. 's Morgens kunt u in alle rust genieten van een vers ontbijt van de lokale bakker 
+        L’Escapade Ardennaise beschikt over sfeervolle slaapkamers geschikt voor groepen tot 10 personen.
+        Alle gasten hebben tijdens hun verblijf toegang tot de grote tuin met terras, de infraroodsauna en
+        de ontspanningsruimte. 's Morgens kunt u in alle rust genieten van een vers ontbijt van de lokale bakker
         met zicht op de groene omgeving.
     </p>
 </section>
 
-<!-- Chambre du cycliste -->
+@* CHAMBRE DU CYCLISTE *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-cycliste">
             <div class="room-titles">
-                <h2>Chambre du cycliste</h2>
+                <h2 lang="fr">Chambre du cycliste</h2>
                 <span class="text-decoration-underline">1e verdiep / Tweepersoonsbed / Eénpersoonsbed</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-cycliste">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/cycliste/IMG_4883.JPG" alt="Chambre du cycliste" class="active"/>
-                        <img src="~/images/cycliste/IMG_4873.JPG" alt="Chambre du cycliste" />
-                        <img src="~/images/cycliste/IMG_4875.JPG" alt="Chambre du cycliste" />
-                        <img src="~/images/cycliste/IMG_4879.JPG" alt="Chambre du cycliste" />
-                        <img src="~/images/cycliste/IMG_4877.JPG" alt="Chambre du cycliste" />
-                        
-                        <img src="~/images/cycliste/IMG_4880.JPG" alt="Chambre du cycliste" />
-                        
-                        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/cycliste/IMG_4883.JPG" alt="Chambre du cycliste, foto 1 van 6" class="active" />
+                        <img src="~/images/cycliste/IMG_4873.JPG" alt="Chambre du cycliste, foto 2 van 6" loading="lazy" />
+                        <img src="~/images/cycliste/IMG_4875.JPG" alt="Chambre du cycliste, foto 3 van 6" loading="lazy" />
+                        <img src="~/images/cycliste/IMG_4879.JPG" alt="Chambre du cycliste, foto 4 van 6" loading="lazy" />
+                        <img src="~/images/cycliste/IMG_4877.JPG" alt="Chambre du cycliste, foto 5 van 6" loading="lazy" />
+                        <img src="~/images/cycliste/IMG_4880.JPG" alt="Chambre du cycliste, foto 6 van 6" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
                 <div class="room-info">
                     <p>
-                        Deze ruime en karaktervolle slaapkamer op de eerste verdieping is sfeervol ingericht met 
-                        een subtiel fietsthema en beschikt over een comfortabel tweepersoonsbed. 
+                        Deze ruime en karaktervolle slaapkamer op de eerste verdieping is sfeervol ingericht met
+                        een subtiel fietsthema en beschikt over een comfortabel tweepersoonsbed.
                         Een ideale, rustgevende plek voor een aangenaam en ontspannen verblijf.
                     </p>
                     <div>
@@ -102,29 +101,29 @@
     </div>
 </section>
 
-<!-- Chambre d'évasion -->
+@* CHAMBRE D'ÉVASION *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-evasion">
             <div class="room-titles">
-                <h2>Chambre d'évasion</h2>
+                <h2 lang="fr">Chambre d'évasion</h2>
                 <span class="text-decoration-underline">Gelijkvloers / Tweepersoonsbed</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-evasion">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/evasion/IMG_4819.JPG" alt="Chambre d'évasion" class="active" />
-                        <img src="~/images/evasion/IMG_4820.JPG" alt="Chambre d'évasion" />
-                        <img src="~/images/evasion/IMG_4821.JPG" alt="Chambre d'évasion" />
-                        <img src="~/images/evasion/IMG_4816.JPG" alt="Chambre d'évasion" />
-        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/evasion/IMG_4819.JPG" alt="Chambre d'évasion, foto 1 van 4" class="active" />
+                        <img src="~/images/evasion/IMG_4820.JPG" alt="Chambre d'évasion, foto 2 van 4" loading="lazy" />
+                        <img src="~/images/evasion/IMG_4821.JPG" alt="Chambre d'évasion, foto 3 van 4" loading="lazy" />
+                        <img src="~/images/evasion/IMG_4816.JPG" alt="Chambre d'évasion, foto 4 van 4" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
@@ -132,7 +131,6 @@
                     <p>
                         Deze ruime slaapkamer op het gelijkvloers is voorzien van een comfortabel tweepersoonsbed en biedt direct zicht op het dorpsplein.
                     </p>
-                    
                     <div>
                         <h3>Voorzieningen</h3>
                         <div>
@@ -153,42 +151,42 @@
     </div>
 </section>
 
-<!-- Chambre des rêves -->
+@* CHAMBRE DES RÊVES *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-reves">
             <div class="room-titles">
-                <h2>Chambre des rêves</h2>
+                <h2 lang="fr">Chambre des rêves</h2>
                 <span class="text-decoration-underline">1e verdiep / Tweepersoonsbed / Babybedje</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-reves">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/reves/IMG_4844.JPG" alt="Chambre des rêves" class="active" />
-                        <img src="~/images/reves/IMG_4847.JPG" alt="Chambre des rêves" />
-                        <img src="~/images/reves/IMG_4851.JPG" alt="Chambre des rêves" />
-                        <img src="~/images/reves/IMG_4845.JPG" alt="Chambre des rêves" />
-        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/reves/IMG_4844.JPG" alt="Chambre des rêves, foto 1 van 4" class="active" />
+                        <img src="~/images/reves/IMG_4847.JPG" alt="Chambre des rêves, foto 2 van 4" loading="lazy" />
+                        <img src="~/images/reves/IMG_4851.JPG" alt="Chambre des rêves, foto 3 van 4" loading="lazy" />
+                        <img src="~/images/reves/IMG_4845.JPG" alt="Chambre des rêves, foto 4 van 4" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
                 <div class="room-info">
                     <p>
                         Deze ruime slaapkamer op de eerste verdieping beschikt over een comfortabel tweepersoonsbed en
-                        een gezellig babybedje. Een ideale en rustgevende plek voor een verblijf met een kleintje.     
+                        een gezellig babybedje. Een ideale en rustgevende plek voor een verblijf met een kleintje.
                     </p>
                     <div>
                         <h3>Voorzieningen</h3>
                         <div>
                             <div class="room-info-col">
-                                <span>Gelijkvloers</span>
+                                <span>1e verdiep</span>
                                 <span>2 persoonskamer</span>
                                 <span>Tweepersoonsbed</span>
                                 <span>Kinderbedje</span>
@@ -205,42 +203,42 @@
     </div>
 </section>
 
-<!-- Chambre de la nature -->
+@* CHAMBRE DE LA NATURE *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-nature">
             <div class="room-titles">
-                <h2>Chambre de la nature</h2>
+                <h2 lang="fr">Chambre de la nature</h2>
                 <span class="text-decoration-underline">1e verdiep / Tweepersoonsbed</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-nature">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/nature/IMG_4899.JPG" alt="Chambre de la nature" class="active" />
-                        <img src="~/images/nature/IMG_4890.JPG" alt="Chambre de la nature" />
-                        <img src="~/images/nature/IMG_4888.JPG" alt="Chambre de la nature" />
-                        <img src="~/images/nature/IMG_4900.JPG" alt="Chambre de la nature" />
-        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/nature/IMG_4899.JPG" alt="Chambre de la nature, foto 1 van 4" class="active" />
+                        <img src="~/images/nature/IMG_4890.JPG" alt="Chambre de la nature, foto 2 van 4" loading="lazy" />
+                        <img src="~/images/nature/IMG_4888.JPG" alt="Chambre de la nature, foto 3 van 4" loading="lazy" />
+                        <img src="~/images/nature/IMG_4900.JPG" alt="Chambre de la nature, foto 4 van 4" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
                 <div class="room-info">
                     <p>
                         Deze ruime slaapkamer op de eerste verdieping beschikt over een comfortabel tweepersoonsbed en
-                        een gezellig babybedje. Een ideale en rustgevende plek voor een verblijf met een kleintje.     
+                        een gezellig babybedje. Een ideale en rustgevende plek voor een verblijf met een kleintje.
                     </p>
                     <div>
                         <h3>Voorzieningen</h3>
                         <div>
                             <div class="room-info-col">
-                                <span>Gelijkvloers</span>
+                                <span>1e verdiep</span>
                                 <span>2 persoonskamer</span>
                                 <span>Tweepersoonsbed</span>
                                 <span>Kleerkasten</span>
@@ -256,29 +254,29 @@
     </div>
 </section>
 
-<!-- Chambre de détente -->
+@* CHAMBRE DE DÉTENTE *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-detente">
             <div class="room-titles">
-                <h2>Chambre de détente</h2>
+                <h2 lang="fr">Chambre de détente</h2>
                 <span class="text-decoration-underline">1e verdiep</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-detente">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/detente/IMG_4862.JPG" alt="Chambre de détente" class="active"/>
-                        <img src="~/images/detente/IMG_4855.JPG" alt="Chambre de détente" />
-                        <img src="~/images/detente/IMG_4859.JPG" alt="Chambre de détente"/>
-                        <img src="~/images/detente/IMG_4857.JPG" alt="Chambre de détente"/>
-                        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/detente/IMG_4862.JPG" alt="Chambre de détente, foto 1 van 4" class="active" />
+                        <img src="~/images/detente/IMG_4855.JPG" alt="Chambre de détente, foto 2 van 4" loading="lazy" />
+                        <img src="~/images/detente/IMG_4859.JPG" alt="Chambre de détente, foto 3 van 4" loading="lazy" />
+                        <img src="~/images/detente/IMG_4857.JPG" alt="Chambre de détente, foto 4 van 4" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
@@ -306,34 +304,34 @@
     </div>
 </section>
 
-<!-- Chambre douillette -->
+@* CHAMBRE DOUILLETTE *@
 <section class="rooms-accordion-section full-bleed">
     <div class="accordion-item container">
-        <button class="accordion-header px-0" type="button" aria-expanded="false">
+        <button class="accordion-header px-0" type="button" aria-expanded="false" aria-controls="room-douillette">
             <div class="room-titles">
-                <h2>Chambre douillette</h2>
+                <h2 lang="fr">Chambre douillette</h2>
                 <span class="text-decoration-underline">1e verdiep / Tweepersoonsbed</span>
             </div>
-            <span class="accordion-icon"></span>
+            <span class="accordion-icon" aria-hidden="true"></span>
         </button>
 
-        <div class="accordion-content">
+        <div class="accordion-content" id="room-douillette">
             <div class="room-detail-grid">
-                
+
                 <div class="room-gallery">
                     <div class="image-wrapper">
-                        <img src="~/images/douillette/IMG_4871.JPG" alt="Chambre douillette" class="active"/>
-                        <img src="~/images/douillette/IMG_4866.JPG" alt="Chambre douillette" />
-                        <img src="~/images/douillette/IMG_4867.JPG" alt="Chambre douillette" />
-                        
-                        <button class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
-                        <button class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
+                        <img src="~/images/douillette/IMG_4871.JPG" alt="Chambre douillette, foto 1 van 3" class="active" />
+                        <img src="~/images/douillette/IMG_4866.JPG" alt="Chambre douillette, foto 2 van 3" loading="lazy" />
+                        <img src="~/images/douillette/IMG_4867.JPG" alt="Chambre douillette, foto 3 van 3" loading="lazy" />
+
+                        <button type="button" class="slider-btn prev-btn" aria-label="Vorige afbeelding">‹</button>
+                        <button type="button" class="slider-btn next-btn" aria-label="Volgende afbeelding">›</button>
                     </div>
                 </div>
 
                 <div class="room-info">
                     <p>
-                        Deze ruime en sfeervolle slaapkamer op de eerste verdieping beschikt over een comfortabel 
+                        Deze ruime en sfeervolle slaapkamer op de eerste verdieping beschikt over een comfortabel
                         tweepersoonsbed. Een ideale en rustgevende plek voor een aangenaam verblijf.
                     </p>
                     <div>
