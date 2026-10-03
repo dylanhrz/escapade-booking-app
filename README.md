@@ -49,6 +49,76 @@ Escapade.Booking/
 
 The Web layer only talks to the Core services through interfaces (`IBookingService`, `IUserService`, `IEmailService`). Services return a `ResultModel<T>` containing `IsSuccess`, `Items` and `Errors`.
 
+<<<<<<< HEAD
+=======
+## Getting started
+
+### Prerequisites
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
+- SQL Server (local or via Docker)
+- `dotnet-ef` tool: `dotnet tool install --global dotnet-ef`
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/dylanhrz/escapade-booking-app.git
+cd escapade-booking-app/Escapade.Booking
+```
+
+### 2. Start SQL Server (optional, via Docker)
+
+```bash
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrongPassword>" \
+  -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
+### 3. Configure User Secrets
+
+Keep sensitive data out of `appsettings.json` and store it in User Secrets instead:
+
+```bash
+cd Escapade.Booking.Web
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost,1433;Database=EscapadeDb;User Id=sa;Password=<YourStrongPassword>;TrustServerCertificate=True;"
+dotnet user-secrets set "Smtp:Host" "sandbox.smtp.mailtrap.io"
+dotnet user-secrets set "Smtp:Port" "2525"
+dotnet user-secrets set "Smtp:Username" "<mailtrap-username>"
+dotnet user-secrets set "Smtp:Password" "<mailtrap-password>"
+dotnet user-secrets set "Smtp:FromAddress" "info@lescapadeardennaise.be"
+dotnet user-secrets set "Smtp:FromName" "L'Escapade Ardennaise"
+```
+
+### 4. Create the database
+
+```bash
+cd ..
+dotnet ef migrations add InitialCreate --project Escapade.Booking.Core --startup-project Escapade.Booking.Web
+dotnet ef database update --project Escapade.Booking.Core --startup-project Escapade.Booking.Web
+```
+
+> The `DbContext` lives in the Core project. To generate migrations there, Core also needs the `Microsoft.EntityFrameworkCore.Relational` package.
+
+### 5. Run
+
+```bash
+dotnet run --project Escapade.Booking.Web
+```
+
+The app runs on `https://localhost:7148` or `http://localhost:5221`. The admin area is available at `/admin`.
+
+## Docker
+
+```bash
+cd Escapade.Booking
+docker build -t escapade-booking .
+docker run -p 8080:8080 \
+  -e ConnectionStrings__DefaultConnection="<connection-string>" \
+  -e Smtp__Host="..." -e Smtp__Port="587" \
+  -e Smtp__Username="..." -e Smtp__Password="..." \
+  -e Smtp__FromAddress="..." -e Smtp__FromName="L'Escapade Ardennaise" \
+  escapade-booking
+```
+
+>>>>>>> 0ea8fbf (Add README)
 ## Booking flow
 
 1. The visitor selects a date range and fills in the form.
@@ -66,3 +136,10 @@ The Web layer only talks to the Core services through interfaces (`IBookingServi
 - [ ] Prevent overlapping bookings and show unavailable dates in the calendar
 - [ ] Fully translate the booking and admin pages (FR/EN)
 - [ ] Unit tests for the services
+<<<<<<< HEAD
+=======
+
+## Author
+
+**Dylan Hourez** – Graduaat Programmeren (Programming), Howest
+>>>>>>> 0ea8fbf (Add README)
