@@ -1838,21 +1838,36 @@ header {
 }
 
 .contact-section.contact-details {
-  padding: 8rem 6rem;
+  gap: 0;
+  padding: 0;
 }
 
-.contact-cta {
-  padding-top: 2rem;
+.contact-row {
+  padding: 2.5rem 3rem;
+  border-bottom: 1px solid var(--black);
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-phones .contact-link {
+  display: block;
+  width: fit-content;
+}
+
+.contact-phones .contact-link + .contact-link {
+  margin-top: 0.5rem;
+}
+
+.contact-details .contact-heading {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  word-break: break-word;
 }
 
 @media (max-width: 991px) {
-  .contact-section.contact-details {
-    gap: 2rem;
-    padding: 2.5rem 1.25rem;
-  }
-
-  .contact-cta {
-    padding-top: 1rem;
+  .contact-row {
+    padding: 1.75rem 1.25rem;
   }
 }
 

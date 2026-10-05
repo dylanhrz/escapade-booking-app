@@ -9,77 +9,75 @@
     <p>@Localizer["SectionHeading"]</p>
 </section>
 
-<section class="full-bleed border-top-1">
-    <div class="row g-0">
+<section class="full-bleed border-top-1 border-bottom-1">
+    <div class="container">
+        <div class="row g-0 border-start-1 border-end-1">
+            <div class="col-lg-5 order-2 order-lg-1 contact-map-col">
+                <div class="contact-map">
+                    <iframe
+                        title="Kaart met de locatie van L'Escapade Ardennaise"
+                        src="https://maps.google.com/maps?q=20+Place+Jean+Mermoz,+08220+Rocquigny,+France&hl=@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName&z=16&iwloc=near&output=embed"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
 
-        <div class="col-lg-5 order-2 order-lg-1 contact-map-col">
-            <div class="contact-map">
-                <iframe
-                    title="Kaart met de locatie van L'Escapade Ardennaise"
-                    src="https://maps.google.com/maps?q=20+Place+Jean+Mermoz,+08220+Rocquigny,+France&hl=@System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName&z=16&iwloc=near&output=embed"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="col-lg-7 order-1 order-lg-2">
+                <address class="contact-section contact-details">
+                    <div class="contact-row">
+                        <span class="contact-label">@Localizer["LabelOwner"]</span>
+                        <h2 class="contact-heading mt-3">Hans Roos &amp; Wendy Martens</h2>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="contact-label">@Localizer["LabelAddress"]</span>
+                        <h2 class="contact-heading mt-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=20+Place+Jean+Mermoz,+08220+Rocquigny,+France"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="contact-link"
+                               data-text="20 PLACE JEAN MERMOZ, 08220 ROCQUIGNY, FRANCE">
+                                <span>
+                                    20 PLACE JEAN MERMOZ <br/>
+                                    08220 ROCQUIGNY <br/>
+                                    FRANCE
+                                </span>
+                            </a>
+                        </h2>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="contact-label">@Localizer["LabelPhone"]</span>
+                        <h2 class="contact-heading contact-phones mt-3">
+                            <a href="tel:+33673081169" class="contact-link" data-text="+33 6 730 811 69">
+                                <span>+33 6 730 811 69</span>
+                            </a>
+                            <a href="tel:+32495610454" class="contact-link" data-text="+32 4 956 104 54">
+                                <span>+32 4 956 104 54</span>
+                            </a>
+                        </h2>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="contact-label">@Localizer["LabelEmail"]</span>
+                        <h2 class="contact-heading mt-3">
+                            <a href="mailto:wendymartens19@gmail.com" class="contact-link" data-text="WENDYMARTENS19@GMAIL.COM">
+                                <span>WENDYMARTENS19@GMAIL.COM</span>
+                            </a>
+                        </h2>
+                    </div>
+
+                    <div class="contact-row">
+                        <a asp-controller="Booking"
+                           asp-action="CreateBooking"
+                           class="btn-grid">
+                            Vraag je verblijf aan
+                        </a>
+                    </div>
+                </address>
             </div>
         </div>
-
-        <div class="col-lg-7 order-1 order-lg-2">
-            <address class="contact-section contact-details">
-
-                <div>
-                    <span class="contact-label">@Localizer["LabelOwner"]</span>
-                    <h2 class="contact-heading mt-3">Hans Roos &amp; Wendy Martens</h2>
-                </div>
-
-                <div>
-                    <span class="contact-label">@Localizer["LabelAddress"]</span>
-                    <h2 class="contact-heading mt-3">
-                        <a href="https://www.google.com/maps/search/?api=1&query=20+Place+Jean+Mermoz,+08220+Rocquigny,+France"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="contact-link"
-                           data-text="20 PLACE JEAN MERMOZ, 08220 ROCQUIGNY, FRANCE">
-                            <span>
-                                20 PLACE JEAN MERMOZ <br/>
-                                08220 ROCQUIGNY <br/>
-                                FRANCE
-                            </span>
-                        </a>
-                    </h2>
-                </div>
-
-                <div>
-                    <span class="contact-label">@Localizer["LabelPhone"]</span>
-                    <h2 class="contact-heading mt-3">
-                        <a href="tel:+33673081169" class="contact-link" data-text="+33 6 730 811 69">
-                            <span>+33 6 730 811 69</span>
-                        </a>
-                        <a href="tel:+32495610454" class="contact-link" data-text="+32 4 956 104 54">
-                            <span>+32 4 956 104 54</span>
-                        </a>
-                    </h2>
-                </div>
-
-                <div>
-                    <span class="contact-label">@Localizer["LabelEmail"]</span>
-                    <h2 class="contact-heading mt-3">
-                        <a href="mailto:wendymartens19@gmail.com" class="contact-link" data-text="WENDYMARTENS19@GMAIL.COM">
-                            <span>WENDYMARTENS19@GMAIL.COM</span>
-                        </a>
-                    </h2>
-                </div>
-
-                <div class="contact-cta">
-                    <a asp-controller="Booking"
-                       asp-action="CreateBooking"
-                       class="btn-grid">
-                        Vraag je verblijf aan
-                    </a>
-                </div>
-
-            </address>
-        </div>
-
     </div>
 </section>
