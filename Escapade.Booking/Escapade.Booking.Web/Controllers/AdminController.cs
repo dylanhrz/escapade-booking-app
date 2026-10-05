@@ -46,7 +46,8 @@ public class AdminController : Controller
             Comment = b.Comment,
             StartDate = b.StartDate,
             EndDate = b.EndDate,
-            AccessToken = b.AccesToken
+            AccessToken = b.AccesToken,
+            Status = b.Status
         }).ToList();
         
         AdminIndexViewModel adminIndexViewModel = new()

@@ -1,126 +1,84 @@
 @model BookingTrackBooking
 
 @{
-    ViewData["Title"] = "Status Boeking";
+    ViewData["Title"] = "Je aanvraag";
 
-    int currentStatus = Model.Status switch
-    {
-        "Pending" => 2,      // In behandeling
-        "Approved" => 3,     // Goedgekeurd / Contact opgenomen
-        "Paid" => 4,         // Betaling ontvangen
-        "Completed" => 5,    // Alles in orde
-        "Rejected" => 2,     // Geweigerd bij stap 2
-        _ => 1               // Aanvraag ontvangen
-    };
-
-    bool isRejected = Model.Status == "Rejected";
+    var culture = new System.Globalization.CultureInfo("nl-BE");
+    var isApproved = Model.Status == "Approved";
+    var nights = (Model.EndDate.Date - Model.StartDate.Date).Days;
+    var reference = Model.AccessToken.ToString("N")[..8].ToUpper();
 }
 
-<section class="position-relative border-start-1 border-end-1">
-    <div class="container-fluid p-0">
-        
-        <div class="row g-0 border-bottom-1">
-            <div class="col-lg-4 p-4 p-lg-5 d-flex flex-column justify-content-between border-bottom">
-                <span class="text-uppercase small fw-bold text-muted mb-2 mb-lg-0">@ViewData["Title"]</span>
-                <h1 class="display-4 font-non-serif text-uppercase fw-light m-0">@Model.Name</h1>
+<section class="page-header container">
+    <span class="contact-label mb-3">Je aanvraag · @Model.Name</span>
+    <h1>@(isApproved ? "Goedgekeurd" : "Aanvraag ontvangen")</h1>
+    <p>
+        @if (isApproved)
+        {
+            @:Je verblijf is goedgekeurd. Tot binnenkort in Rocquigny!
+        }
+        else
+        {
+            @:Bedankt! We hebben je aanvraag goed ontvangen. Wendy neemt binnenkort persoonlijk contact met je op om alles te bespreken.
+        }
+    </p>
+</section>
+
+<section class="full-bleed border-top-1 border-bottom-1">
+    <div class="container">
+        <div class="track-grid border-start-1 border-end-1">
+
+            <ol class="track-steps" aria-label="Status van je aanvraag">
+                <li class="track-step is-done" @(isApproved ? "" : "aria-current=step")>
+                    <span class="track-step-number">01</span>
+                    <strong>Aanvraag ontvangen</strong>
+                    <span>Wendy neemt persoonlijk contact met je op</span>
+                </li>
+                <li class="track-step @(isApproved ? "is-done" : "")" @(isApproved ? "aria-current=step" : "")>
+                    <span class="track-step-number">02</span>
+                    <strong>Goedgekeurd</strong>
+                    <span>@(isApproved ? "Tot binnenkort in Rocquigny!" : "Na jullie gesprek")</span>
+                </li>
+            </ol>
+
+            <div class="facts-bar track-details">
+                <div class="facts-cell">
+                    <span class="contact-label">Aankomst</span>
+                    <strong>@Model.StartDate.ToString("d MMM yyyy", culture)</strong>
+                    <span class="admin-booking-meta">@Model.StartDate.ToString("dddd", culture)</span>
+                </div>
+                <div class="facts-cell">
+                    <span class="contact-label">Vertrek</span>
+                    <strong>@Model.EndDate.ToString("d MMM yyyy", culture)</strong>
+                    <span class="admin-booking-meta">@Model.EndDate.ToString("dddd", culture) · @nights @(nights == 1 ? "nacht" : "nachten")</span>
+                </div>
+                <div class="facts-cell">
+                    <span class="contact-label">Gasten</span>
+                    <strong>@Model.NumberOfGuests</strong>
+                </div>
+                <div class="facts-cell">
+                    <span class="contact-label">Referentie</span>
+                    <strong>@reference</strong>
+                    <span class="admin-booking-meta">Aangevraagd op @Model.BookingRequested.ToString("d MMMM yyyy", culture)</span>
+                </div>
             </div>
-            <div class="col-lg-8 p-4 p-lg-5 d-flex align-items-center justify-content-start justify-content-lg-end">
-                @if (Model.Status == "Pending")
-                {
-                    <span class="display-4 font-non-serif text-uppercase color-green fw-light m-0">
-                        In behandeling
-                    </span>
-                }
-                else
-                {
-                    <span class="display-4 font-non-serif text-uppercase fw-bold m-0">
-                        @Model.Status
-                    </span>
-                }
+
+            <div class="track-contact">
+                <div>
+                    <span class="contact-label mb-2">Vragen over je aanvraag?</span>
+                    <p class="mb-0">Neem gerust contact op met Wendy.</p>
+                </div>
+                <div class="admin-actions">
+                    <a href="tel:+33673081169" class="btn-grid">Bel Wendy</a>
+                    <a href="mailto:wendymartens19@gmail.com?subject=@(Uri.EscapeDataString($"Mijn aanvraag {reference}"))" class="btn-grid btn-grid-outline">Mail Wendy</a>
+                </div>
             </div>
+
         </div>
-        
-        <div class="row g-0">
-    
-            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 1 ? "active" : "")">
-                <span class="font-non-serif d-block mb-2 mb-lg-3">01</span>
-                <p class="fw-bold text-uppercase m-0 small">Aanvraag Ontvangen</p>
-            </div>
+    </div>
+</section>
 
-            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 2 ? (isRejected ? "rejected" : "active") : "")">
-                <span class="font-non-serif d-block mb-2 mb-lg-3">02</span>
-                <p class="fw-bold text-uppercase m-0 small">
-                    @(isRejected ? "Geweigerd" : "In Behandeling")
-                </p>
-            </div>
-
-            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 3 ? "active" : "")">
-                <span class="font-non-serif d-block mb-2 mb-lg-3">03</span>
-                <p class="fw-bold text-uppercase m-0 small">Goedgekeurd</p>
-            </div>
-
-            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 4 ? "active" : "")">
-                <span class="font-non-serif d-block mb-2 mb-lg-3">04</span>
-                <p class="fw-bold text-uppercase m-0 small">Betaling Ontvangen</p>
-            </div>
-
-            <div class="col-12 col-md p-4 p-lg-5 text-center step-cell @(currentStatus >= 5 ? "active" : "")">
-                <span class="font-non-serif d-block mb-2 mb-lg-3">05</span>
-                <p class="fw-bold text-uppercase m-0 small">Alles in orde, tot snel!</p>
-            </div>
-
-        </div>
-
-        <div class="booking-tracking row g-0 border-bottom-1 border-top-1">
-            <div class="col-lg-3 p-4 p-lg-5 border-bottom border-end-1">
-                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking nummer</h3>
-            </div>
-            <div class="col-lg-9 p-4 p-lg-5 fw-bold text-break">
-                <p class="m-0 font-monospace">@Model.AccessToken</p>
-            </div>
-        </div>
-
-        <div class="booking-tracking row g-0 border-bottom-1">
-            <div class="col-lg-3 p-4 p-lg-5 border-bottom border-end-1">
-                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Boeking aangevraagd</h3>
-            </div>
-            <div class="col-lg-9 p-4 p-lg-5 d-flex flex-column flex-sm-row align-items-start align-items-sm-baseline gap-1 gap-sm-3">
-                <span class="fw-bold">
-                    @Model.BookingRequested.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("nl-BE"))
-                </span>
-                <span class="text-muted small">
-                    om @Model.BookingRequested.ToString("HH:mm") uur
-                </span>
-            </div>
-        </div>
-        
-        <div class="booking-tracking row g-0 border-bottom-1">
-            <div class="col-lg-3 p-4 p-lg-5 border-bottom border-end-1">
-                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aantal gasten</h3>
-            </div>
-            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
-                <p class="m-0">@Model.NumberOfGuests</p>
-            </div>
-        </div>
-        
-        <div class="booking-tracking row g-0 border-bottom-1">
-            <div class="col-lg-3 p-4 p-lg-5 border-bottom border-end-1">
-                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Aankomst Datum</h3>
-            </div>
-            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
-                <p class="m-0">@Model.StartDate.ToString("dd/MM/yyyy")</p>
-            </div>
-        </div>
-        
-        <div class="booking-tracking row g-0">
-            <div class="col-lg-3 p-4 p-lg-5 border-bottom border-end-1">
-                <h3 class="font-non-serif text-muted m-0 text-start text-lg-end">Datum van vertrek</h3>
-            </div>
-            <div class="col-lg-9 p-4 p-lg-5 fw-bold">
-                <p class="m-0">@Model.EndDate.ToString("dd/MM/yyyy")</p>
-            </div>
-        </div>
-
-    </div>   
-    
+<section class="container text-center py-5 my-4">
+    <p class="section-text mb-3">Alvast in de stemming komen?</p>
+    <a asp-controller="About" asp-action="Index" class="custom-link">Ontdek het verblijf</a>
 </section>

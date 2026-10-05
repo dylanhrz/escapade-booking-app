@@ -1,3 +1,5 @@
+using BookingStatus = Escapade.Booking.Core.Entities.Booking.BookingStatus;
+
 namespace Escapade.Booking.Web.ViewModels;
 
 public class BaseViewModel
@@ -14,4 +16,6 @@ public class BaseViewModel
     public DateTime EndDate { get; set; }
     
     public Guid AccessToken { get; set; }
+
+    public BookingStatus Status { get; set; }
 }

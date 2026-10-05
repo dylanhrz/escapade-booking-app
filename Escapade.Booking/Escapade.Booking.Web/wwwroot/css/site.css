@@ -127,6 +127,274 @@ a {
   outline-offset: 4px;
 }
 
+button.btn-grid {
+  cursor: pointer;
+}
+
+.admin-message {
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-list {
+  display: grid;
+  gap: 1px;
+  background-color: var(--black);
+}
+
+.admin-list > * {
+  margin: 0;
+  background-color: var(--offwhite);
+}
+
+.admin-list-head {
+  padding: 1.25rem 2rem;
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.admin-list-head span {
+  color: #6c757d;
+}
+
+.admin-list-empty {
+  padding: 2rem;
+  color: #6c757d;
+}
+
+.admin-booking {
+  display: grid;
+  grid-template-columns: 200px 1fr 280px;
+  gap: 1px;
+  background-color: var(--black);
+}
+
+.admin-booking > div {
+  padding: 2rem;
+  background-color: var(--offwhite);
+}
+
+.admin-booking.is-new .admin-booking-date {
+  box-shadow: inset 4px 0 0 var(--primary-green);
+}
+
+.admin-booking.is-past > div {
+  color: #6c757d;
+}
+
+.admin-booking-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.admin-booking-day {
+  font-family: var(--font-serif), serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.admin-booking.is-past .admin-booking-day {
+  font-size: 2.25rem;
+}
+
+.admin-booking-meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6c757d;
+  overflow-wrap: anywhere;
+}
+
+.admin-booking-info h3 {
+  margin: 0.5rem 0;
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-booking-comment {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--primary-green);
+  font-size: 0.9rem;
+}
+
+.admin-status {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--black);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.admin-status-pending {
+  border-color: var(--primary-green);
+  background-color: var(--primary-green);
+  color: var(--offwhite);
+}
+
+.admin-status-approved {
+  border-color: var(--black);
+  background-color: var(--black);
+  color: var(--offwhite);
+}
+
+.admin-booking-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.admin-links form {
+  display: contents;
+}
+
+.admin-links a,
+.admin-links button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--black);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.admin-links a:hover,
+.admin-links button:hover {
+  color: var(--primary-green);
+}
+
+.admin-links .admin-link-danger {
+  color: var(--primary-red);
+}
+
+@media (max-width: 991px) {
+  .admin-booking {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-booking > div {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .admin-booking-date {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .admin-booking-day {
+    font-size: 2.25rem;
+  }
+}
+
+.btn-grid-outline {
+  border-color: var(--black);
+  background-color: transparent;
+  color: var(--black);
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.track-grid {
+  display: grid;
+  gap: 1px;
+  background-color: var(--black);
+}
+
+.track-grid > * {
+  margin: 0;
+  background-color: var(--offwhite);
+}
+
+.track-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  padding: 0;
+  list-style: none;
+  background-color: var(--black) !important;
+}
+
+.track-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2.5rem 2rem;
+  background-color: var(--offwhite);
+  color: #6c757d;
+}
+
+.track-step strong {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.track-step-number {
+  font-family: var(--font-serif), serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.track-step.is-done {
+  background-color: var(--primary-green);
+  color: var(--offwhite);
+}
+
+.track-details {
+  background-color: var(--black) !important;
+}
+
+.track-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+@media (max-width: 575px) {
+  .track-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .track-step {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .track-contact {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
 @media (max-width: 575px) {
   .btn-grid {
     display: flex;
@@ -2078,39 +2346,6 @@ header {
 
 .booking-confirmation p {
   font-size: 1.25rem;
-}
-
-.booking-tracking h2 {
-  font-size: 3.5rem;
-  font-weight: 100;
-}
-
-.booking-tracking h3 {
-  font-size: 1.25rem;
-  font-weight: 100;
-  text-align: right;
-  text-transform: uppercase;
-}
-
-.booking-tracking strong {
-  font-size: 3.5rem;
-  font-weight: 100;
-  text-transform: uppercase;
-}
-
-.step-cell {
-  opacity: 0.5;
-}
-
-.step-cell.active {
-  opacity: 1;
-  background-color: var(--secondary-green);
-  color: var(--offwhite);
-}
-
-.step-cell.rejected {
-  opacity: 1;
-  background-color: var(--primary-red);
 }
 
 .info-head {
