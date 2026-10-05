@@ -12,7 +12,7 @@
             <img src="~/images/IMG_1871.jpg" alt="Landschap rond Rocquigny" />
         </div>
         <div class="hero-image-item">
-            <img src="~/images/IMG_1884.jpg" alt="Omgeving van Rocquigny" />
+            <img src="~/images/IMG_5010.jpeg" alt="Omgeving van Rocquigny" />
         </div>
         <div class="hero-image-item" style="max-width: 200px;">
             <img src="~/images/roquigny/IMG_0002.JPG" alt="Detail uit Rocquigny" />
@@ -37,14 +37,23 @@
     </div>
 </section>
 
+<nav class="section-nav full-bleed border-top-1 border-bottom-1" aria-label="Rocquigny en omgeving">
+    <ul>
+        <li><a href="#winkels">Winkels &amp; boodschappen</a></li>
+        <li><a href="#eten">Eten &amp; drinken</a></li>
+        <li><a href="#omgeving">Wandelen &amp; omgeving</a></li>
+    </ul>
+</nav>
+
 <section class="container intro-section">
-    <p class="text-uppercase my-5 py-5 text-center">
-        In en rond Rocquigny vind je alles voor een comfortabel verblijf. Van dagelijkse boodschappen en warme bakkers tot gezellige lokale restaurants, rustgevende natuurwandelingen en uitstappen in de regio.
+    <p class="text-center">
+        In en rond Rocquigny vind je alles voor een comfortabel verblijf: van dagelijkse boodschappen en warme bakkers
+        tot gezellige lokale restaurants, rustgevende natuurwandelingen en uitstappen in de regio.
     </p>
 </section>
 
 <section class="full-bleed border-top-1">
-    <div class="info-split">
+    <div id="winkels" class="info-split">
         <div class="info-split-photo">
             <img src="~/images/IMG_1884.jpg" alt="Dorpszicht op Rocquigny" loading="lazy" />
         </div>
@@ -56,9 +65,9 @@
 </section>
 
 <section class="full-bleed border-top-1">
-    <div class="info-split flip">
+    <div id="eten" class="info-split flip">
         <div class="info-split-photo">
-            <img src="~/images/IMG_1871.jpg" alt="Landschap rond Rocquigny" loading="lazy" />
+            <img src="~/images/IMG_5011.jpeg" alt="Landschap rond Rocquigny" loading="lazy" />
         </div>
         <div class="info-split-text">
             <h2>Eten &amp; drinken</h2>
@@ -68,7 +77,7 @@
 </section>
 
 <section class="full-bleed border-top-1">
-    <div class="info-split">
+    <div id="omgeving" class="info-split">
         <div class="info-split-photo">
             <img src="~/images/roquigny/IMG_4948.JPG" alt="Dorpszicht op Rocquigny" loading="lazy" />
         </div>
@@ -85,19 +94,11 @@
     <div class="container">
         <div class="row mb-5 g-4 align-items-center">
             <div class="cta-section-content col-lg-12">
-                <h2>
-                    Verblijven in <br/>
-                    L'Escapade Ardennaise?
-                </h2>
+                <h2>Plan je verblijf</h2>
                 <p class="w-75 mx-auto">
-                    Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en
-                    dorpscharme.
+                    Kies je periode en stuur je aanvraag. De eigenaars nemen daarna persoonlijk contact met je op.
                 </p>
-                <a asp-controller="Booking"
-                   asp-action="CreateBooking"
-                   class="btn-grid">
-                    Vraag je verblijf aan
-                </a>
+                <a asp-controller="Booking" asp-action="CreateBooking" class="btn-grid">Vraag je verblijf aan</a>
             </div>
         </div>
     </div>

@@ -3,7 +3,15 @@
     ViewData["MetaDescription"] = "Tarieven van L'Escapade Ardennaise in Rocquigny: verblijf met maximaal 6 of 10 personen, vanaf 2 nachten tot een volledige week.";
 }
 
-<section class="container my-5 py-5">
+<section class="page-header container">
+    <span class="contact-label mb-3">L'Escapade Ardennaise</span>
+    <h1>Prijzen</h1>
+    <p>
+        Kies het formaat dat bij je gezelschap past: tot 6 of tot 10 personen, voor 2 of 3 nachten of een volledige week.
+    </p>
+</section>
+
+<section class="container pb-5">
 
     <article class="pricing-ticket pricing-ticket-dark" id="tot-10-personen">
         <div class="pricing-ticket-main">
@@ -55,4 +63,29 @@
         </div>
     </article>
 
+</section>
+
+<section class="facts-bar full-bleed border-top-1 border-bottom-1 mt-5" aria-label="Inbegrepen bij elk verblijf">
+    <div class="facts-cell">
+        <span class="contact-label">Inbegrepen</span>
+        <strong>Bedlinnen</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Gratis</span>
+        <strong>Wifi</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Gratis</span>
+        <strong>Parkeren</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Voor alle gasten</span>
+        <strong>Sauna &amp; tuin</strong>
+        <a asp-controller="About" asp-action="Facilities" class="custom-link facts-link">Alle faciliteiten</a>
+    </div>
+</section>
+
+<section class="container text-center py-5 my-4">
+    <p class="section-text mb-3">Vragen over beschikbaarheid of een langer verblijf?</p>
+    <a asp-controller="Contact" asp-action="Index" class="custom-link">Neem contact op</a>
 </section>

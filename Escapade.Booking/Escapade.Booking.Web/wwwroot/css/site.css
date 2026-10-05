@@ -160,12 +160,6 @@ a {
   color: var(--offwhite) !important;
 }
 
-.title-section h2 {
-  font-family: var(--font-non-serif), sans-serif;
-  font-size: 5rem;
-  font-weight: 900;
-}
-
 .section-header {
   padding: 10rem 0;
 }
@@ -174,6 +168,35 @@ a {
   font-weight: 300;
   font-size: 1rem;
   text-transform: uppercase;
+}
+
+.page-header {
+  padding-top: calc(var(--header-height, 70px) + 5rem);
+  padding-bottom: 3rem;
+}
+
+.page-header h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.9;
+}
+
+.page-header p {
+  max-width: 40rem;
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .page-header {
+    padding-top: calc(var(--header-height, 70px) + 2.5rem);
+    padding-bottom: 2rem;
+  }
+
+  .page-header p {
+    font-size: 1.05rem;
+  }
 }
 
 .intro-section {
@@ -1300,14 +1323,14 @@ header {
   }
 
   .section-nav ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 1px;
     overflow: visible;
     background-color: var(--black);
   }
 
   .section-nav li {
+    flex: 1 1 calc(50% - 1px);
     border-left: none;
     background-color: var(--offwhite);
   }
@@ -1539,11 +1562,15 @@ header {
   background-color: var(--offwhite);
 }
 
+.info-split {
+  scroll-margin-top: calc(var(--header-height, 70px) + var(--section-nav-height, 60px) - 1px);
+}
+
 .info-split-photo img {
   position: sticky;
-  top: 70px;
+  top: calc(var(--header-height, 70px) + var(--section-nav-height, 0px));
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - var(--header-height, 70px) - var(--section-nav-height, 0px));
   object-fit: cover;
   display: block;
 }
@@ -1568,58 +1595,76 @@ header {
     order: 0;
   }
 
+  .info-split {
+    scroll-margin-top: var(--header-height, 70px);
+  }
+
   .info-split-photo img {
     position: static;
-    height: 40vh;
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .info-split-text {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .info-split-text h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 
-.facility-section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background-color: var(--black);
 }
 
-.facility-group {
-  padding: 3.5rem 0;
-}
-
-.facility-info {
-  position: sticky;
-  top: 100px;
-}
-
-.facility-info h2 {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-
-.facility-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.facility-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
+  background-color: var(--offwhite);
 }
 
-.facility-item {
-  padding: 1rem 1.75rem;
-  border-radius: 100vmax;
-  font-size: 1rem;
+.facility-card h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.05;
+}
+
+.facility-card p {
+  margin-bottom: 1.5rem;
+  color: #6c757d;
+}
+
+.facility-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facility-card li {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--grey);
+  font-size: 0.95rem;
 }
 
 @media (max-width: 991px) {
-  .facility-group {
-    padding: 2rem 0;
+  .facility-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .facility-grid {
+    grid-template-columns: 1fr;
   }
 
-  .facility-info {
-    position: static;
+  .facility-card {
+    padding: 1.75rem 1.25rem;
   }
 }
 
@@ -1659,13 +1704,22 @@ header {
 
 .pricing-ticket-button {
   align-self: flex-start;
-  padding: 1rem 2rem;
-  border-radius: 100vmax;
+  padding: 1.25rem 2rem;
+  border: 1px solid var(--offwhite);
   background-color: var(--offwhite);
   color: var(--black);
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.pricing-ticket-button:hover,
+.pricing-ticket-button:focus-visible {
+  background-color: transparent;
+  color: var(--offwhite);
 }
 
 .pricing-ticket-stub {
@@ -1749,10 +1803,21 @@ header {
   }
 }
 
+.contact-map-col {
+  border-right: 1px solid var(--black);
+}
+
+@media (max-width: 991px) {
+  .contact-map-col {
+    border-right: none;
+    border-top: 1px solid var(--black);
+  }
+}
+
 .contact-map {
   position: sticky;
-  top: 40px;
-  height: calc(100vh - 40px);
+  top: var(--header-height, 70px);
+  height: calc(100vh - var(--header-height, 70px));
   min-height: 500px;
 }
 
@@ -1768,8 +1833,8 @@ header {
 @media (max-width: 991px) {
   .contact-map {
     position: relative;
-    top: 40px;
-    height: 50vh;
+    top: 0;
+    height: 40vh;
     min-height: 0;
   }
 }
@@ -1791,13 +1856,9 @@ header {
 }
 
 @media (max-width: 991px) {
-  .contact-map {
-    min-height: 50vh;
-  }
-
   .contact-section.contact-details {
-    gap: 3rem;
-    padding: 4rem 1.5rem;
+    gap: 2rem;
+    padding: 2.5rem 1.25rem;
   }
 
   .contact-cta {
@@ -1868,7 +1929,7 @@ header {
   }
 
   .contact-heading {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
     word-break: break-word;
   }
 }
