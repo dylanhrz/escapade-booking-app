@@ -1,37 +1,43 @@
 @{
-    ViewData["Title"] = "Boeking Ontvangen";
+    ViewData["Title"] = "Aanvraag verstuurd";
 }
 
-<section class="position-relative min-vh-50">   
-    <div class="container-fluid p-0">
-        
-        <div class="row">
+<section class="page-header container">
+    <span class="contact-label mb-3">Aanvraag verstuurd</span>
+    <h1>Bedankt!</h1>
+    <p>
+        We hebben je aanvraag goed ontvangen. Je krijgt zo meteen een bevestiging per e-mail,
+        met een link om je aanvraag op te volgen.
+    </p>
+</section>
 
-            <div class="booking-confirmation col-lg-6 p-5 border-end-1 min-vh-50">
+<section class="full-bleed border-top-1 border-bottom-1">
+    <div class="container">
+        <div class="track-grid border-start-1 border-end-1">
 
-                <h2 class="font-non-serif text-uppercase">
-                    Danku, <br/>
-                    u boekingaanvraag is verstuurd
-                </h2>
+            <h2 class="admin-list-head">Wat gebeurt er nu?</h2>
 
-                <p class="mt-3">
-                    Wendy neemt zo snel mogelijk contact met je op om je verblijf te bevestigen. Je kan
-                    <a asp-controller="Booking" 
-                       asp-action="TrackBooking" 
-                       asp-route-token="@ViewBag.Token" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="custom-button p-1 text-decoration-none">
-                        je boeking volgen via deze link,</a> of in de inbox van je email.
-                </p>
+            <ol class="track-steps">
+                <li class="track-step is-done">
+                    <span class="track-step-number">01</span>
+                    <strong>Aanvraag ontvangen</strong>
+                    <span>Wendy neemt binnenkort persoonlijk contact met je op</span>
+                </li>
+                <li class="track-step">
+                    <span class="track-step-number">02</span>
+                    <strong>Goedgekeurd</strong>
+                    <span>Na jullie gesprek bevestigt Wendy je verblijf</span>
+                </li>
+            </ol>
 
-            </div>
-
-            <div class="col-lg-6 p-5">
-                    
+            <div class="track-contact">
+                <p class="mb-0 admin-booking-meta">Geen mail ontvangen? Kijk ook even in je spam of ongewenste mail.</p>
+                <div class="admin-actions">
+                    <a asp-controller="Booking" asp-action="TrackBooking" asp-route-token="@ViewBag.Token" class="btn-grid">Volg je aanvraag</a>
+                    <a asp-controller="Home" asp-action="Index" class="btn-grid btn-grid-outline">Terug naar home</a>
+                </div>
             </div>
 
         </div>
-        
     </div>
 </section>

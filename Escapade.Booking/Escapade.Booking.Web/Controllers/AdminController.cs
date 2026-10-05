@@ -116,8 +116,25 @@ public class AdminController : Controller
     }
     
     [HttpGet]
+    public IActionResult Details(int id)
+    {
+        if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
+        {
+            return RedirectToAction(nameof(Login));
+        }
+
+        // TIJDELIJK
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
     public async Task<IActionResult> Delete(int id)
     {
+        if (string.IsNullOrEmpty(HttpContext.Session.GetString("AdminId")))
+        {
+            return RedirectToAction(nameof(Login));
+        }
+
         var result = await _bookingService.GetByIdAsync(id);
         
         if (!result.IsSuccess) return NotFound();

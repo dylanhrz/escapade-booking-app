@@ -11,11 +11,15 @@ public class BookingController : Controller
 {
     private readonly IBookingService _bookingService;
     private readonly IEmailService _emailService;
+    private readonly ILogger<BookingController> _logger;
+    private readonly IConfiguration _configuration;
 
-    public BookingController(IBookingService bookingService, IEmailService emailService)
+    public BookingController(IBookingService bookingService, IEmailService emailService, ILogger<BookingController> logger, IConfiguration configuration)
     {
         _bookingService = bookingService;
         _emailService = emailService;
+        _logger = logger;
+        _configuration = configuration;
     }
     
     [HttpGet]
@@ -69,9 +73,42 @@ public class BookingController : Controller
             protocol: Request.Scheme
         );
         
+        var details = Url.Action(
+            action: "Details",
+            controller: "Admin",
+            values: new { id = booking.Id },
+            protocol: Request.Scheme
+        );
+
         if (!string.IsNullOrEmpty(tracking))
         {
-            await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
+            try
+            {
+                await _emailService.SendBookingConfirmationAsync(booking.Email, booking.Name, tracking);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "Bevestigingsmail voor boeking {BookingId} kon niet verstuurd worden.", booking.Id);
+            }
+        }
+
+        // Mailtrap (gratis) weigert meerdere mails per seconde; in Development wachten we even.
+        var delayBetweenEmails = _configuration.GetValue<int>("Smtp:DelayBetweenEmailsMs");
+        if (delayBetweenEmails > 0)
+        {
+            await Task.Delay(delayBetweenEmails);
+        }
+
+        if (!string.IsNullOrEmpty(details))
+        {
+            try
+            {
+                await _emailService.SendNewBookingNotificationAsync(booking, details);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "Melding aan de eigenaar voor boeking {BookingId} kon niet verstuurd worden.", booking.Id);
+            }
         }
 
         return RedirectToAction(nameof(BookingConfirmation), new { token = booking.AccesToken });

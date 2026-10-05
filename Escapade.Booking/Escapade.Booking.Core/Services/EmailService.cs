@@ -50,4 +50,48 @@ public class EmailService : IEmailService
         
         await client.SendMailAsync(mailMessage);
     }
+
+    public async Task SendNewBookingNotificationAsync(Entities.Booking booking, string detailsUrl)
+    {
+        var ownerEmail = _configuration["Booking:OwnerEmail"];
+        if (string.IsNullOrWhiteSpace(ownerEmail)) return;
+
+        var culture = new System.Globalization.CultureInfo("nl-BE");
+        var nights = (booking.EndDate.Date - booking.StartDate.Date).Days;
+
+        var subject = $"Nieuwe aanvraag: {booking.Name}, {booking.StartDate.ToString("d MMM", culture)} - {booking.EndDate.ToString("d MMM yyyy", culture)}";
+
+        var body = $@"
+        <h2>Nieuwe aanvraag van {WebUtility.HtmlEncode(booking.Name)}</h2>
+        <p><strong>Periode:</strong> {booking.StartDate.ToString("d MMMM yyyy", culture)} t/m {booking.EndDate.ToString("d MMMM yyyy", culture)} ({nights} nachten)</p>
+        <p><strong>Gasten:</strong> {booking.NumberOfGuests}</p>
+        <p><strong>E-mail:</strong> {WebUtility.HtmlEncode(booking.Email)}</p>
+        <p><strong>Telefoon:</strong> {WebUtility.HtmlEncode(booking.PhoneNumber)}</p>
+        <p><strong>Opmerking:</strong> {WebUtility.HtmlEncode(booking.Comment ?? "-")}</p>
+        <p><a href='{detailsUrl}'>Bekijk alle aanvragen</a></p>";
+
+        await SendAsync(ownerEmail, subject, body, replyTo: booking.Email);
+    }
+
+    private async Task SendAsync(string toEmail, string subject, string body, string? replyTo = null)
+    {
+        using var client = new SmtpClient(_configuration["Smtp:Host"], int.Parse(_configuration["Smtp:Port"] ?? "587"))
+        {
+            Credentials = new NetworkCredential(_configuration["Smtp:Username"], _configuration["Smtp:Password"]),
+            EnableSsl = true
+        };
+
+        using var mailMessage = new MailMessage
+        {
+            From = new MailAddress(_configuration["Smtp:FromAddress"]!, _configuration["Smtp:FromName"]),
+            Subject = subject,
+            Body = body,
+            IsBodyHtml = true
+        };
+
+        mailMessage.To.Add(toEmail);
+        if (!string.IsNullOrWhiteSpace(replyTo)) mailMessage.ReplyToList.Add(replyTo);
+
+        await client.SendMailAsync(mailMessage);
+    }
 }

@@ -4,23 +4,12 @@
     ViewData["Title"] = "Admin Dashboard";
 
     var culture = new System.Globalization.CultureInfo("nl-BE");
-
-    string StatusLabel(BaseViewModel booking) => booking.Status.ToString() switch
-    {
-        "Approved" => "Goedgekeurd",
-        "DatesBlocked" => "Data vastgezet",
-        _ => "Nieuwe aanvraag"
-    };
-
-    var newCount = Model.UpcomingBookings.Count(b => b.Status.ToString() == "Pending");
-    var blockedCount = Model.UpcomingBookings.Count(b => b.Status.ToString() == "DatesBlocked");
-    var approvedCount = Model.UpcomingBookings.Count(b => b.Status.ToString() == "Approved");
 }
 
 <section class="page-header container">
     <span class="contact-label mb-3">Beheer</span>
     <h1>Aanvragen</h1>
-    <p>@newCount nieuw · @blockedCount vastgezet · @approvedCount goedgekeurd</p>
+    <p>@Model.UpcomingBookings.Count aankomende @(Model.UpcomingBookings.Count == 1 ? "aanvraag" : "aanvragen")</p>
 </section>
 
 @if (TempData["Message"] != null)
@@ -43,10 +32,10 @@
 
             @foreach (var booking in Model.UpcomingBookings)
             {
-                var status = booking.Status.ToString();
                 var nights = (booking.EndDate.Date - booking.StartDate.Date).Days;
+                var isApproved = booking.Status == Escapade.Booking.Core.Entities.Booking.BookingStatus.Approved;
 
-                <article class="admin-booking @(status == "Pending" ? "is-new" : "")">
+                <article class="admin-booking">
                     <div class="admin-booking-date">
                         <span class="admin-booking-day">@booking.StartDate.ToString("dd")</span>
                         <span class="contact-label">@booking.StartDate.ToString("MMM yyyy", culture)</span>
@@ -54,7 +43,7 @@
                     </div>
 
                     <div class="admin-booking-info">
-                        <span class="admin-status admin-status-@status.ToLower()">@StatusLabel(booking)</span>
+                        <span class="admin-status @(isApproved ? "is-approved" : "")">@(isApproved ? "Goedgekeurd" : "Nieuwe aanvraag")</span>
                         <h3>@booking.Name</h3>
                         <p class="admin-booking-meta">
                             @booking.NumberOfGuests @(booking.NumberOfGuests == 1 ? "gast" : "gasten")
@@ -68,34 +57,19 @@
                     </div>
 
                     <div class="admin-booking-actions">
-                        <a asp-controller="Admin" asp-action="Details" asp-route-id="@booking.Id" class="btn-grid">Open aanvraag</a>
+                        @if (!isApproved)
+                        {
+                            <form asp-controller="Admin" asp-action="ApproveBooking" asp-route-id="@booking.Id" method="post">
+                                <button type="submit" class="btn-grid w-100">Goedkeuren</button>
+                            </form>
+                        }
+
+                        <div class="admin-actions">
+                            <a href="mailto:@booking.Email" class="btn-grid btn-grid-outline">Mail klant</a>
+                            <a href="tel:@booking.PhoneNumber" class="btn-grid btn-grid-outline">Bel klant</a>
+                        </div>
 
                         <div class="admin-links">
-                            <a href="mailto:@booking.Email">Mail klant</a>
-                            <a href="tel:@booking.PhoneNumber">Bel klant</a>
-
-                            @if (status == "Pending")
-                            {
-                                <form asp-controller="Admin" asp-action="SetDatesBlocked" asp-route-id="@booking.Id" method="post">
-                                    <input type="hidden" name="blocked" value="true" />
-                                    <button type="submit">Data vastzetten</button>
-                                </form>
-                            }
-                            else if (status == "DatesBlocked")
-                            {
-                                <form asp-controller="Admin" asp-action="SetDatesBlocked" asp-route-id="@booking.Id" method="post">
-                                    <input type="hidden" name="blocked" value="false" />
-                                    <button type="submit">Data vrijgeven</button>
-                                </form>
-                            }
-
-                            @if (status != "Approved")
-                            {
-                                <form asp-controller="Admin" asp-action="ApproveBooking" asp-route-id="@booking.Id" method="post">
-                                    <button type="submit">Goedkeuren</button>
-                                </form>
-                            }
-
                             <a asp-controller="Booking" asp-action="TrackBooking" asp-route-token="@booking.AccessToken" target="_blank">Klantpagina</a>
                             <a asp-controller="Admin" asp-action="Delete" asp-route-id="@booking.Id" class="admin-link-danger">Verwijderen</a>
                         </div>
@@ -120,15 +94,13 @@
                     </div>
 
                     <div class="admin-booking-info">
-                        <span class="admin-status">@StatusLabel(booking)</span>
                         <h3>@booking.Name</h3>
                         <p class="admin-booking-meta">@booking.Email · @booking.PhoneNumber</p>
                     </div>
 
                     <div class="admin-booking-actions">
                         <div class="admin-links">
-                            <a asp-controller="Admin" asp-action="Details" asp-route-id="@booking.Id">Open aanvraag</a>
-                            <a asp-controller="Booking" asp-action="TrackBooking" asp-route-token="@booking.AccessToken" target="_blank">Klantpagina</a>
+                            <a href="mailto:@booking.Email">Mail klant</a>
                             <a asp-controller="Admin" asp-action="Delete" asp-route-id="@booking.Id" class="admin-link-danger">Verwijderen</a>
                         </div>
                     </div>

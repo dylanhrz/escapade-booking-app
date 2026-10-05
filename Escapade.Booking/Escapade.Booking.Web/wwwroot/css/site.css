@@ -78,10 +78,6 @@ a {
   border-left: 1px solid var(--primary-green);
 }
 
-.min-vh-50 {
-  min-height: 700px;
-}
-
 .color-green {
   color: var(--primary-green);
 }
@@ -180,10 +176,6 @@ button.btn-grid {
   background-color: var(--offwhite);
 }
 
-.admin-booking.is-new .admin-booking-date {
-  box-shadow: inset 4px 0 0 var(--primary-green);
-}
-
 .admin-booking.is-past > div {
   color: #6c757d;
 }
@@ -230,23 +222,18 @@ button.btn-grid {
 .admin-status {
   display: inline-block;
   padding: 0.25rem 0.6rem;
-  border: 1px solid var(--black);
+  border: 1px solid var(--primary-green);
+  background-color: var(--primary-green);
+  color: var(--offwhite);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.admin-status-pending {
-  border-color: var(--primary-green);
-  background-color: var(--primary-green);
-  color: var(--offwhite);
-}
-
-.admin-status-approved {
+.admin-status.is-approved {
   border-color: var(--black);
   background-color: var(--black);
-  color: var(--offwhite);
 }
 
 .admin-booking-actions {
@@ -255,18 +242,24 @@ button.btn-grid {
   gap: 1.25rem;
 }
 
+.admin-booking-actions .admin-actions {
+  flex-wrap: nowrap;
+}
+
+.admin-booking-actions .admin-actions .btn-grid {
+  flex: 1 1 0;
+  width: auto;
+  padding: 1rem 0.75rem;
+  white-space: nowrap;
+}
+
 .admin-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
 }
 
-.admin-links form {
-  display: contents;
-}
-
-.admin-links a,
-.admin-links button {
+.admin-links a {
   padding: 0;
   border: 0;
   background: none;
@@ -279,8 +272,7 @@ button.btn-grid {
   cursor: pointer;
 }
 
-.admin-links a:hover,
-.admin-links button:hover {
+.admin-links a:hover {
   color: var(--primary-green);
 }
 
@@ -2333,19 +2325,6 @@ header {
   font-size: 0.9rem !important;
   text-transform: uppercase;
   text-align: center;
-}
-
-.booking-confirmation {
-  height: 90vh;
-}
-
-.booking-confirmation h2 {
-  font-size: 3.5rem;
-  font-weight: 100;
-}
-
-.booking-confirmation p {
-  font-size: 1.25rem;
 }
 
 .info-head {
