@@ -209,6 +209,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    const openAccordionSection = (hash, smooth = true) => {
+        let section = null;
+        try {
+            section = hash ? document.querySelector(hash) : null;
+        } catch {
+            return;
+        }
+
+        const accordionHeader = section?.querySelector('.accordion-header');
+        if (!accordionHeader) return;
+
+        if (accordionHeader.getAttribute('aria-expanded') !== 'true') accordionHeader.click();
+
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+        }, 550);
+    };
+
+    document.querySelectorAll('.room-overview a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const hash = link.getAttribute('href');
+            history.replaceState(null, '', hash);
+            openAccordionSection(hash);
+        });
+    });
+
+    if (location.hash) openAccordionSection(location.hash, false);
+
     const header = document.querySelector('header');
     const sectionNav = document.querySelector('.section-nav');
 

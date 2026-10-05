@@ -928,7 +928,76 @@ header {
   }
 }
 
+.room-overview ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--black);
+}
+
+.room-overview a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--offwhite);
+  color: var(--black);
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.room-overview strong {
+  font-family: var(--font-non-serif), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.room-overview-meta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.room-overview a:hover,
+.room-overview a:focus-visible {
+  background-color: var(--primary-green);
+  color: var(--offwhite);
+}
+
+.room-overview a:hover .contact-label,
+.room-overview a:hover .room-overview-meta,
+.room-overview a:focus-visible .contact-label,
+.room-overview a:focus-visible .room-overview-meta {
+  color: var(--offwhite);
+}
+
+.room-overview a:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: -4px;
+}
+
+@media (max-width: 991px) {
+  .room-overview ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .room-overview a {
+    padding: 1.25rem 1rem;
+  }
+
+  .room-overview strong {
+    font-size: 1.1rem;
+  }
+}
+
 .rooms-accordion-section {
+  scroll-margin-top: var(--header-height, 70px);
   border-top: 1px solid var(--black);
   background-color: var(--offwhite, #f7f5f0);
   color: #1a1a1a;
@@ -964,6 +1033,17 @@ header {
   font-size: 2rem;
   font-weight: 900;
   margin: 0;
+}
+
+.room-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+.rooms-accordion-section:has(.accordion-item:not(.active)):hover .room-subtitle {
+  color: var(--black);
 }
 
 .accordion-icon {
@@ -1103,7 +1183,6 @@ header {
   line-height: 1.6;
   color: var(--black);
   margin-bottom: 2rem;
-  text-transform: uppercase;
 }
 
 .room-info > div {
@@ -1118,8 +1197,9 @@ header {
 }
 
 .room-info-col {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
 }
 
 .room-info-col span {
@@ -1138,6 +1218,23 @@ header {
   .room-titles {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .room-titles h2 {
+    font-size: 1.5rem;
+  }
+
+  .accordion-header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .room-info-col {
+    column-gap: 1rem;
+  }
+
+  .room-info-col span {
+    font-size: 0.85rem;
   }
 }
 
