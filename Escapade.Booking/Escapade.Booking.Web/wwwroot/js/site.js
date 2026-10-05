@@ -192,4 +192,62 @@ document.addEventListener("DOMContentLoaded", function () {
     initCarousels('.room-gallery', '.image-wrapper img');
     initCarousels('.room-carousel', '.carousel-img');
 
+    document.querySelectorAll('.room-gallery, .room-carousel').forEach(carousel => {
+        let startX = null;
+
+        carousel.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', e => {
+            if (startX === null) return;
+            const deltaX = e.changedTouches[0].clientX - startX;
+            if (Math.abs(deltaX) > 40) {
+                carousel.querySelector(deltaX < 0 ? '.next-btn' : '.prev-btn')?.click();
+            }
+            startX = null;
+        });
+    });
+
+    const header = document.querySelector('header');
+    const sectionNav = document.querySelector('.section-nav');
+
+    const setOffsets = () => {
+        if (header) document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+        if (sectionNav) document.documentElement.style.setProperty('--section-nav-height', `${sectionNav.offsetHeight}px`);
+    };
+
+    setOffsets();
+    window.addEventListener('resize', setOffsets);
+
+    if (sectionNav) {
+        const list = sectionNav.querySelector('ul');
+        const links = [...sectionNav.querySelectorAll('a[href^="#"]')];
+        const sections = links
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        const setActive = id => {
+            links.forEach(link => {
+                const isActive = link.getAttribute('href') === `#${id}`;
+                link.classList.toggle('active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'true');
+                    list.scrollTo({ left: link.parentElement.offsetLeft - (list.clientWidth - link.offsetWidth) / 2, behavior: 'smooth' });
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+    }
+
 });
