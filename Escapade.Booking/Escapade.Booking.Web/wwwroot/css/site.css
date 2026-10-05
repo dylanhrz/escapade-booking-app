@@ -117,7 +117,7 @@ a {
   color: var(--offwhite) !important;
   border: 1px solid var(--primary-green) !important;
   border-radius: 100vmax !important;
-  padding: 1.5rem 3.5rem !important;
+  padding: 1rem 3rem !important;
   font-weight: 500;
 }
 
@@ -471,14 +471,6 @@ header {
 .hero-cta {
   margin-top: 2rem;
   font-weight: 900;
-}
-
-.hero-cta a {
-  color: var(--offwhite);
-}
-
-.hero-cta a:hover {
-  color: var(--black);
 }
 
 .img-container {
@@ -1965,4 +1957,59 @@ footer {
   .footer-links-col {
     padding: 2rem;
   }
+}
+
+#discover {
+  scroll-margin-top: 100px;
+}
+
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--offwhite);
+  text-decoration: none;
+  transition: opacity 0.3s ease, color 0.15s ease;
+}
+
+.scroll-hint:hover {
+  color: var(--primary-green);
+}
+
+.scroll-hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint *,
+  .scroll-hint *::after {
+    animation: none !important;
+  }
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid currentColor;
+  border-radius: 13px;
+}
+
+.scroll-mouse span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  animation: scroll-wheel 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-wheel {
+  0%   { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
 }
