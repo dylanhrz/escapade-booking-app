@@ -184,20 +184,4 @@ document.addEventListener("DOMContentLoaded", function () {
     initCarousels('.room-gallery', '.image-wrapper img');
     initCarousels('.room-carousel', '.carousel-img');
 
-    const topBtn = document.getElementById("scrollToTopBtn");
-    if (topBtn) {
-        window.addEventListener("scroll", function () {
-            topBtn.classList.toggle("visible", window.scrollY > 400);
-        });
-    }
-
-    const track = document.querySelector(".ticker-track");
-    if (track) {
-        const originalHTML = track.innerHTML;
-        while (track.offsetWidth < window.innerWidth * 2) {
-            track.innerHTML += originalHTML;
-        }
-        track.innerHTML += track.innerHTML;
-    }
-
 });
