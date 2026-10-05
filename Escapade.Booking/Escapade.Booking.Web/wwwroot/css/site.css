@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
 
 :root {
   --black: #1a1a1a;
@@ -499,28 +499,18 @@ header {
 }
 
 .hero-content {
-  margin-bottom: 40vh;
+  margin-bottom: 10vh;
 }
 
 .hero-title {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: var(--offwhite);
+  margin-bottom: 3rem;
   font-family: var(--font-non-serif), sans-serif;
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
-
-}
-
-.hero-secondary {
   color: var(--offwhite);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color 0.15s ease-in-out;
-}
-
-.hero-secondary:hover {
-  color: var(--primary-green);
 }
 
 .img-container {

@@ -13,15 +13,11 @@
 
     <div class="container position-relative z-3 py-5 hero-content">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 text-center">
-                <span class="contact-label text-light mb-3">Rocquigny · Franse Ardennen</span>
-                <h1 class="hero-title mb-4">Even weg van de dagelijkse drukte</h1>
-                <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
-                    <a asp-controller="About" asp-action="Index" class="btn-grid">
-                        Bekijk het verblijf
-                    </a>
-                    <a asp-controller="About" asp-action="Prices" class="hero-secondary">Bekijk prijzen</a>
-                </div>
+            <div class="col-12 col-lg-10 text-center">
+                <h1 class="hero-title">Even weg van<br/> de dagelijkse<br/> drukte</h1>
+                <a asp-controller="About" asp-action="Index" class="btn-grid">
+                    Bekijk het verblijf
+                </a>
             </div>
         </div>
     </div>
@@ -44,6 +40,27 @@
         </h2>
     </div>
 </section>
+
+<section class="facts-bar full-bleed border-bottom-1 border-top-1" aria-label="Kerngegevens">
+    <div class="facts-cell">
+        <span class="contact-label">Capaciteit</span>
+        <strong>10 personen</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Slaapkamers</span>
+        <strong>5</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Ligging</span>
+        <strong>Rocquigny, FR</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Prijs</span>
+        <strong>vanaf € 660</strong>
+        <a asp-controller="About" asp-action="Prices" class="custom-link facts-link">Alle prijzen</a>
+    </div>
+</section>
+
 
 <section class="container-fluid px-4 my-5 py-5">
     <div class="row g-0 align-items-center">
@@ -75,26 +92,6 @@
          role="img"
          aria-label="Vakantiewoning L'Escapade Ardennaise en omgeving"
          style="background-image: url('@Url.Content("~/images/IMG_4658.JPG")');">
-</section>
-
-<section class="facts-bar full-bleed border-bottom-1" aria-label="Kerngegevens">
-    <div class="facts-cell">
-        <span class="contact-label">Capaciteit</span>
-        <strong>10 personen</strong>
-    </div>
-    <div class="facts-cell">
-        <span class="contact-label">Slaapkamers</span>
-        <strong>5</strong>
-    </div>
-    <div class="facts-cell">
-        <span class="contact-label">Ligging</span>
-        <strong>Rocquigny, FR</strong>
-    </div>
-    <div class="facts-cell">
-        <span class="contact-label">Prijs</span>
-        <strong>vanaf € 660</strong>
-        <a asp-controller="About" asp-action="Prices" class="custom-link facts-link">Alle prijzen</a>
-    </div>
 </section>
 
 <section class="full-bleed">
