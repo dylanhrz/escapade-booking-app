@@ -3,7 +3,7 @@
     ViewData["MetaDescription"] = "Idyllische vakantiewoning voor groepen tot 10 personen in Rocquigny, in het hart van de Franse Ardennen.";
 }
 
-<section class="hero-banner full-bleed min-vh-100 justify-content-between py-5">
+<section class="hero-banner full-bleed min-vh-100 justify-content-center py-5">
     <video autoplay loop muted playsinline preload="metadata" aria-hidden="true" id="hero-video">
         <source src="@Url.Content("~/videos/cows-video-2.mp4")" type="video/mp4"/>
         @Localizer["VideoNotSupported"]
@@ -11,36 +11,23 @@
 
     <div class="hero-overlay"></div>
 
-    <div class="container position-relative z-3 py-5 mt-5">
-        <div class="row justify-content-end align-items-start">
-            <div class="col-12 col-md-6 col-lg-5">
-
-                <h1 class="visually-hidden">L'Escapade Ardennaise: vakantiewoning in Rocquigny, Franse Ardennen</h1>
-
-                <div class="hero-cta-col text-light text-uppercase mt-5 pt-5">
-                    <p class="hero-text mb-0">
-                        L’Escapade Ardennaise is meer dan zomaar een rustgevend verblijf.
-                        Het is een toevluchtsoord in het hart van Rocquigny, omgeven door landschappen en dorpscharme.
-                    </p>
-                    <p class="hero-text mt-3 mb-0">
-                        Vlot bereikbaar en toch verwijderd van de dagelijkse drukte, biedt het de balans tussen natuur,
-                        comfort en lokale sfeer. Met authentieke bistro’s, ambachtelijke bakkers en historische dorpen
-                        vlakbij, is het de ideale plek voor ontspanning, focus en een verfrissend ander tempo.
-                    </p>
-                </div>
-                
-                <div class="hero-cta">
-                    <a asp-controller="Booking" asp-action="CreateBooking" class="btn btn-custom-outline text-uppercase">Vraag je verblijf aan</a>
+    <div class="container position-relative z-3 py-5 hero-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
+                <span class="contact-label text-light mb-3">Rocquigny · Franse Ardennen</span>
+                <h1 class="hero-title mb-4">Even weg van de dagelijkse drukte</h1>
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+                    <a asp-controller="About" asp-action="Index" class="btn-grid">
+                        Bekijk het verblijf
+                    </a>
+                    <a asp-controller="About" asp-action="Prices" class="hero-secondary">Bekijk prijzen</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <a href="#discover" 
-       class="scroll-hint scroll-mouse"><span></span></a>
 </section>
 
-<section id="discover" class="slot-section full-bleed border-top-1">
+<section class="slot-section full-bleed border-top-1">
     <div class="container text-center">
         <h2 aria-label="Verblijf in rust, comfort, karakter en de natuur">
             Verblijf in
@@ -73,10 +60,9 @@
         <div class="col-12 col-md-4">
             <div class="overlap-card border-1">
                 <p class="mb-4">
-                    Een idyllische vakantiewoning aan de Place Jean Mermoz in
-                    het schilderachtige Rocquigny, in het hart van de Franse Ardennen.
-                    Omgeven door glooiende landschappen en vlak bij lokale bakkers,
-                    authentieke bistro's en historische dorpen.
+                    L’Escapade Ardennaise ligt aan de Place Jean Mermoz, in het hart van Rocquigny.
+                    Vlot bereikbaar en toch ver weg van de dagelijkse drukte: de ideale plek voor
+                    ontspanning, focus en een verfrissend ander tempo.
                 </p>
                 <a asp-controller="About" asp-action="Index" class="custom-link">Meer over het verblijf</a>
             </div>
@@ -91,18 +77,27 @@
          style="background-image: url('@Url.Content("~/images/IMG_4658.JPG")');">
 </section>
 
-<div class="ticker-wrapper" aria-hidden="true">
-    <div>
-        <span>RUST</span>
-        <span>FRANSE ARDENNEN</span>
-        <span>COMFORT</span>
-        <span>KARAKTER</span>
-        <span>NATUUR</span>
-        <span>10 PERSONEN</span>
+<section class="facts-bar full-bleed border-bottom-1" aria-label="Kerngegevens">
+    <div class="facts-cell">
+        <span class="contact-label">Capaciteit</span>
+        <strong>10 personen</strong>
     </div>
-</div>
+    <div class="facts-cell">
+        <span class="contact-label">Slaapkamers</span>
+        <strong>5</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Ligging</span>
+        <strong>Rocquigny, FR</strong>
+    </div>
+    <div class="facts-cell">
+        <span class="contact-label">Prijs</span>
+        <strong>vanaf € 660</strong>
+        <a asp-controller="About" asp-action="Prices" class="custom-link facts-link">Alle prijzen</a>
+    </div>
+</section>
 
-<section class="full-bleed border-top-1">
+<section class="full-bleed">
     <div class="bento">
         <div class="bento-text">
             <span class="contact-label mb-3">De kamers</span>
@@ -113,20 +108,31 @@
             <a asp-controller="About" asp-action="Rooms" class="custom-link">Ontdek onze kamers</a>
         </div>
 
-        <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/evasion/IMG_4820.JPG")" role="button" tabindex="0">
-            <img src="~/images/evasion/IMG_4820.JPG" alt="Kamer Evasion" loading="lazy" />
+        <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/IMG_5002.jpeg")" role="button" tabindex="0">
+            <img src="~/images/IMG_5002.jpeg" alt="Kamer Evasion" loading="lazy" />
         </div>
         <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/IMG_4871.JPG")" role="button" tabindex="0">
             <img src="~/images/IMG_4871.JPG" alt="Slaapkamer met comfortabele bedden" loading="lazy" />
         </div>
-        <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/reves/IMG_4846.JPG")" role="button" tabindex="0">
-            <img src="~/images/reves/IMG_4846.JPG" alt="Kamer Rêves" loading="lazy" />
+        <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/IMG_5001.jpeg")" role="button" tabindex="0">
+            <img src="~/images/IMG_5001.jpeg" alt="Kamer Rêves" loading="lazy" />
         </div>
         <div class="bento-cell img-container" data-lightbox="@Url.Content("~/images/IMG_4875.JPG")" role="button" tabindex="0">
             <img src="~/images/IMG_4875.JPG" alt="Detail van een kamer in L'Escapade Ardennaise" loading="lazy" />
         </div>
     </div>
 </section>
+
+<div class="ticker-wrapper border-top-1" aria-hidden="true">
+    <div>
+        <span>RUST</span>
+        <span>FRANSE ARDENNEN</span>
+        <span>COMFORT</span>
+        <span>KARAKTER</span>
+        <span>NATUUR</span>
+        <span>10 PERSONEN</span>
+    </div>
+</div>
 
 <section class="full-bleed border-top-1 border-bottom-1">
     <div class="bento bento-single">
@@ -152,17 +158,11 @@
     <div class="container">
         <div class="row mb-5 g-4 align-items-center">
             <div class="cta-section-content col-lg-12">
-                <h2>
-                    Verblijven in <br/>
-                    L'Escapade Ardennaise?
-                </h2>
+                <h2>Plan je verblijf</h2>
                 <p class="w-75 mx-auto">
-                    Verblijven in een sfeervol toevluchtsoord in Rocquigny, omgeven door glooiende landschappen en
-                    dorpscharme.
+                    Kies je periode en stuur je aanvraag. De eigenaars nemen daarna persoonlijk contact met je op.
                 </p>
-                <a asp-controller="Booking"
-                   asp-action="CreateBooking"
-                   class="btn btn-outline-dark btn-custom-outline px-4 py-2 border-1 rounded-0 text-uppercase">
+                <a asp-controller="Booking" asp-action="CreateBooking" class="btn-grid">
                     Vraag je verblijf aan
                 </a>
             </div>

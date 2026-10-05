@@ -13,9 +13,11 @@ document.addEventListener('click', e => {
 });
 
 document.addEventListener('keydown', e => {
-    if (e.key !== 'Enter') return;
+    if (e.key !== 'Enter' && e.key !== ' ') return;
     const tile = e.target.closest('[data-lightbox]');
-    if (tile) openLightbox(tile.dataset.lightbox);
+    if (!tile) return;
+    e.preventDefault();
+    openLightbox(tile.dataset.lightbox);
 });
 
 function openConfirmationModal() {
@@ -50,6 +52,12 @@ function submitForm() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        heroVideo.removeAttribute('autoplay');
+        heroVideo.pause();
+    }
 
     const cursor = document.getElementById('custom-cursor');
     if (cursor) {

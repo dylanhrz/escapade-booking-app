@@ -14,7 +14,7 @@ public class AboutController : Controller
         return View();
     }
     
-    public IActionResult Rocquingy()
+    public IActionResult Rocquigny()
     {
         return View();
     }
