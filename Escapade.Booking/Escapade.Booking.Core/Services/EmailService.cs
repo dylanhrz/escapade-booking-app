@@ -70,20 +70,26 @@ public class EmailService : IEmailService
         <p><strong>Opmerking:</strong> {WebUtility.HtmlEncode(booking.Comment ?? "-")}</p>
         <p><a href='{detailsUrl}'>Bekijk alle aanvragen</a></p>";
 
-        await SendAsync(ownerEmail, subject, body, replyTo: booking.Email);
+        // Gebruik een aparte mailserver voor de eigenaar als "OwnerSmtp" ingesteld is (bv. om te testen),
+        // anders de gewone "Smtp"-instellingen.
+        var smtpSection = string.IsNullOrWhiteSpace(_configuration["OwnerSmtp:Host"]) ? "Smtp" : "OwnerSmtp";
+
+        await SendAsync(ownerEmail, subject, body, replyTo: booking.Email, smtpSection: smtpSection);
     }
 
-    private async Task SendAsync(string toEmail, string subject, string body, string? replyTo = null)
+    private async Task SendAsync(string toEmail, string subject, string body, string? replyTo = null, string smtpSection = "Smtp")
     {
-        using var client = new SmtpClient(_configuration["Smtp:Host"], int.Parse(_configuration["Smtp:Port"] ?? "587"))
+        var smtp = _configuration.GetSection(smtpSection);
+
+        using var client = new SmtpClient(smtp["Host"], int.Parse(smtp["Port"] ?? "587"))
         {
-            Credentials = new NetworkCredential(_configuration["Smtp:Username"], _configuration["Smtp:Password"]),
+            Credentials = new NetworkCredential(smtp["Username"], smtp["Password"]),
             EnableSsl = true
         };
 
         using var mailMessage = new MailMessage
         {
-            From = new MailAddress(_configuration["Smtp:FromAddress"]!, _configuration["Smtp:FromName"]),
+            From = new MailAddress(smtp["FromAddress"]!, smtp["FromName"]),
             Subject = subject,
             Body = body,
             IsBodyHtml = true
