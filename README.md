@@ -118,7 +118,6 @@ docker run -p 8080:8080 \
   escapade-booking
 ```
 
->>>>>>> 0ea8fbf (Add README)
 ## Booking flow
 
 1. The visitor selects a date range and fills in the form.
@@ -136,10 +135,3 @@ docker run -p 8080:8080 \
 - [ ] Prevent overlapping bookings and show unavailable dates in the calendar
 - [ ] Fully translate the booking and admin pages (FR/EN)
 - [ ] Unit tests for the services
-<<<<<<< HEAD
-=======
-
-## Author
-
-**Dylan Hourez** – Graduaat Programmeren (Programming), Howest
->>>>>>> 0ea8fbf (Add README)
